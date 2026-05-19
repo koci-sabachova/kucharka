@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tanqueray",
+    "name": "Tanqueray London Dry Gin",
+    "category": "gin",
+    "origin": "Skotsko / UK",
+    "abv": 43.1,
+    "flavour_profile": "Juniper-forward, citrus, koriander, angelika",
+    "description": "Jeden z nejpoužívanějších barových ginů na světě. Čtyři botanicals: jalovec, koriandr, angelika, lékořicový kořen. Skvělý základ pro Gin & Tonic i Martini.",
+    "serve_tip": "Ideální v Negroni nebo klasickém G&T s tonikem Fever-Tree."
+  },
+  {
+    "id": "campari",
+    "name": "Campari",
+    "category": "bitter_liqueur",
+    "origin": "Itálie",
+    "abv": 25,
+    "flavour_profile": "Hořký, citrusový, bylinkový, lehce karamelový",
+    "description": "Ikonický italský bitter, základní pilíř Negroni, Americano a Sbagliato. Recept je tajný — obsahuje přes 60 bylin a koření. Charakteristická červená barva.",
+    "serve_tip": "Negroni, Americano, Campari Spritz, Jungle Bird."
+  },
+  {
+    "id": "patron-silver",
+    "name": "Patrón Silver Tequila",
+    "category": "tequila",
+    "origin": "Mexiko (Jalisco)",
+    "abv": 40,
+    "flavour_profile": "Svěží, citrus, jemný pepř, agave, lehký květ",
+    "description": "Blanco tequila vyráběná tradičním způsobem — ručně sklizená agave tahona. Čistá a svěží, ideální do shaken drinků. 100% agave.",
+    "serve_tip": "Margarita, Tommy's Margarita, Paloma, Tequila Sour."
+  },
+  {
+    "id": "zacapa-23",
+    "name": "Ron Zacapa 23",
+    "category": "rum",
+    "origin": "Guatemala",
+    "abv": 40,
+    "flavour_profile": "Sušené ovoce, vanilka, toffee, dubové dřevo, med",
+    "description": "Prémiový guatemalský rum zrající systémem solera ve výšce 2300 metrů. Jeden z nejlépe hodnocených rumů na světě. Velmi hladký, vhodný i na sipping.",
+    "serve_tip": "Dark Side, rum Old Fashioned, nebo čistý na ledu."
+  },
+  {
+    "id": "carpano-antica",
+    "name": "Carpano Antica Formula",
+    "category": "vermouth",
+    "origin": "Itálie (Turín)",
+    "abv": 16.5,
+    "flavour_profile": "Vanilka, sušené ovoce, kakaové boby, byliny, hřebíček",
+    "description": "Nejstarší sladký vermouth na světě — recept z roku 1786. Výrazně komplexnější a bohatší než běžné sweet vermouth. Zásadní pro prémiový Negroni nebo Manhattan.",
+    "serve_tip": "Negroni, Manhattan, Toronto. Vždy skladovat v lednici po otevření."
+  },
+  {
+    "id": "st-germain",
+    "name": "St-Germain Elderflower Liqueur",
+    "category": "liqueur",
+    "origin": "Francie",
+    "abv": 20,
+    "flavour_profile": "Bezinkový květ, lichi, hruška, citrus, meduňka",
+    "description": "Francouzský likér z ručně sbíraných bezinkových květů. Sklizeň trvá jen pár týdnů v roce. Přezdívaný 'bartenderovo ketchup' — skvělý v kombinaci téměř s čímkoliv.",
+    "serve_tip": "Cobra Spritz, St-Germain Tonic, přidej do Margarita místo triple sec."
+  }
+]

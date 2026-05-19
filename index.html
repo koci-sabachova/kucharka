@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cobra Kuchařka</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kuchařka">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Cobra Bar — Kuchařka</h1>
+    <div class="search-wrap">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+      </svg>
+      <input id="search" type="search" placeholder="Hledat recept nebo ingredienci…" autocomplete="off" autocorrect="off" spellcheck="false">
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-cat="all">Vše</button>
+    <button class="tab" data-cat="signatures">Signatures</button>
+    <button class="tab" data-cat="old_signatures">Staré signatures</button>
+    <button class="tab" data-cat="world_classics">World classics</button>
+  </nav>
+
+  <main>
+    <div id="list-view"></div>
+    <div id="bottles-view"></div>
+    <div id="detail-view"></div>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-view="recipes" onclick="showView('recipes')">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+      </svg>
+      Recepty
+    </button>
+    <button class="nav-btn" data-view="bottles" onclick="showView('bottles')">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3h6l1 4v1a4 4 0 01-8 0V7l1-4zM8 8v10a1 1 0 001 1h6a1 1 0 001-1V8"/>
+      </svg>
+      Láhve
+    </button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
