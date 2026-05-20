@@ -61,34 +61,44 @@ function splitIngredients(raw) {
   return splitOneLine(cleaned);
 }
 
-// ── 2026 signatures ──
-// cols: 0=name, 1=glass(short), 2=type, 3=ingredients, 4=description, 5=glass(full), 6=method, 7=taste, 8=garnish
-const sig26 = parseCSV('/Users/katerinakocisabachova/cobra-kucharka/2026signatures.csv');
+// ── Signatures jaro/léto 26 ──
+// cols: 0=section, 1=name, 2=glass, 3=method, 4=ingredients, 5=garnish, 6=author_note, 7=trvanlivost
+const sig26 = parseCSV('/Users/katerinakocisabachova/GitHub/cobra-kucharka/COB_DRINKS_Kuchařka - Signatures jaro léto 26.csv');
 const signatures = [];
-for (let i = 2; i < sig26.length; i++) {
+const seenSig = new Set();
+for (let i = 1; i < sig26.length; i++) {
   const row = sig26[i];
-  const name = row[0];
+  const name = (row[1] || '').trim();
   if (!isValidName(name)) continue;
-  const glass = cleanGlass((row[5] || row[1] || '').trim());
-  const method = (row[6] || row[2] || '').trim();
-  const garnish = (row[8] || '').trim();
-  const ingredients = splitIngredients(row[3]);
-  const desc = [row[4], row[7]].filter(Boolean).map(s => s.trim()).filter(s=>s).join(' · ');
+  if (name === 'Název') continue;
+  if (seenSig.has(name)) continue;
+
+  const glass = cleanGlass((row[2] || '').trim());
+  const method = (row[3] || '').trim();
+  const ingredientsRaw = (row[4] || '').trim();
+  const garnish = (row[5] || '').trim();
+  const note = (row[6] || '').trim();
+
+  // Skip section headers (no ingredients AND no method)
+  if (!ingredientsRaw && !method) continue;
+
+  seenSig.add(name);
+  const ingredients = splitIngredients(ingredientsRaw);
   signatures.push({
     id: slug(name),
-    name: name.trim(),
+    name,
     category: 'signatures',
     glass,
     garnish,
     method,
     ingredients,
-    ...(desc ? { description: desc } : {}),
+    ...(note ? { description: note } : {}),
   });
 }
 
 // ── old signatures (podzim/zima 25) ──
 // cols: 0=section, 1=name, 2=glass, 3=method, 4=ingredients, 5=garnish, 6=author_note
-const old = parseCSV('/Users/katerinakocisabachova/cobra-kucharka/COB_DRINKS_Kuchařka - Signatures podzim_zima 25.csv');
+const old = parseCSV('/Users/katerinakocisabachova/GitHub/cobra-kucharka/COB_DRINKS_Kuchařka - Signatures podzim_zima 25.csv');
 const oldSignatures = [];
 const seenOld = new Set();
 
@@ -138,7 +148,7 @@ for (let i = 1; i < old.length; i++) {
 
 // ── world classics ──
 // cols: 0=status(X=nelze), 1=nazev, 2=ingredients, 3=method, 4=glass, 5=garnish, 6=to_go, 7=empty, 8=note
-const wc = parseCSV('/Users/katerinakocisabachova/cobra-kucharka/world-classics.csv');
+const wc = parseCSV('/Users/katerinakocisabachova/GitHub/cobra-kucharka/world-classics.csv');
 const classics = [];
 const seenClassics = new Set();
 for (let i = 2; i < wc.length; i++) {
@@ -190,7 +200,7 @@ const all = allDraft.map(r => {
 });
 
 fs.writeFileSync(
-  '/Users/katerinakocisabachova/cobra-kucharka/data/recipes.json',
+  '/Users/katerinakocisabachova/GitHub/cobra-kucharka/data/recipes.json',
   JSON.stringify(all, null, 2),
   'utf8'
 );

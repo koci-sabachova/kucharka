@@ -1,89 +1,98 @@
 [
   {
+    "id": "negroni-vyzrale",
+    "name": "Negroni vyzrálé",
+    "category": "signatures",
+    "glass": "Broušená whiskovka",
+    "garnish": "Pomeranč peel",
+    "method": "8cl Stir, kvádr ledu",
+    "ingredients": [
+      "Gin Jane",
+      "Campari",
+      "Jeptišky",
+      "Šípek",
+      "Circular orange"
+    ]
+  },
+  {
     "id": "wild-kentucky-apricot",
     "name": "Wild Kentucky apricot",
     "category": "signatures",
-    "glass": "Smooth rocks",
-    "garnish": "Tymiánovy olej . Sůl a pepř",
+    "glass": "hladká whiskovka",
+    "garnish": "Tymiánovy olej . Sůl a pepř raznice C na kvádr ledu",
     "method": "Stire down in mixing glass, pour over ice block with dimple in the top ( C) drop few thyme oil drops into the dimple- crack salt and pepper on the top and place the small thyme sprig over",
     "ingredients": [
-      "40ml wild turkey 101",
-      "20ml bitter truth apricot",
-      "10ml něco jako citron",
+      "4cl wild turkey 101",
+      "2cl bitter truth apricot",
+      "1cl něco jako citron",
       "2dsh peach bitters . Couple drops of thyme oil",
       "salt & pepper and thyme sprig"
-    ],
-    "description": "Strong , smooth , savoury · Sladkokyselý , strong and savoury"
+    ]
   },
   {
     "id": "summerkick-26",
     "name": "SummerKick `26",
     "category": "signatures",
-    "glass": "Plochý long",
+    "glass": "hladký long",
     "garnish": "Snítka máty, sušené ovoce",
-    "method": "Build",
+    "method": "build",
     "ingredients": [
       "3cl Becherovka",
       "2cl Campari",
       "0.5cl limeta",
       "dolít kombuchou"
-    ],
-    "description": "Dlouhý, sladko-kyselý, energický · Sladkokyselá"
+    ]
   },
   {
     "id": "martini-me-please",
     "name": "Martini me please",
     "category": "signatures",
-    "glass": "Plochá WHG",
+    "glass": "hladká whiskovka",
     "garnish": "Opálená meruňka",
     "method": "stir",
     "ingredients": [
       "3cl San Cosme Mezcal",
       "3cl Apricot vermouth (Cinzano 1757",
       "Noilly Prat dry)"
-    ],
-    "description": "Střední, ovocný, kouřový"
+    ]
   },
   {
-    "id": "take-it-sloerr",
-    "name": "Take it SloeRR",
+    "id": "take-it-sloeer",
+    "name": "Take it SloeER",
     "category": "signatures",
-    "glass": "Broušený long",
+    "glass": "broušený long",
     "garnish": "Zerowaste prach",
-    "method": "Shake, bez strainu, top Espuma, brčko",
+    "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
     "ingredients": [
       "3cl Ginbery's sloe gin",
       "6cl rebarbora roiboos cordial",
       "top prosecco Espuma (cca 100ml?)"
-    ],
-    "description": "Dlouhý, ovocný, mrazivý · Ovocná"
+    ]
   },
   {
     "id": "cctv",
     "name": "CCTV²",
     "category": "signatures",
-    "glass": "Nick'n'nora vysoká",
+    "glass": "Nick Nora",
     "garnish": "Pomerančový olej",
-    "method": "Hard shake, double strain, 3 kapky oleje",
+    "method": "shake, double strain",
     "ingredients": [
       "4cl Tres Alegres Compadres blanco",
-      "3cl okurkovo koriandrový cordial"
-    ],
-    "description": "Krátký, sladkokyselý, osvěžující · Sladkokyselá"
+      "4cl okurkovo koriandrový cordial"
+    ]
   },
   {
     "id": "blueberry-fizz",
     "name": "blueberry fizz",
     "category": "signatures",
-    "glass": "Vínovka",
+    "glass": "vínovka",
     "garnish": "rozmaryn",
-    "method": "Shake,double strain",
+    "method": "shake, double strain",
     "ingredients": [
       "3cl GinJane Landcraft",
       "4cl borůvkový coridial",
       "Top up Kliment Cidre Extra brut Barik 2018"
-    ],
-    "description": "Dlouhý, sladkokyselý, lehky, letní, slunečný · sladkokyselý"
+    ]
   },
   {
     "id": "handle-with-care",
@@ -91,47 +100,45 @@
     "category": "signatures",
     "glass": "hluboká coupette",
     "garnish": "kokosový vzduch",
-    "method": "shake, double strain, kokosový vzduch ( bublinky )",
+    "method": "shake, double strain na 4kostky ledu, top kokosový vzduch",
     "ingredients": [
       "2cl Don Papa Alon",
       "2cl Rebellion spiced rum",
       "1cl Cargo Cult Banana spiced rum",
-      "2cl Kokosový Orgeat",
+      "1cl Kokosový Orgeat",
       "2cl Lime Fresh",
       "3cl Brusinkový mošt"
     ],
-    "description": "Dlouhý, Polosladký, křehký · polosladký"
+    "description": "Recept na kokosový vzduch. ( 15cl tekutiny) na= 13cl kokos ogreat, 2cl neco jako limeta, 0,5cl salsol na (2g lecitinu)"
   },
   {
     "id": "moongroni",
     "name": "Moongroni",
     "category": "signatures",
-    "glass": "broušená whiskovka",
-    "garnish": "parfém z měsíčku",
-    "method": "stir na kostku",
+    "glass": "Broušená whiskovka",
+    "garnish": "zástřik měsíčkovým parfíémem",
+    "method": "stir na kvádr ledu",
     "ingredients": [
       "3cl Cobraz Krajiny Landcraft",
       "4cl Cinzano Rosso 1757 vermuth",
       "2cl Campari",
       "Měsíček lékařský infuze",
       "zástřik měsíčkovým parfíémem"
-    ],
-    "description": "Krátký, hořkosladký, měsíční · hořkosladký"
+    ]
   },
   {
     "id": "say-hi-to-biooko",
     "name": "Say Hi To BioOko",
     "category": "signatures",
-    "glass": "Vinovka",
-    "garnish": "Grepová peel",
-    "method": "Build do skla",
+    "glass": "vínovka",
+    "garnish": "Grepový peel",
+    "method": "build",
     "ingredients": [
       "3cl Seven Vodka",
       "0.5cl Amaretto Disaronno",
       "5cl oolong cordial",
       "10cl grepová sofa"
-    ],
-    "description": "Dlouhý, sladkokyselý, čajový · Sladkokyselá, čajová, ovocná, lehce nahořklá"
+    ]
   },
   {
     "id": "feeling-blue-ish",
@@ -139,17 +146,398 @@
     "category": "signatures",
     "glass": "Nick Nora",
     "garnish": "Okurkové kuličky na napichovátku",
-    "method": "stire down in shaker - strain into the glass and top with espuma . garnish with 3 little cucumber balls on the skewer .",
+    "method": "stir martini style with top",
     "ingredients": [
-      "30ml haymans gin",
-      "10ml frangelico",
-      "10ml motyli syrup",
+      "3cl haymans gin",
+      "1cl frangelico",
+      "1cl motyli syrup",
       "top proseccco espuma"
-    ],
-    "description": "kratky, sladkokysely , prekvapivy , · Silný, sladký"
+    ]
   },
   {
-    "id": "negroni-vyzrale",
+    "id": "take-it-sloerr-n-a",
+    "name": "Take it SloeRR N/A",
+    "category": "signatures",
+    "glass": "broušený long",
+    "garnish": "Zerowaste prach",
+    "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
+    "ingredients": [
+      "3cl (Švestkový sirup)",
+      "6cl rebarbora roiboos cordial",
+      "top Kolonne/Null Cuvée Blanc Espuma  cca 80ml"
+    ]
+  },
+  {
+    "id": "blueberry-fizz-n-a",
+    "name": "Blueberry Fizz N/A",
+    "category": "signatures",
+    "glass": "vínovka",
+    "garnish": "rozmaryn",
+    "method": "shake, double strain",
+    "ingredients": [
+      "3cl Jenny in the bottle",
+      "3cl borůvkový cordial,Kolonne/Null Cuvée Blanc"
+    ]
+  },
+  {
+    "id": "buterfly-effect-n-a",
+    "name": "Buterfly effect N/A",
+    "category": "signatures",
+    "glass": "vínovka",
+    "garnish": "microgreeens",
+    "method": "build",
+    "ingredients": [
+      "1dc Euforie",
+      "2cl Černý Bez Simple",
+      "3 kapky Yuzu Bitters",
+      "Top Up 4cl LC Tonic"
+    ]
+  },
+  {
+    "id": "granate-mermaid-n-a",
+    "name": "Granate Mermaid N/A",
+    "category": "signatures",
+    "glass": "vínovka",
+    "garnish": "",
+    "method": "build",
+    "ingredients": [
+      "3cl samurai shot",
+      "5cl mošt granátové jablko",
+      "1cl simple sirup"
+    ]
+  },
+  {
+    "id": "cobrazgroni",
+    "name": "Cobrazgroni",
+    "category": "signatures",
+    "glass": "Broušená whiskovka",
+    "garnish": "Pomerančová Kůra",
+    "method": "Stir in Mixing Glass na Kvádr",
+    "ingredients": [
+      "3cl Cobraz Krajiny Gin (americano prep 6cl)  3cl Campari  3cl Cinzano Rosso 1757"
+    ]
+  },
+  {
+    "id": "cobraz-g-t",
+    "name": "Cobraz G&T",
+    "category": "signatures",
+    "glass": "GT sklo",
+    "garnish": "Microgreeens       Jalovec",
+    "method": "Přímo do skla          separe                         Lahvička Fever Tree Tonic",
+    "ingredients": [
+      "4cl Cobraz Krajiny Gin 1ks Fever Tree Tonic"
+    ]
+  },
+  {
+    "id": "holiday-romance",
+    "name": "Holiday Romance",
+    "category": "signatures",
+    "glass": "Coupette",
+    "garnish": "limeta",
+    "method": "shake jako daiquiri",
+    "ingredients": [
+      "4cl Planteray 3*",
+      "1cl Ferrand dry curacao",
+      "2cl lime fresh"
+    ]
+  },
+  {
+    "id": "coconut-affair",
+    "name": "Coconut Affair",
+    "category": "signatures",
+    "glass": "brošená whiskovka",
+    "garnish": "snítka máty pomík třešeň,",
+    "method": "shake double strain",
+    "ingredients": [
+      "(2cl Planteray 3*",
+      "2cl planteray cut & dry",
+      "1cl planeray pineapple) (prep 5cl) 2cl kokos orgeat",
+      "2cl lime fresh"
+    ]
+  },
+  {
+    "id": "ginger-monkey",
+    "name": "Ginger Monkey",
+    "category": "signatures",
+    "glass": "Broušený long",
+    "garnish": "plátek pomeranče.",
+    "method": "Build Up",
+    "ingredients": [
+      "4cl whisky Monkey Shoulder",
+      "Fever Tree Ginger Ale"
+    ]
+  },
+  {
+    "id": "hendrick-s-red",
+    "name": "Hendrick´s RED",
+    "category": "signatures",
+    "glass": "Vinná Sklenička",
+    "garnish": "limeta",
+    "method": "Build Up",
+    "ingredients": [
+      "4cl Hendricks gin",
+      "10cl Ginger Ale",
+      "1cl lime fresh",
+      "1cl grenadine"
+    ]
+  },
+  {
+    "id": "merunkova",
+    "name": "Meruňková",
+    "category": "signatures",
+    "glass": "",
+    "garnish": "",
+    "method": "sirup, citron fresh, top soda, promíchat",
+    "ingredients": [
+      "4cl sirup",
+      "1cl citron fresh",
+      "top soda",
+      "promíchat"
+    ]
+  },
+  {
+    "id": "cobri-zazvor",
+    "name": "Cobří Zázvor",
+    "category": "signatures",
+    "glass": "",
+    "garnish": "",
+    "method": "sirup, citron fresh, top soda, promíchat",
+    "ingredients": [
+      "4cl sirup",
+      "1cl citron fresh",
+      "top soda",
+      "promíchat"
+    ]
+  },
+  {
+    "id": "cobra-cola",
+    "name": "Cobra Cola",
+    "category": "signatures",
+    "glass": "",
+    "garnish": "",
+    "method": "sirup, citron fresh, top soda, promíchat",
+    "ingredients": [
+      "4cl sirup",
+      "1cl citron fresh",
+      "top soda",
+      "promíchat"
+    ]
+  },
+  {
+    "id": "piu-piu-malina-piu-piu-rakytnik",
+    "name": "Piu  Piu Malina                     Piu Piu Rakytník",
+    "category": "signatures",
+    "glass": "",
+    "garnish": "",
+    "method": "nejdřív soda, citron, pak sirupy",
+    "ingredients": [
+      "4cl Sirup",
+      "1cl citron fresh",
+      "top soda"
+    ]
+  },
+  {
+    "id": "butterfly-effect",
+    "name": "Butterfly Effect",
+    "category": "signatures",
+    "glass": "Vínovka",
+    "garnish": "Měsíček limety + Microgreens",
+    "method": "Přímo do skleničky",
+    "ingredients": [
+      "1dc Euforie",
+      "2cl Černý Bez Simple",
+      "3 kapky Yuzu Bitters",
+      "Top Up 4cl LC Tonic"
+    ]
+  },
+  {
+    "id": "paraguay-limonade",
+    "name": "Paraguay Limonade",
+    "category": "signatures",
+    "glass": "Broušený long",
+    "garnish": "Pomík kůra",
+    "method": "přimo do skla",
+    "ingredients": [
+      "1dcl maté cold brew",
+      "1cl citron",
+      "4cl mediter sirup",
+      "2dash pomeranč bitter",
+      "top up soda"
+    ]
+  },
+  {
+    "id": "utopia-limonade",
+    "name": "Utopia Limonade",
+    "category": "signatures",
+    "glass": "hladká whiskovka",
+    "garnish": "microgreeens",
+    "method": "přímo do skla",
+    "ingredients": [
+      "2cl utopia ocet",
+      "1cl midsommar sirup",
+      "top soda"
+    ]
+  },
+  {
+    "id": "sober-society-n-a",
+    "name": "Sober Society (N/A)",
+    "category": "signatures",
+    "glass": "longovka",
+    "garnish": "Plátky grepu, tymian",
+    "method": "Vše, až na sodu do šejkru, dolít sodou",
+    "ingredients": [
+      "Red Bitter 3cl",
+      "Merunkový sirup 2cl",
+      "Grepový mošt 8cl",
+      "citron 2cl",
+      "soda na dolití"
+    ]
+  },
+  {
+    "id": "wannabe-gin-tonic-n-a",
+    "name": "Wannabe Gin&Tonic (N/A)",
+    "category": "signatures",
+    "glass": "GT goblet",
+    "garnish": "Jablko, bylinka",
+    "method": "přímo do skla na led",
+    "ingredients": [
+      "3cl Jenny in the Bottle",
+      "1.5dl tonic double dutch"
+    ]
+  },
+  {
+    "id": "volante-spritz",
+    "name": "Volante spritz",
+    "category": "signatures",
+    "glass": "vinovka",
+    "garnish": "plátek grepu",
+    "method": "přímo do skla na led",
+    "ingredients": [
+      "4cl volante",
+      "8cl spuntane",
+      "4cl soda"
+    ]
+  },
+  {
+    "id": "glorian-s-negroni",
+    "name": "Glorian's Negroni",
+    "category": "signatures",
+    "glass": "Hladká whiskovka",
+    "garnish": "Grep",
+    "method": "stir",
+    "ingredients": [
+      "3cl tanqueray gin",
+      "2cl campari",
+      "1cl cinzano rosso",
+      "1cl gloria"
+    ]
+  },
+  {
+    "id": "mezcal-negroni",
+    "name": "Mezcal Negroni",
+    "category": "signatures",
+    "glass": "Broušená whiskovka",
+    "garnish": "pomík kůra",
+    "method": "Stir",
+    "ingredients": [
+      "3cl mezcal san cosme",
+      "3cl campari",
+      "3cl cinzano rosso 1757"
+    ]
+  },
+  {
+    "id": "negroni",
+    "name": "Negroni",
+    "category": "signatures",
+    "glass": "Broušená whiskovka",
+    "garnish": "pomík kůra",
+    "method": "Stir",
+    "ingredients": [
+      "(9cl Prep) 3cl campari",
+      "3cl cinzano rosso 1757",
+      "3cl Tanqueray gin"
+    ]
+  },
+  {
+    "id": "negroni-sbagliato",
+    "name": "Negroni Sbagliato",
+    "category": "signatures",
+    "glass": "Broušená whiskovka",
+    "garnish": "pomík kůra",
+    "method": "Stir ve skle",
+    "ingredients": [
+      "3cl Campari",
+      "3cl Cinzano rosso 1757",
+      "5cl prosecco"
+    ]
+  },
+  {
+    "id": "gonzoni",
+    "name": "Gonzoni",
+    "category": "signatures",
+    "glass": "Broušená whiskovka",
+    "garnish": "pomík kůra",
+    "method": "Stir, top prosecco",
+    "ingredients": [
+      "(9cl Prep) 3cl Tanqueray gin3cl Campari",
+      "3cl Cinzano rosso 1757",
+      "5cl prosecco"
+    ]
+  },
+  {
+    "id": "boulevardier",
+    "name": "Boulevardier",
+    "category": "signatures",
+    "glass": "Hladká whiskovka",
+    "garnish": "pomík kůra",
+    "method": "Stir",
+    "ingredients": [
+      "3cl campari",
+      "3cl cinzano rosso 1757",
+      "3cl Wild Turkey"
+    ]
+  },
+  {
+    "id": "kingston",
+    "name": "Kingston",
+    "category": "signatures",
+    "glass": "Hladká whiskovka",
+    "garnish": "pomík kůra",
+    "method": "",
+    "ingredients": [
+      "3cl campari",
+      "3cl cinzano rosso 1757",
+      "3cl Angostura 7y"
+    ]
+  },
+  {
+    "id": "americano",
+    "name": "Americano",
+    "category": "signatures",
+    "glass": "Broušená whiskovka",
+    "garnish": "plátek pomeranče",
+    "method": "Stir ve skle",
+    "ingredients": [
+      "4cl campari",
+      "4cl cinzano rosso 1757",
+      "Soda"
+    ]
+  },
+  {
+    "id": "negroni-no-22",
+    "name": "Negroni no. 22",
+    "category": "signatures",
+    "glass": "broušená whiskovka",
+    "garnish": "plátek pomeranče",
+    "method": "stir",
+    "ingredients": [
+      "2cl Gin22 habanero mango",
+      "3cl Cinzano 1957",
+      "3cl Campari"
+    ]
+  },
+  {
+    "id": "negroni-vyzrale-old",
     "name": "Negroni vyzrálé",
     "category": "old_signatures",
     "glass": "Broušená whiskovka",
@@ -371,7 +759,7 @@
     ]
   },
   {
-    "id": "cobrazgroni",
+    "id": "cobrazgroni-old",
     "name": "Cobrazgroni",
     "category": "old_signatures",
     "glass": "Broušená whiskovka",
@@ -382,7 +770,7 @@
     ]
   },
   {
-    "id": "cobraz-g-t",
+    "id": "cobraz-g-t-old",
     "name": "Cobraz G&T",
     "category": "old_signatures",
     "glass": "GT sklo",
@@ -500,7 +888,7 @@
     ]
   },
   {
-    "id": "ginger-monkey",
+    "id": "ginger-monkey-old",
     "name": "Ginger Monkey",
     "category": "old_signatures",
     "glass": "Broušený long",
@@ -512,7 +900,7 @@
     ]
   },
   {
-    "id": "hendrick-s-red",
+    "id": "hendrick-s-red-old",
     "name": "Hendrick´s RED",
     "category": "old_signatures",
     "glass": "Vinná Sklenička",
@@ -526,7 +914,7 @@
     ]
   },
   {
-    "id": "merunkova",
+    "id": "merunkova-old",
     "name": "Meruňková",
     "category": "old_signatures",
     "glass": "",
@@ -540,7 +928,7 @@
     ]
   },
   {
-    "id": "cobri-zazvor",
+    "id": "cobri-zazvor-old",
     "name": "Cobří Zázvor",
     "category": "old_signatures",
     "glass": "",
@@ -554,7 +942,7 @@
     ]
   },
   {
-    "id": "cobra-cola",
+    "id": "cobra-cola-old",
     "name": "Cobra Cola",
     "category": "old_signatures",
     "glass": "",
@@ -568,7 +956,7 @@
     ]
   },
   {
-    "id": "piu-piu-malina-piu-piu-rakytnik",
+    "id": "piu-piu-malina-piu-piu-rakytnik-old",
     "name": "Piu  Piu Malina                     Piu Piu Rakytník",
     "category": "old_signatures",
     "glass": "",
@@ -581,7 +969,7 @@
     ]
   },
   {
-    "id": "butterfly-effect",
+    "id": "butterfly-effect-old",
     "name": "Butterfly Effect",
     "category": "old_signatures",
     "glass": "Vínovka",
@@ -595,7 +983,7 @@
     ]
   },
   {
-    "id": "paraguay-limonade",
+    "id": "paraguay-limonade-old",
     "name": "Paraguay Limonade",
     "category": "old_signatures",
     "glass": "Broušený long",
@@ -610,7 +998,7 @@
     ]
   },
   {
-    "id": "utopia-limonade",
+    "id": "utopia-limonade-old",
     "name": "Utopia Limonade",
     "category": "old_signatures",
     "glass": "hladká whiskovka",
@@ -623,7 +1011,7 @@
     ]
   },
   {
-    "id": "sober-society-n-a",
+    "id": "sober-society-n-a-old",
     "name": "Sober Society (N/A)",
     "category": "old_signatures",
     "glass": "longovka",
@@ -638,7 +1026,7 @@
     ]
   },
   {
-    "id": "wannabe-gin-tonic-n-a",
+    "id": "wannabe-gin-tonic-n-a-old",
     "name": "Wannabe Gin&Tonic (N/A)",
     "category": "old_signatures",
     "glass": "GT goblet",
@@ -650,7 +1038,7 @@
     ]
   },
   {
-    "id": "volante-spritz",
+    "id": "volante-spritz-old",
     "name": "Volante spritz",
     "category": "old_signatures",
     "glass": "vinovka",
@@ -678,7 +1066,7 @@
     ]
   },
   {
-    "id": "glorian-s-negroni",
+    "id": "glorian-s-negroni-old",
     "name": "Glorian's Negroni",
     "category": "old_signatures",
     "glass": "Hladká whiskovka",
@@ -690,7 +1078,7 @@
     ]
   },
   {
-    "id": "mezcal-negroni",
+    "id": "mezcal-negroni-old",
     "name": "Mezcal Negroni",
     "category": "old_signatures",
     "glass": "Broušená whiskovka",
@@ -703,7 +1091,7 @@
     ]
   },
   {
-    "id": "negroni",
+    "id": "negroni-old",
     "name": "Negroni",
     "category": "old_signatures",
     "glass": "Broušená whiskovka",
@@ -716,7 +1104,7 @@
     ]
   },
   {
-    "id": "negroni-sbagliato",
+    "id": "negroni-sbagliato-old",
     "name": "Negroni Sbagliato",
     "category": "old_signatures",
     "glass": "Broušená whiskovka",
@@ -729,7 +1117,7 @@
     ]
   },
   {
-    "id": "gonzoni",
+    "id": "gonzoni-old",
     "name": "Gonzoni",
     "category": "old_signatures",
     "glass": "Broušená whiskovka",
@@ -742,7 +1130,7 @@
     ]
   },
   {
-    "id": "boulevardier",
+    "id": "boulevardier-old",
     "name": "Boulevardier",
     "category": "old_signatures",
     "glass": "Hladká whiskovka",
@@ -755,7 +1143,7 @@
     ]
   },
   {
-    "id": "kingston",
+    "id": "kingston-old",
     "name": "Kingston",
     "category": "old_signatures",
     "glass": "Hladká whiskovka",
@@ -768,7 +1156,7 @@
     ]
   },
   {
-    "id": "americano",
+    "id": "americano-old",
     "name": "Americano",
     "category": "old_signatures",
     "glass": "Broušená whiskovka",
@@ -781,7 +1169,7 @@
     ]
   },
   {
-    "id": "negroni-no-22",
+    "id": "negroni-no-22-old",
     "name": "Negroni no. 22",
     "category": "old_signatures",
     "glass": "broušená whiskovka",
