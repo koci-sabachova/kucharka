@@ -28,7 +28,7 @@ function renderList() {
   const container = document.getElementById('list-view');
 
   let filtered = recipes.filter(r => {
-    const matchCat = currentTab === 'all' || r.category === currentTab;
+    const matchCat = q || currentTab === 'all' || r.category === currentTab;
     const matchQ = !q || [r.name, r.garnish, r.glass, ...r.ingredients, ...(r.tags||[])]
       .some(s => normalize(String(s)).includes(q));
     return matchCat && matchQ;
