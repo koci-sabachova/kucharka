@@ -1,4 +1,4 @@
-let recipes = [], bottles = [], currentTab = 'all', currentView = 'list';
+let recipes = [], bottles = [], currentTab = 'all', currentView = 'recipes';
 
 // ── DATA ──
 async function loadData() {
@@ -133,7 +133,7 @@ function closeDetail() {
   document.getElementById('detail-view').style.display = 'none';
   document.getElementById('list-view').style.display = 'block';
   document.querySelector('.tabs').style.display = 'flex';
-  currentView = 'list';
+  currentView = 'recipes';
 }
 
 function toggleUcebnice(btn) {
