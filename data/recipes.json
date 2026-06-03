@@ -27,7 +27,8 @@
       "4cl wild turkey 101",
       "2cl bitter truth apricot",
       "1cl něco jako citron",
-      "2dsh peach bitters . Couple drops of thyme oil",
+      "2dsh peach bitters",
+      "Couple drops of thyme oil",
       "salt & pepper and thyme sprig"
     ]
   },
@@ -56,7 +57,7 @@
     "method": "stir",
     "ingredients": [
       "3cl San Cosme Mezcal",
-      "3cl Apricot vermouth (Cinzano 1757",
+      "3cl Apricot vermouth (infuze Cinzano 1757",
       "Noilly Prat dry)"
     ]
   },
@@ -589,19 +590,6 @@
       "2cl Gin22 habanero mango",
       "3cl Cinzano 1957",
       "3cl Campari"
-    ]
-  },
-  {
-    "id": "testovaci",
-    "name": "Testovací",
-    "category": "libor-smrdi",
-    "category_label": "Libor smrdí",
-    "glass": "ice kýbl",
-    "garnish": "krásný úsměv",
-    "method": "protřepat, nemíchat",
-    "ingredients": [
-      "co dům dal",
-      "od každýho trochu"
     ]
   },
   {
