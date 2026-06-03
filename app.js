@@ -4,6 +4,9 @@ const CAT_LABELS = {};
 // Preferred display order; unknown categories go to the end, alphabetical by label.
 const CAT_ORDER = ['signatures', 'negroni', 'nealko', 'old_signatures', 'world_classics'];
 
+// Setup view state: which categories are included in the ingredient overview.
+const setupSelectedCats = new Set(['signatures']);
+
 // ── DATA ──
 async function loadData() {
   [recipes, bottles] = await Promise.all([
@@ -242,10 +245,108 @@ function toggleBottle(card) {
   card.style.borderColor = body.classList.contains('open') ? 'var(--accent)' : '';
 }
 
+// ── SETUP (ingredient overview) ──
+function normalizeIngredient(s) {
+  return String(s || '')
+    .replace(/^\d+[\d,\.]*\s*(cl|ml|dc|dl|dsh|dash|ks|d)\b\s*/i, '')
+    .replace(/[.,;:]+$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function ingredientKey(s) {
+  return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+}
+
+function aggregateIngredients(list) {
+  const map = new Map();
+  list.forEach(r => {
+    (r.ingredients || []).forEach(raw => {
+      const display = normalizeIngredient(raw);
+      if (!display || display.length < 2) return;
+      const key = ingredientKey(display);
+      if (!map.has(key)) map.set(key, { display, drinks: new Set() });
+      map.get(key).drinks.add(r.name);
+    });
+  });
+  return Array.from(map.values())
+    .map(e => ({ display: e.display, count: e.drinks.size, drinks: Array.from(e.drinks).sort((a,b)=>a.localeCompare(b,'cs')) }))
+    .sort((a, b) => a.display.localeCompare(b.display, 'cs'));
+}
+
+function renderSetup() {
+  const container = document.getElementById('setup-view');
+  const q = normalize(document.getElementById('search').value.trim());
+
+  const cats = Object.keys(CAT_LABELS).sort((a, b) => {
+    const ai = CAT_ORDER.indexOf(a);
+    const bi = CAT_ORDER.indexOf(b);
+    if (ai !== -1 && bi !== -1) return ai - bi;
+    if (ai !== -1) return -1;
+    if (bi !== -1) return 1;
+    return CAT_LABELS[a].localeCompare(CAT_LABELS[b], 'cs');
+  });
+
+  const chips = cats.map(c => `
+    <button class="setup-chip${setupSelectedCats.has(c) ? ' active' : ''}" data-cat="${c}">
+      ${CAT_LABELS[c]}
+    </button>`).join('');
+
+  const filtered = recipes.filter(r => setupSelectedCats.has(r.category));
+  let ingredients = aggregateIngredients(filtered);
+  if (q) ingredients = ingredients.filter(i => normalize(i.display).includes(q));
+
+  const groups = {};
+  ingredients.forEach(ing => {
+    const letter = ing.display[0].toUpperCase();
+    if (!groups[letter]) groups[letter] = [];
+    groups[letter].push(ing);
+  });
+
+  const listHtml = Object.keys(groups).sort((a, b) => a.localeCompare(b, 'cs')).map(letter => `
+    <div class="alpha-group">
+      <div class="alpha-label">${letter}</div>
+      ${groups[letter].map(ing => `
+        <div class="setup-row">
+          <div class="setup-row-header">
+            <span class="setup-name">${ing.display}</span>
+            <span class="setup-count">${ing.count}×</span>
+          </div>
+          <div class="setup-drinks">
+            ${ing.drinks.map(d => `<div class="setup-drink">${d}</div>`).join('')}
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+
+  const summary = filtered.length === 0
+    ? '<div class="empty"><div>Žádná vybraná kategorie</div></div>'
+    : ingredients.length === 0
+      ? '<div class="empty"><div>Žádná ingredience nenalezena</div></div>'
+      : `<div class="setup-summary">${ingredients.length} ingrediencí · ${filtered.length} drinků</div>${listHtml}`;
+
+  container.innerHTML = `
+    <div class="setup-filter">${chips}</div>
+    ${summary}
+  `;
+
+  container.querySelectorAll('.setup-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const cat = chip.dataset.cat;
+      if (setupSelectedCats.has(cat)) setupSelectedCats.delete(cat);
+      else setupSelectedCats.add(cat);
+      renderSetup();
+    });
+  });
+  container.querySelectorAll('.setup-row').forEach(row => {
+    row.addEventListener('click', () => row.classList.toggle('open'));
+  });
+}
+
 // ── NAVIGATION ──
 function showView(view) {
   document.getElementById('list-view').style.display = view === 'recipes' ? 'block' : 'none';
   document.getElementById('bottles-view').style.display = view === 'bottles' ? 'block' : 'none';
+  document.getElementById('setup-view').style.display = view === 'setup' ? 'block' : 'none';
   document.getElementById('detail-view').style.display = 'none';
   document.querySelector('.tabs').style.display = view === 'recipes' ? 'flex' : 'none';
   currentView = view;
@@ -256,6 +357,7 @@ function showView(view) {
   document.getElementById('search').value = '';
   if (view === 'recipes') renderList();
   if (view === 'bottles') renderBottles();
+  if (view === 'setup') renderSetup();
 }
 
 // ── INIT ──
@@ -265,6 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('search').addEventListener('input', () => {
     if (currentView === 'recipes') renderList();
     if (currentView === 'bottles') renderBottles();
+    if (currentView === 'setup') renderSetup();
   });
 
   if ('serviceWorker' in navigator) {

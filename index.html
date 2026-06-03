@@ -29,6 +29,7 @@
   <main>
     <div id="list-view"></div>
     <div id="bottles-view"></div>
+    <div id="setup-view"></div>
     <div id="detail-view"></div>
   </main>
 
@@ -38,6 +39,12 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
       </svg>
       Recepty
+    </button>
+    <button class="nav-btn" data-view="setup" onclick="showView('setup')">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+      </svg>
+      Setup
     </button>
     <button class="nav-btn" data-view="bottles" onclick="showView('bottles')">
       <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
