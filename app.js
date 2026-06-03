@@ -7,6 +7,17 @@ const CAT_ORDER = ['signatures', 'negroni', 'nealko', 'old_signatures', 'world_c
 // Setup view state: which categories are included in the ingredient overview.
 const setupSelectedCats = new Set(['signatures']);
 
+// Persisted checkbox state for the prep list (survives reload).
+const SETUP_CHECKED_KEY = 'cobra-setup-checked';
+function loadSetupChecked() {
+  try { return new Set(JSON.parse(localStorage.getItem(SETUP_CHECKED_KEY) || '[]')); }
+  catch { return new Set(); }
+}
+function saveSetupChecked(set) {
+  localStorage.setItem(SETUP_CHECKED_KEY, JSON.stringify(Array.from(set)));
+}
+let setupChecked = loadSetupChecked();
+
 // ── DATA ──
 async function loadData() {
   [recipes, bottles] = await Promise.all([
@@ -247,11 +258,17 @@ function toggleBottle(card) {
 
 // ── SETUP (ingredient overview) ──
 function normalizeIngredient(s) {
-  return String(s || '')
-    .replace(/^\d+[\d,\.]*\s*(cl|ml|dc|dl|dsh|dash|ks|d)\b\s*/i, '')
-    .replace(/[.,;:]+$/, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  let r = String(s || '');
+  // leading numeric amount + standard unit
+  r = r.replace(/^\d+[\d,\.]*\s*(cl|ml|dc|dl|dsh|dash|ks|d)\b\s*/i, '');
+  // leading numeric amount + Czech/EN quantity word
+  r = r.replace(/^\d+[\d,\.]*\s*(kapky|kapek|kapka|st[rř]iky|st[rř]ik|drops?)\b\s*(of\s+)?/i, '');
+  // leading slovní množství / akce (i samostatně bez následujícího slova)
+  r = r.replace(/^(top(\s+up)?|z[áa]st[rř]iky?|couple\s+drops?\s+of|p[áa]r\s+kapek|n[ěe]kolik\s+kapek|dol[íi]t|dolejt|spousta|trochu|trochou)\b\s*/i, '');
+  // trailing "na dolití / na dolit / na dolejt"
+  r = r.replace(/\s+na\s+(dol[íi]t|dolejt)[íi]?\s*$/i, '');
+  // cleanup
+  return r.replace(/[.,;:]+$/, '').replace(/\s+/g, ' ').trim();
 }
 
 function ingredientKey(s) {
@@ -296,37 +313,42 @@ function renderSetup() {
   let ingredients = aggregateIngredients(filtered);
   if (q) ingredients = ingredients.filter(i => normalize(i.display).includes(q));
 
-  const groups = {};
-  ingredients.forEach(ing => {
-    const letter = ing.display[0].toUpperCase();
-    if (!groups[letter]) groups[letter] = [];
-    groups[letter].push(ing);
-  });
-
-  const listHtml = Object.keys(groups).sort((a, b) => a.localeCompare(b, 'cs')).map(letter => `
-    <div class="alpha-group">
-      <div class="alpha-label">${letter}</div>
-      ${groups[letter].map(ing => `
-        <div class="setup-row">
-          <div class="setup-row-header">
+  const itemsHtml = ingredients.map(ing => {
+    const key = ingredientKey(ing.display);
+    const checked = setupChecked.has(key);
+    const drinksHtml = ing.drinks.map(d => `<div class="setup-drink">${d}</div>`).join('');
+    return `
+      <div class="setup-item${checked ? ' checked' : ''}" data-key="${key}">
+        <div class="setup-item-row">
+          <div class="setup-half-check">
+            <span class="setup-check${checked ? ' on' : ''}"></span>
             <span class="setup-name">${ing.display}</span>
-            <span class="setup-count">${ing.count}×</span>
           </div>
-          <div class="setup-drinks">
-            ${ing.drinks.map(d => `<div class="setup-drink">${d}</div>`).join('')}
+          <div class="setup-half-expand">
+            <span class="setup-count">${ing.count}</span>
+            <svg class="setup-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </div>
-        </div>`).join('')}
-    </div>`).join('');
+        </div>
+        <div class="setup-drinks">${drinksHtml}</div>
+      </div>`;
+  }).join('');
 
-  const summary = filtered.length === 0
+  const doneCount = ingredients.filter(i => setupChecked.has(ingredientKey(i.display))).length;
+
+  const body = filtered.length === 0
     ? '<div class="empty"><div>Žádná vybraná kategorie</div></div>'
     : ingredients.length === 0
       ? '<div class="empty"><div>Žádná ingredience nenalezena</div></div>'
-      : `<div class="setup-summary">${ingredients.length} ingrediencí · ${filtered.length} drinků</div>${listHtml}`;
+      : `
+        <div class="setup-summary">
+          <span>${doneCount}/${ingredients.length} ingrediencí · ${filtered.length} drinků</span>
+          <button class="setup-reset" type="button">Reset</button>
+        </div>
+        <div class="setup-grid">${itemsHtml}</div>`;
 
   container.innerHTML = `
     <div class="setup-filter">${chips}</div>
-    ${summary}
+    ${body}
   `;
 
   container.querySelectorAll('.setup-chip').forEach(chip => {
@@ -337,8 +359,40 @@ function renderSetup() {
       renderSetup();
     });
   });
-  container.querySelectorAll('.setup-row').forEach(row => {
-    row.addEventListener('click', () => row.classList.toggle('open'));
+
+  const updateSummary = () => {
+    const summarySpan = container.querySelector('.setup-summary span');
+    if (summarySpan) {
+      const done = container.querySelectorAll('.setup-item.checked').length;
+      summarySpan.textContent = `${done}/${ingredients.length} ingrediencí · ${filtered.length} drinků`;
+    }
+  };
+
+  container.querySelectorAll('.setup-half-check').forEach(half => {
+    half.addEventListener('click', () => {
+      const item = half.closest('.setup-item');
+      const key = item.dataset.key;
+      const isOn = setupChecked.has(key);
+      if (isOn) setupChecked.delete(key);
+      else setupChecked.add(key);
+      item.classList.toggle('checked', !isOn);
+      half.querySelector('.setup-check').classList.toggle('on', !isOn);
+      saveSetupChecked(setupChecked);
+      updateSummary();
+    });
+  });
+
+  container.querySelectorAll('.setup-half-expand').forEach(half => {
+    half.addEventListener('click', () => {
+      half.closest('.setup-item').classList.toggle('open');
+    });
+  });
+
+  const resetBtn = container.querySelector('.setup-reset');
+  if (resetBtn) resetBtn.addEventListener('click', () => {
+    setupChecked = new Set();
+    saveSetupChecked(setupChecked);
+    renderSetup();
   });
 }
 
