@@ -2,8 +2,8 @@
   {
     "id": "negroni-vyzrale",
     "name": "Negroni vyzrálé",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "negroni",
+    "category_label": "Negroni",
     "glass": "Broušená whiskovka",
     "garnish": "Pomeranč peel",
     "method": "8cl Stir, kvádr ledu",
@@ -248,8 +248,8 @@
   {
     "id": "holiday-romance",
     "name": "Holiday Romance",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "tropical-week",
+    "category_label": "TROPICAL WEEK",
     "glass": "Coupette",
     "garnish": "limeta",
     "method": "shake jako daiquiri",
@@ -262,8 +262,8 @@
   {
     "id": "coconut-affair",
     "name": "Coconut Affair",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "tropical-week",
+    "category_label": "TROPICAL WEEK",
     "glass": "brošená whiskovka",
     "garnish": "snítka máty pomík třešeň,",
     "method": "shake double strain",
@@ -277,8 +277,8 @@
   {
     "id": "ginger-monkey",
     "name": "Ginger Monkey",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "tropical-week",
+    "category_label": "TROPICAL WEEK",
     "glass": "Broušený long",
     "garnish": "plátek pomeranče.",
     "method": "Build Up",
@@ -290,8 +290,8 @@
   {
     "id": "hendrick-s-red",
     "name": "Hendrick´s RED",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "tropical-week",
+    "category_label": "TROPICAL WEEK",
     "glass": "Vinná Sklenička",
     "garnish": "limeta",
     "method": "Build Up",
@@ -589,6 +589,19 @@
       "2cl Gin22 habanero mango",
       "3cl Cinzano 1957",
       "3cl Campari"
+    ]
+  },
+  {
+    "id": "testovaci",
+    "name": "Testovací",
+    "category": "libor-smrdi",
+    "category_label": "Libor smrdí",
+    "glass": "ice kýbl",
+    "garnish": "krásný úsměv",
+    "method": "protřepat, nemíchat",
+    "ingredients": [
+      "co dům dal",
+      "od každýho trochu"
     ]
   },
   {
