@@ -2,8 +2,8 @@ name: Sync recipes from Google Sheets
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # daily at 5:00 UTC (6:00 CET / 7:00 CEST)
-  workflow_dispatch:      # manual run button in Actions UI
+    - cron: '0 5 * * 1'  # Mondays at 5:00 UTC (6:00 CET / 7:00 CEST)
+  workflow_dispatch:      # manual run button in Actions UI for instant sync
 
 permissions:
   contents: write
