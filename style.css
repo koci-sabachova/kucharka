@@ -140,9 +140,12 @@ body {
   margin-left: 8px;
   vertical-align: middle;
 }
-.cat-signatures   { background: rgba(201,168,76,.15); color: var(--accent); }
+.cat-badge          { background: rgba(144,144,144,.12); color: #aaa; }
+.cat-signatures     { background: rgba(201,168,76,.15); color: var(--accent); }
 .cat-old_signatures { background: rgba(144,144,144,.12); color: #aaa; }
 .cat-world_classics { background: rgba(100,160,255,.12); color: #7ab3ff; }
+.cat-nealko         { background: rgba(120,200,120,.15); color: #8acd8a; }
+.cat-negroni        { background: rgba(220,80,80,.15);   color: #e08080; }
 
 /* ── DETAIL VIEW ── */
 #detail-view { display: none; padding: 20px; }

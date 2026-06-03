@@ -1,4 +1,8 @@
 let recipes = [], bottles = [], currentTab = 'all', currentView = 'recipes';
+const CAT_LABELS = {};
+
+// Preferred display order; unknown categories go to the end, alphabetical by label.
+const CAT_ORDER = ['signatures', 'negroni', 'nealko', 'old_signatures', 'world_classics'];
 
 // ── DATA ──
 async function loadData() {
@@ -6,16 +10,34 @@ async function loadData() {
     fetch('data/recipes.json').then(r => r.json()),
     fetch('data/lahve_db.json').then(r => r.json()),
   ]);
+  recipes.forEach(r => {
+    if (!CAT_LABELS[r.category]) CAT_LABELS[r.category] = r.category_label || r.category;
+  });
+  renderTabs();
   renderList();
 }
 
-// ── HELPERS ──
-const CAT_LABELS = {
-  signatures:     'Signatures AKTUAL',
-  old_signatures: 'Staré signatures',
-  world_classics: 'World classics',
-};
-const CAT_ALL_ORDER = ['signatures', 'old_signatures', 'world_classics'];
+function renderTabs() {
+  const cats = Object.keys(CAT_LABELS).sort((a, b) => {
+    const ai = CAT_ORDER.indexOf(a);
+    const bi = CAT_ORDER.indexOf(b);
+    if (ai !== -1 && bi !== -1) return ai - bi;
+    if (ai !== -1) return -1;
+    if (bi !== -1) return 1;
+    return CAT_LABELS[a].localeCompare(CAT_LABELS[b], 'cs');
+  });
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = `<button class="tab active" data-cat="all">Vše</button>` +
+    cats.map(c => `<button class="tab" data-cat="${c}">${CAT_LABELS[c]}</button>`).join('');
+  tabs.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      currentTab = tab.dataset.cat;
+      tabs.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderList();
+    });
+  });
+}
 
 function normalize(str) {
   return str.toLowerCase()
@@ -243,15 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('search').addEventListener('input', () => {
     if (currentView === 'recipes') renderList();
     if (currentView === 'bottles') renderBottles();
-  });
-
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      currentTab = tab.dataset.cat;
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      renderList();
-    });
   });
 
   if ('serviceWorker' in navigator) {

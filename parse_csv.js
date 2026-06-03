@@ -1,12 +1,14 @@
 const fs = require('fs');
+const path = require('path');
 
-function parseCSV(path) {
-  const text = fs.readFileSync(path, 'utf8').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+// ── CSV parser ──
+function parseCSV(text) {
+  text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const rows = [];
   let row = [], cur = '', inQ = false;
   for (let i = 0; i < text.length; i++) {
     const c = text[i];
-    if (c === '"' && inQ && text[i+1] === '"') { cur += '"'; i++; }
+    if (c === '"' && inQ && text[i + 1] === '"') { cur += '"'; i++; }
     else if (c === '"') { inQ = !inQ; }
     else if (c === ',' && !inQ) { row.push(cur.trim()); cur = ''; }
     else if (c === '\n' && !inQ) { row.push(cur.trim()); rows.push(row); row = []; cur = ''; }
@@ -14,6 +16,11 @@ function parseCSV(path) {
   }
   if (cur || row.length) { row.push(cur.trim()); rows.push(row); }
   return rows;
+}
+
+// ── Helpers ──
+function norm(s) {
+  return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
 }
 
 function slug(name) {
@@ -24,16 +31,11 @@ function slug(name) {
 
 function isValidName(name) {
   if (!name || !name.trim()) return false;
-  // reject lines that are clearly ingredient fragments
   if (/^\d+[\d,\.]*\s*(cl|ml|dc|dl|dsh|dash|ks)/i.test(name.trim())) return false;
-  if (/^(fresh|top|soda|limetov|pomerančov)/i.test(name.trim())) return false;
   return name.trim().length > 1;
 }
 
-// Smart ingredient splitter
-function cleanItem(s) {
-  return s.trim().replace(/[,.]$/, '').trim();
-}
+function cleanItem(s) { return s.trim().replace(/[,.]$/, '').trim(); }
 
 function splitOneLine(line) {
   if (!line) return [];
@@ -47,7 +49,6 @@ function splitOneLine(line) {
 
 function cleanGlass(s) {
   if (!s) return s;
-  // Truncate at parenthesis or period if too long
   const trimmed = s.split(/\s*[.(]/)[0].trim();
   return trimmed || s;
 }
@@ -61,131 +62,103 @@ function splitIngredients(raw) {
   return splitOneLine(cleaned);
 }
 
-// ── Signatures jaro/léto 26 ──
-// cols: 0=section, 1=name, 2=glass, 3=method, 4=ingredients, 5=garnish, 6=author_note, 7=trvanlivost
-const sig26 = parseCSV('/Users/katerinakocisabachova/GitHub/cobra-kucharka/COB_DRINKS_Kuchařka - Signatures jaro léto 26.csv');
-const signatures = [];
-const seenSig = new Set();
-for (let i = 1; i < sig26.length; i++) {
-  const row = sig26[i];
-  const name = (row[1] || '').trim();
-  if (!isValidName(name)) continue;
-  if (name === 'Název') continue;
-  if (seenSig.has(name)) continue;
+// ── Header-based column mapping ──
+const FIELD_ALIASES = {
+  name:         ['nazev', 'name'],
+  glass:        ['sklo', 'glass'],
+  method:       ['postup', 'method'],
+  ingredients:  ['slozeni', 'slozenia', 'ingredients'],
+  garnish:      ['garnyz', 'garnish'],
+  note:         ['poznamka', 'poznamka autora', 'autor', 'author', 'note'],
+  status:       ['old', 'status'],
+  categoryOver: ['kategorie', 'category'],
+};
 
-  const glass = cleanGlass((row[2] || '').trim());
-  const method = (row[3] || '').trim();
-  const ingredientsRaw = (row[4] || '').trim();
-  const garnish = (row[5] || '').trim();
-  const note = (row[6] || '').trim();
-
-  // Skip section headers (no ingredients AND no method)
-  if (!ingredientsRaw && !method) continue;
-
-  seenSig.add(name);
-  const ingredients = splitIngredients(ingredientsRaw);
-  signatures.push({
-    id: slug(name),
-    name,
-    category: 'signatures',
-    glass,
-    garnish,
-    method,
-    ingredients,
-    ...(note ? { description: note } : {}),
-  });
+function findHeaderRow(rows) {
+  for (let i = 0; i < rows.length; i++) {
+    if (rows[i].some(cell => norm(cell) === 'nazev')) return i;
+  }
+  return -1;
 }
 
-// ── old signatures (podzim/zima 25) ──
-// cols: 0=section, 1=name, 2=glass, 3=method, 4=ingredients, 5=garnish, 6=author_note
-const old = parseCSV('/Users/katerinakocisabachova/GitHub/cobra-kucharka/COB_DRINKS_Kuchařka - Signatures podzim_zima 25.csv');
-const oldSignatures = [];
-const seenOld = new Set();
+function buildColumnMap(headerRow) {
+  const map = {};
+  headerRow.forEach((cell, idx) => {
+    const n = norm(cell);
+    if (!n) return;
+    for (const [field, aliases] of Object.entries(FIELD_ALIASES)) {
+      if (map[field] === undefined && aliases.includes(n)) {
+        map[field] = idx;
+        return;
+      }
+    }
+  });
+  return map;
+}
 
-for (let i = 1; i < old.length; i++) {
-  const row = old[i];
+function parseSheet(csvPath, defaultCategory, defaultLabel) {
+  const text = fs.readFileSync(csvPath, 'utf8');
+  const rows = parseCSV(text);
+  const headerIdx = findHeaderRow(rows);
+  if (headerIdx < 0) throw new Error(`No header row (with "Název"/"nazev") found in ${csvPath}`);
+  const cols = buildColumnMap(rows[headerIdx]);
+  if (cols.name === undefined) throw new Error(`No "Název" column found in ${csvPath}`);
 
-  // Detect shifted format (GINSTAR block) where name is at col 4
-  let name, glass, method, ingredientsRaw, garnish, note;
+  const recipes = [];
+  const seen = new Set();
 
-  if (!row[1] && row[4] && isValidName(row[4])) {
-    // shifted format
-    name = row[4].trim();
-    glass = (row[5] || '').trim();
-    method = (row[6] || '').trim();
-    ingredientsRaw = (row[7] || '').trim();
-    garnish = (row[8] || '').trim();
-    note = '';
-  } else {
-    name = (row[1] || '').trim();
-    glass = cleanGlass((row[2] || '').trim());
-    method = (row[3] || '').trim();
-    ingredientsRaw = (row[4] || '').trim();
-    garnish = (row[5] || '').trim();
-    note = (row[6] || '').trim();
+  for (let i = headerIdx + 1; i < rows.length; i++) {
+    const row = rows[i];
+    const name = (row[cols.name] || '').trim();
+    if (!isValidName(name)) continue;
+    if (seen.has(name)) continue;
+
+    const status = cols.status !== undefined ? (row[cols.status] || '').trim().toUpperCase() : '';
+    if (status === 'X') continue; // marked unavailable
+
+    const glass = cleanGlass((row[cols.glass] || '').trim());
+    const method = (row[cols.method] || '').trim();
+    const ingredientsRaw = (row[cols.ingredients] || '').trim();
+    const garnish = (row[cols.garnish] || '').trim();
+    const note = cols.note !== undefined ? (row[cols.note] || '').trim() : '';
+
+    if (!ingredientsRaw && !method) continue; // section header / junk
+
+    // Category override from "Kategorie" column; otherwise use tab default
+    const overrideRaw = cols.categoryOver !== undefined ? (row[cols.categoryOver] || '').trim() : '';
+    const category = overrideRaw ? slug(overrideRaw) : defaultCategory;
+    const category_label = overrideRaw || defaultLabel;
+
+    seen.add(name);
+    const ingredients = splitIngredients(ingredientsRaw);
+    recipes.push({
+      id: slug(name),
+      name,
+      category,
+      category_label,
+      glass,
+      garnish,
+      method,
+      ingredients,
+      ...(note ? { description: note } : {}),
+    });
   }
 
-  if (!isValidName(name)) continue;
-  if (name === 'Název') continue;
-  if (seenOld.has(name)) continue;
-  seenOld.add(name);
-
-  // Skip entries with no ingredients AND no method (probably section headers / junk)
-  if (!ingredientsRaw && !method) continue;
-
-  const ingredients = splitIngredients(ingredientsRaw);
-  oldSignatures.push({
-    id: slug(name),
-    name,
-    category: 'old_signatures',
-    glass,
-    garnish,
-    method,
-    ingredients,
-    ...(note ? { description: note } : {}),
-  });
+  return recipes;
 }
 
-// ── world classics ──
-// cols: 0=status(X=nelze), 1=nazev, 2=ingredients, 3=method, 4=glass, 5=garnish, 6=to_go, 7=empty, 8=note
-const wc = parseCSV('/Users/katerinakocisabachova/GitHub/cobra-kucharka/world-classics.csv');
-const classics = [];
-const seenClassics = new Set();
-for (let i = 2; i < wc.length; i++) {
-  const row = wc[i];
-  const status = (row[0] || '').trim().toUpperCase();
-  if (status === 'X') continue; // nedostupné
-  const rawName = (row[1] || '').trim()
-    .replace(/^"+|"+$/g, '')   // strip outer quotes
-    .replace(/"+/g, '')         // strip remaining quotes
-    .replace(/\n/g, ' / ')      // newlines → " / "
-    .replace(/\s{2,}/g, ' ')    // collapse whitespace
-    .trim();
-  const name = rawName;
-  if (!isValidName(name)) continue;
-  if (seenClassics.has(name)) continue;
-  seenClassics.add(name);
+// ── Sources ──
+const ROOT = __dirname;
+const CSV_DIR = path.join(ROOT, 'csv');
+const sources = [
+  { file: 'signatures.csv',     category: 'signatures',     label: 'Signatures AKTUAL' },
+  { file: 'old_signatures.csv', category: 'old_signatures', label: 'Staré signatures' },
+  { file: 'world_classics.csv', category: 'world_classics', label: 'World classics' },
+];
 
-  const glass = cleanGlass((row[4] || '').trim());
-  const garnish = (row[5] || '').trim();
-  const method = (row[3] || '').trim();
-  const note = (row[8] || '').trim();
-  const ingredients = splitIngredients(row[2]);
+const allDraft = sources.flatMap(s => parseSheet(path.join(CSV_DIR, s.file), s.category, s.label));
 
-  classics.push({
-    id: slug(name),
-    name,
-    category: 'world_classics',
-    glass,
-    garnish,
-    method,
-    ingredients,
-    ...(note ? { description: note } : {}),
-  });
-}
-
-// Deduplicate IDs by appending category suffix when needed
-const allDraft = [...signatures, ...oldSignatures, ...classics];
+// Deduplicate IDs by appending category suffix when colliding across categories
 const idCount = {};
 allDraft.forEach(r => { idCount[r.id] = (idCount[r.id] || 0) + 1; });
 const idSeen = {};
@@ -199,15 +172,14 @@ const all = allDraft.map(r => {
   return r;
 });
 
+fs.mkdirSync(path.join(ROOT, 'data'), { recursive: true });
 fs.writeFileSync(
-  '/Users/katerinakocisabachova/GitHub/cobra-kucharka/data/recipes.json',
+  path.join(ROOT, 'data', 'recipes.json'),
   JSON.stringify(all, null, 2),
   'utf8'
 );
-console.log(`signatures: ${signatures.length}, old_signatures: ${oldSignatures.length}, classics: ${classics.length} → total: ${all.length}`);
 
-// Print sample for sanity check
-console.log('\n── Sample signatures ──');
-signatures.slice(0,2).forEach(r => console.log(r.name, '|', r.glass, '|', r.ingredients.slice(0,2)));
-console.log('\n── Sample old signatures ──');
-oldSignatures.slice(0,3).forEach(r => console.log(r.name, '|', r.glass, '|', r.ingredients.length, 'ingredients'));
+const counts = {};
+all.forEach(r => { counts[r.category] = (counts[r.category] || 0) + 1; });
+console.log(`total: ${all.length}`);
+Object.entries(counts).sort().forEach(([cat, n]) => console.log(`  ${cat}: ${n}`));

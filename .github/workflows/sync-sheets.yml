@@ -1,0 +1,49 @@
+name: Sync recipes from Google Sheets
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # daily at 5:00 UTC (6:00 CET / 7:00 CEST)
+  workflow_dispatch:      # manual run button in Actions UI
+
+permissions:
+  contents: write
+
+env:
+  SHEET_ID: 1faFus0esZ82J6PjbzuEcImDIqqxkz6GF8vApY2zNsd4
+  GID_SIGNATURES: 248177041
+  GID_OLD_SIGNATURES: 1744802255
+  GID_WORLD_CLASSICS: 0
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download CSVs from Google Sheets
+        run: |
+          mkdir -p csv
+          base="https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid="
+          curl -sSLf -o csv/signatures.csv      "${base}${GID_SIGNATURES}"
+          curl -sSLf -o csv/old_signatures.csv  "${base}${GID_OLD_SIGNATURES}"
+          curl -sSLf -o csv/world_classics.csv  "${base}${GID_WORLD_CLASSICS}"
+          wc -l csv/*.csv
+
+      - name: Regenerate recipes.json
+        run: node parse_csv.js
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add csv data/recipes.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Sync recipes from Google Sheets"
+            git push
+          fi
