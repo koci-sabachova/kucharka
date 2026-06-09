@@ -1105,16 +1105,15 @@
     "name": "Pornstar martini C",
     "category": "world_classics",
     "category_label": "World classics",
-    "glass": "",
-    "garnish": "",
+    "glass": "Coupette",
+    "garnish": "kapky angostura bitters",
     "method": "Shake,top up prosecco",
     "ingredients": [
-      "4cl Cryo vodka",
+      "4cl Seven vodka",
       "1cl vanilka sirup",
-      "(vanilka sirup od Toma)",
       "3cl passionfruit",
       "1cl lime fresh",
-      "foamer"
+      "vegg white"
     ]
   },
   {
@@ -1126,7 +1125,7 @@
     "garnish": "Skořice s twistem limetové kůry",
     "method": "Vše do Shakeru",
     "ingredients": [
-      "4cl Malteco Seco",
+      "4cl Flor de Cana 4yo",
       "2cl Amareto",
       "1cl simple",
       "0.5cl lime"
@@ -1186,7 +1185,7 @@
     "garnish": "hruška, citron, tymián",
     "method": "vše krom ginger beeru do shakeru",
     "ingredients": [
-      "4cl Cryo",
+      "4cl Seven vodka",
       "3cl hruškový mošt",
       "2cl citron",
       "1cl simple sirup",
@@ -1217,7 +1216,7 @@
     "garnish": "nope",
     "method": "přímo do skla na led",
     "ingredients": [
-      "4cl Cryo",
+      "4cl Seven vodka",
       "2cl Gloria"
     ]
   },
@@ -1230,7 +1229,7 @@
     "garnish": "Řapíkatý celer, olivy, citron, mletý pepř",
     "method": "rolling baby",
     "ingredients": [
-      "4cl Cryo",
+      "4cl Seven vodka",
       "1.5cl Bloody prep",
       "2cl citron",
       "1.5dcl rajčatový mošt"
@@ -1287,7 +1286,7 @@
     "garnish": "kolečko limety",
     "method": "Rozdrtit limetu se simplem v malém tinu shakeru. Přidat kostky ledu tak aby se vešlo do whiskey sklenice a přilít bázy. Rychlý šejk a celé přelít do skla.",
     "ingredients": [
-      "6cl Cacacha/Cryo/Malteco dorado",
+      "6cl Cacacha/seven vodka/Flor de Cana 4yo",
       "3/4 limety",
       "1.5cl tmavý simpl"
     ],
@@ -1328,7 +1327,7 @@
     "garnish": "plátek okurky, snítka koriandru",
     "method": "vše do shakeru, hard shake",
     "ingredients": [
-      "5cl Cabrito blanco",
+      "5cl tres alegres blanco",
       "2cl lime",
       "1cl simple",
       "okurka a koriandr"
@@ -1374,7 +1373,7 @@
     "garnish": "pomerančová kůra zástřik a vhodit, když je čas tak zapálit",
     "method": "vše do shakeru",
     "ingredients": [
-      "4cl Cryo",
+      "4cl Seven vodka",
       "3cl brusinka",
       "2cl limeta",
       "1,5cl cointreau"
@@ -1389,22 +1388,22 @@
     "garnish": "limeta",
     "method": "přímo do skla na led",
     "ingredients": [
-      "4cl Malteco Viejo Dorado",
+      "4cl Flor de Cana 4yo",
       "střik limeta fresh",
       "Fritz-Kola na dolití",
       "díl limety"
     ]
   },
   {
-    "id": "daiquiri-malteco-viejo-dorado-plantation-3",
-    "name": "Daiquiri Malteco Viejo Dorado / Plantation 3*",
+    "id": "daiquiri",
+    "name": "Daiquiri",
     "category": "world_classics",
     "category_label": "World classics",
     "glass": "coupette",
     "garnish": "limeta",
     "method": "vše do shakeru",
     "ingredients": [
-      "Malteco Viejo Dorado / 5cl plantation 3*",
+      "Flor de Cana 4yo",
       "2cl limeta",
       "1cl tmavý simple"
     ]
@@ -1432,7 +1431,7 @@
     "garnish": "olivy anebo citronová kůra",
     "method": "míchací sklenice/ anebo třídílný shaker. Záleží na přání hosta",
     "ingredients": [
-      "5cl Tanqueray/Cryo",
+      "5cl Tanqueray/Seven vodka",
       "1cl Noilly Prat                   S poměrem vermutu se dá hrát podle přání hosta"
     ]
   },
@@ -1460,7 +1459,7 @@
     "garnish": "tři zrnka kávy",
     "method": "vše do shakeru, hard hard shake",
     "ingredients": [
-      "4cl Cryo",
+      "4cl Seven vodka",
       "2cl Gloria",
       "Espresso (cca 3cl) 1.5 cl grepový sirup"
     ]
@@ -1489,7 +1488,7 @@
     "garnish": "limeta",
     "method": "vše do třídílného shakeru",
     "ingredients": [
-      "6cl Tanqueray / Cryo",
+      "6cl Tanqueray / Seven vodka",
       "2cl limeta",
       "1cl simple"
     ]
@@ -1702,9 +1701,10 @@
     "method": "přímo do sklenice",
     "ingredients": [
       "2cl Tres alegres Blanco",
-      "2cl Cryo",
+      "2cl seven vodka",
       "2cl Tanqueray",
-      "2cl Malteco Viejo Dorado 2cl Cointreau",
+      "2cl Flor de Cana 4yo",
+      "2cl Cointreau",
       "citron",
       "top Fritz-kola"
     ]
@@ -1718,7 +1718,7 @@
     "garnish": "limeta, máta",
     "method": "vše do shakeru",
     "ingredients": [
-      "2cl malteco Viejo Dorado",
+      "2cl Flor de Cana 4yo",
       "2cl Kafka rum reserva",
       "1cl pussers Black",
       "2cl lime",
@@ -1823,7 +1823,7 @@
     "garnish": "třešnička",
     "method": "vše do shakeru",
     "ingredients": [
-      "5cl Plantation 3*",
+      "5cl Flor de Cana 4yo",
       "5cl Ananas Juice",
       "0.5cl grenadina",
       "lžička Maraschina"
@@ -1884,7 +1884,7 @@
     "garnish": "máta",
     "method": "podrtit limetu se simplem, přidat mátu, led, rum a sodu, promíchat, dotvořit ledem",
     "ingredients": [
-      "6cl Malteco viejo dorado",
+      "6cl Flor de Cana 4yo",
       "3/4 limety",
       "máta",
       "2cl tmavý simple",
@@ -1900,7 +1900,7 @@
     "garnish": "limeta, okurka",
     "method": "přímo do sklenice",
     "ingredients": [
-      "4cl Cryo/tanqueray",
+      "4cl Seven vodka/tanqueray",
       "1cl limeta fresh",
       "2 střiky angostury",
       "dolít ginger beer"
@@ -2016,7 +2016,7 @@
     "ingredients": [
       "5cl Tres alegres blanco",
       "1.5cl Limeta",
-      "Láhvička Grepové sody"
+      "0.5ks lahvička Grepové sody"
     ]
   },
   {
@@ -2165,7 +2165,8 @@
       "2cl lime",
       "1cl Goji syrup",
       "3 lístky bazalky"
-    ]
+    ],
+    "description": "nelze"
   },
   {
     "id": "rum-smash",
@@ -2176,7 +2177,7 @@
     "garnish": "snítka máty",
     "method": "vše do shakeru, hard shake",
     "ingredients": [
-      "6cl Plantation 3*",
+      "6cl Flor de Cana 4yo",
       "2cl lime",
       "1cl tmavej simple",
       "máta"
@@ -2191,7 +2192,7 @@
     "garnish": "plátek grepu, slaná krusta",
     "method": "na sklenici udělat slanou krustu, a nalít přímo do skla na led",
     "ingredients": [
-      "4cl Cryo",
+      "4cl seven vodka",
       "2dcl grepový mošt",
       "sůl"
     ]
@@ -2220,7 +2221,7 @@
     "garnish": "pomeranč, třešnička",
     "method": "vše do shakeru",
     "ingredients": [
-      "4cl Cryo",
+      "4cl seven vodka",
       "1cl Meruňka",
       "4cl brusinkový mošt",
       "6cl pomerančový mošt"
@@ -2235,7 +2236,7 @@
     "garnish": "limeta",
     "method": "přímo do skla",
     "ingredients": [
-      "4cl Cryo",
+      "4cl seven vodka",
       "1.5dcl Brusinka",
       "0.5dcl Grep"
     ]
@@ -2291,7 +2292,7 @@
     "garnish": "limeta",
     "method": "přímo do skla na led",
     "ingredients": [
-      "4cl Cryo",
+      "4cl seven vodka",
       "lime fresh",
       "soda na dolití"
     ]
@@ -2351,7 +2352,7 @@
     "garnish": "pomeranč",
     "method": "přímo do skla",
     "ingredients": [
-      "4cl Cryo",
+      "4cl seven vodka",
       "2dcl pomerančový džus"
     ]
   },
@@ -2392,7 +2393,7 @@
     "garnish": "pomeranč",
     "method": "přímo do skla na led, tequila a džus, nahoru zástřik grenadiny",
     "ingredients": [
-      "4cl Cabrito blanco",
+      "4cl tres alegres blanco",
       "2dcl Pomerančový džus",
       "střik grenadiny"
     ]
@@ -2486,7 +2487,7 @@
     "garnish": "bambusové míchátko",
     "method": "smetanu a Nauticu do shakeru, Kahlua do sklenice, zalít shakem",
     "ingredients": [
-      "4cl Cryo",
+      "4cl seven vodka",
       "2cl Gloria",
       "2cl smetana"
     ]
