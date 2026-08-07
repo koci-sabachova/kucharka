@@ -40,11 +40,18 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          date -u +"%Y-%m-%dT%H:%M:%SZ" > data/.last-sync
-          git add csv data/recipes.json data/.last-sync
-          if git diff --cached --quiet -- csv data/recipes.json; then
-            git commit -m "Sync check $(date -u +%Y-%m-%d) — no recipe changes"
-          else
+          git add csv data/recipes.json
+          if ! git diff --cached --quiet; then
             git commit -m "Sync recipes from Google Sheets"
+            git push
+            exit 0
           fi
-          git push
+          echo "No recipe changes."
+          # GitHub disables scheduled workflows after 60 days with no repo
+          # activity — nudge the repo with an empty commit well before that,
+          # but only when actually needed (not on every no-op run).
+          last_commit_days=$(( ( $(date -u +%s) - $(git log -1 --format=%ct) ) / 86400 ))
+          if [ "$last_commit_days" -ge 30 ]; then
+            git commit --allow-empty -m "Keepalive: no recipe changes in ${last_commit_days} days"
+            git push
+          fi
