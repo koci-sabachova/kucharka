@@ -256,6 +256,7 @@
     "method": "Build Up",
     "ingredients": [
       "4cl whisky Monkey Shoulder",
+      "1cl citron fresh",
       "Fever Tree Ginger Ale"
     ]
   },
@@ -351,8 +352,8 @@
   {
     "id": "butterfly-effect",
     "name": "Butterfly Effect",
-    "category": "nealko",
-    "category_label": "nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "Vínovka",
     "garnish": "Měsíček limety + Microgreens",
     "method": "Přímo do skleničky",
@@ -2091,7 +2092,8 @@
       "3cl Sober spirits rum",
       "3cl kokos orgeat",
       "12cl SD ananas 1.5cl lime fresh"
-    ]
+    ],
+    "description": "nealko"
   },
   {
     "id": "rage-against-the-stream-classic",
