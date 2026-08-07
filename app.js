@@ -26,6 +26,9 @@ async function loadData() {
   ]);
   recipes.forEach(r => {
     if (!CAT_LABELS[r.category]) CAT_LABELS[r.category] = r.category_label || r.category;
+    (r.tags || []).forEach(t => {
+      if (!CAT_LABELS[t]) CAT_LABELS[t] = t === 'nealko' ? 'Nealko' : t;
+    });
   });
   renderTabs();
   renderList();
@@ -64,7 +67,7 @@ function renderList() {
   const container = document.getElementById('list-view');
 
   let filtered = recipes.filter(r => {
-    const matchCat = q || currentTab === 'all' || r.category === currentTab;
+    const matchCat = q || currentTab === 'all' || r.category === currentTab || (r.tags || []).includes(currentTab);
     const matchQ = !q || [r.name, r.garnish, r.glass, ...r.ingredients, ...(r.tags||[])]
       .some(s => normalize(String(s)).includes(q));
     return matchCat && matchQ;
@@ -101,7 +104,7 @@ function renderList() {
 function recipeCard(r) {
   return `<div class="recipe-card" data-id="${r.id}">
     <div>
-      <div class="recipe-card-name">${r.name}<span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span></div>
+      <div class="recipe-card-name">${r.name}<span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${(r.tags || []).includes('nealko') && r.category !== 'nealko' ? `<span class="cat-badge cat-nealko">${CAT_LABELS.nealko}</span>` : ''}</div>
       <div class="recipe-card-meta">${r.glass} · ${r.method}</div>
     </div>
     <svg class="recipe-card-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -123,7 +126,7 @@ function openRecipe(id) {
     </button>
 
     <div class="detail-name">${r.name}</div>
-    <div class="detail-cat"><span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span></div>
+    <div class="detail-cat"><span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${(r.tags || []).includes('nealko') && r.category !== 'nealko' ? `<span class="cat-badge cat-nealko">${CAT_LABELS.nealko}</span>` : ''}</div>
 
     <div class="detail-meta-row">
       <div class="detail-meta-item"><span>Sklenice</span>${r.glass}</div>

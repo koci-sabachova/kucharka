@@ -124,10 +124,16 @@ function parseSheet(csvPath, defaultCategory, defaultLabel) {
 
     if (!ingredientsRaw && !method) continue; // section header / junk
 
-    // Category override from "Kategorie" column; otherwise use tab default
+    // Category override from "Kategorie" column; otherwise use tab default.
+    // "Nealko" is additive (recipe keeps its home tab, plus shows under Nealko too)
+    // rather than replacing the category, unlike other overrides (Negroni, ...).
     const overrideRaw = cols.categoryOver !== undefined ? (row[cols.categoryOver] || '').trim() : '';
-    const category = overrideRaw ? slug(overrideRaw) : defaultCategory;
-    const category_label = overrideRaw || defaultLabel;
+    const overrideSlug = overrideRaw ? slug(overrideRaw) : '';
+    const isNealko = overrideSlug === 'nealko';
+
+    const category = (overrideRaw && !isNealko) ? overrideSlug : defaultCategory;
+    const category_label = (overrideRaw && !isNealko) ? overrideRaw : defaultLabel;
+    const tags = isNealko ? ['nealko'] : [];
 
     seen.add(name);
     const ingredients = splitIngredients(ingredientsRaw);
@@ -140,6 +146,7 @@ function parseSheet(csvPath, defaultCategory, defaultLabel) {
       garnish,
       method,
       ingredients,
+      ...(tags.length ? { tags } : {}),
       ...(note ? { description: note } : {}),
     });
   }
