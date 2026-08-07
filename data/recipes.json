@@ -6,7 +6,7 @@
     "category_label": "Negroni",
     "glass": "Broušená whiskovka",
     "garnish": "Pomeranč peel",
-    "method": "8cl Stir, kvádr ledu",
+    "method": "8cl NEGRONI VYZRÁLÉ, Stir, kvádr ledu",
     "ingredients": [
       "Gin Jane",
       "Campari",
@@ -169,8 +169,8 @@
   {
     "id": "take-it-sloerr-n-a",
     "name": "Take it SloeRR N/A",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "nealko",
+    "category_label": "nealko",
     "glass": "broušený long",
     "garnish": "Zerowaste prach",
     "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
@@ -183,8 +183,8 @@
   {
     "id": "blueberry-fizz-n-a",
     "name": "Blueberry Fizz N/A",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "nealko",
+    "category_label": "nealko",
     "glass": "vínovka",
     "garnish": "rozmaryn",
     "method": "shake, double strain",
@@ -196,8 +196,8 @@
   {
     "id": "buterfly-effect-n-a",
     "name": "Buterfly effect N/A",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "nealko",
+    "category_label": "nealko",
     "glass": "vínovka",
     "garnish": "microgreeens",
     "method": "build",
@@ -211,8 +211,8 @@
   {
     "id": "granate-mermaid-n-a",
     "name": "Granate Mermaid N/A",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "nealko",
+    "category_label": "nealko",
     "glass": "vínovka",
     "garnish": "poník peel",
     "method": "build",
@@ -225,8 +225,8 @@
   {
     "id": "cobrazgroni",
     "name": "Cobrazgroni",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
+    "category": "negroni",
+    "category_label": "Negroni",
     "glass": "Broušená whiskovka",
     "garnish": "Pomerančová Kůra",
     "method": "Stir in Mixing Glass na Kvádr",
@@ -247,39 +247,10 @@
     ]
   },
   {
-    "id": "holiday-romance",
-    "name": "Holiday Romance",
-    "category": "tropical-week",
-    "category_label": "TROPICAL WEEK",
-    "glass": "Coupette",
-    "garnish": "limeta",
-    "method": "shake jako daiquiri",
-    "ingredients": [
-      "4cl Planteray 3*",
-      "1cl Ferrand dry curacao",
-      "2cl lime fresh"
-    ]
-  },
-  {
-    "id": "coconut-affair",
-    "name": "Coconut Affair",
-    "category": "tropical-week",
-    "category_label": "TROPICAL WEEK",
-    "glass": "brošená whiskovka",
-    "garnish": "snítka máty pomík třešeň,",
-    "method": "shake double strain",
-    "ingredients": [
-      "(2cl Planteray 3*",
-      "2cl planteray cut & dry",
-      "1cl planeray pineapple) (prep 5cl) 2cl kokos orgeat",
-      "2cl lime fresh"
-    ]
-  },
-  {
     "id": "ginger-monkey",
     "name": "Ginger Monkey",
-    "category": "tropical-week",
-    "category_label": "TROPICAL WEEK",
+    "category": "sparta",
+    "category_label": "SPARTA",
     "glass": "Broušený long",
     "garnish": "plátek pomeranče.",
     "method": "Build Up",
@@ -291,8 +262,8 @@
   {
     "id": "hendrick-s-red",
     "name": "Hendrick´s RED",
-    "category": "tropical-week",
-    "category_label": "TROPICAL WEEK",
+    "category": "sparta",
+    "category_label": "SPARTA",
     "glass": "Vinná Sklenička",
     "garnish": "limeta",
     "method": "Build Up",
@@ -304,8 +275,8 @@
     ]
   },
   {
-    "id": "pomerancovogrepova-s-matou",
-    "name": "Pomerančovogrepová s mátou",
+    "id": "oolongova",
+    "name": "Oolongová",
     "category": "nealko",
     "category_label": "nealko",
     "glass": "limo glass",
@@ -393,17 +364,17 @@
     ]
   },
   {
-    "id": "paraguay-limonade",
-    "name": "Paraguay Limonade",
+    "id": "turkish-limonade",
+    "name": "Turkish Limonade",
     "category": "nealko",
     "category_label": "nealko",
     "glass": "Broušený long",
     "garnish": "Pomík kůra",
     "method": "přimo do skla",
     "ingredients": [
-      "1dcl maté cold brew",
+      "1dcl ryze cold brew",
       "1cl citron",
-      "4cl mediter sirup",
+      "2cl levandule sirup",
       "2dash pomeranč bitter",
       "top up soda"
     ]
@@ -461,7 +432,7 @@
     "method": "přímo do skla na led",
     "ingredients": [
       "4cl volante",
-      "8cl spuntane",
+      "8cl N/A cuvee blanc",
       "4cl soda"
     ]
   },
