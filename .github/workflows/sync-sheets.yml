@@ -36,14 +36,15 @@ jobs:
       - name: Regenerate recipes.json
         run: node parse_csv.js
 
-      - name: Commit & push if changed
+      - name: Commit & push
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add csv data/recipes.json
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > data/.last-sync
+          git add csv data/recipes.json data/.last-sync
+          if git diff --cached --quiet -- csv data/recipes.json; then
+            git commit -m "Sync check $(date -u +%Y-%m-%d) — no recipe changes"
           else
             git commit -m "Sync recipes from Google Sheets"
-            git push
           fi
+          git push
