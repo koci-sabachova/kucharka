@@ -480,6 +480,23 @@
     ]
   },
   {
+    "id": "pina-colada-nealko",
+    "name": "\"Piňa Colada\" Nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
+    "glass": "Broušený long",
+    "garnish": "máta, pomík, třešeň, co najdeš hezkého",
+    "method": "vše do shakeru, double strain",
+    "ingredients": [
+      "3cl Sober spirits rum",
+      "3cl kokos orgeat",
+      "12cl SD ananas 1.5cl lime fresh"
+    ],
+    "tags": [
+      "nealko"
+    ]
+  },
+  {
     "id": "glorian-s-negroni",
     "name": "Glorian's Negroni",
     "category": "negroni",
@@ -2123,7 +2140,7 @@
     ]
   },
   {
-    "id": "pina-colada-nealko",
+    "id": "pina-colada-nealko-classic",
     "name": "\"Piňa Colada\" Nealko",
     "category": "world_classics",
     "category_label": "World classics",
