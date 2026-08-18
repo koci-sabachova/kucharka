@@ -138,9 +138,10 @@ function parseSheet(csvPath, defaultCategory, defaultLabel) {
     // Category override from "Kategorie" column; otherwise use tab default.
     // Comma-separated values assign multiple categories: the first named one
     // becomes the recipe's home category, any others become extra tags (the
-    // recipe shows under each). "Nealko" is always additive — the recipe
-    // keeps its home category and also gets the shared "nealko" tag, so
-    // every non-alcoholic drink from every source ends up in one Nealko tab.
+    // recipe shows under each). "Nealko" alone moves the recipe into the
+    // shared Nealko category exclusively; combined with a name (e.g.
+    // "Signatures, Nealko" or "Negroni, Nealko") it's additive instead —
+    // recipe keeps that named home category and also gets the "nealko" tag.
     const overrideRaw = cols.categoryOver !== undefined ? (row[cols.categoryOver] || '').trim() : '';
     const parts = overrideRaw ? overrideRaw.split(',').map((s) => s.trim()).filter(Boolean) : [];
     const namedParts = parts.filter((p) => slug(p) !== 'nealko');
@@ -155,11 +156,14 @@ function parseSheet(csvPath, defaultCategory, defaultLabel) {
       for (let j = 1; j < namedParts.length; j++) {
         tags.push(resolveNamedCategory(namedParts[j], defaultCategory, defaultLabel).category);
       }
+      if (hasNealko) tags.push('nealko');
+    } else if (hasNealko) {
+      category = 'nealko';
+      category_label = 'Nealko';
     } else {
       category = defaultCategory;
       category_label = defaultLabel;
     }
-    if (hasNealko) tags.push('nealko');
 
     seen.add(name);
     const ingredients = splitIngredients(ingredientsRaw);

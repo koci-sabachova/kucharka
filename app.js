@@ -34,8 +34,12 @@ async function loadData() {
   renderList();
 }
 
-function renderTabs() {
-  const cats = Object.keys(CAT_LABELS).sort((a, b) => {
+// "Staré signatures" always sorts last, even after ad-hoc categories that
+// aren't in CAT_ORDER at all (e.g. one-off tags typed straight into the sheet).
+function sortCats(keys) {
+  return keys.sort((a, b) => {
+    if (a === 'old_signatures') return 1;
+    if (b === 'old_signatures') return -1;
     const ai = CAT_ORDER.indexOf(a);
     const bi = CAT_ORDER.indexOf(b);
     if (ai !== -1 && bi !== -1) return ai - bi;
@@ -43,6 +47,10 @@ function renderTabs() {
     if (bi !== -1) return 1;
     return CAT_LABELS[a].localeCompare(CAT_LABELS[b], 'cs');
   });
+}
+
+function renderTabs() {
+  const cats = sortCats(Object.keys(CAT_LABELS));
   const tabs = document.getElementById('tabs');
   tabs.innerHTML = `<button class="tab active" data-cat="all">Vše</button>` +
     cats.map(c => `<button class="tab" data-cat="${c}">${CAT_LABELS[c]}</button>`).join('');
@@ -306,14 +314,7 @@ function renderSetup() {
   const container = document.getElementById('setup-view');
   const q = normalize(document.getElementById('search').value.trim());
 
-  const cats = Object.keys(CAT_LABELS).sort((a, b) => {
-    const ai = CAT_ORDER.indexOf(a);
-    const bi = CAT_ORDER.indexOf(b);
-    if (ai !== -1 && bi !== -1) return ai - bi;
-    if (ai !== -1) return -1;
-    if (bi !== -1) return 1;
-    return CAT_LABELS[a].localeCompare(CAT_LABELS[b], 'cs');
-  });
+  const cats = sortCats(Object.keys(CAT_LABELS));
 
   const chips = cats.map(c => `
     <button class="setup-chip${setupSelectedCats.has(c) ? ' active' : ''}" data-cat="${c}">
