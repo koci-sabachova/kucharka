@@ -169,8 +169,8 @@
   {
     "id": "take-it-sloerr-n-a",
     "name": "Take it SloeRR N/A",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "broušený long",
     "garnish": "Zerowaste prach",
     "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
@@ -178,26 +178,32 @@
       "3cl (Švestkový sirup)",
       "6cl rebarbora roiboos cordial",
       "top Kolonne/Null Cuvée Blanc Espuma  cca 80ml"
+    ],
+    "tags": [
+      "signature_nealko"
     ]
   },
   {
     "id": "blueberry-fizz-n-a",
     "name": "Blueberry Fizz N/A",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "vínovka",
     "garnish": "rozmaryn",
     "method": "shake, double strain",
     "ingredients": [
       "3cl Jenny in the bottle",
       "3cl borůvkový cordial,Kolonne/Null Cuvée Blanc"
+    ],
+    "tags": [
+      "signature_nealko"
     ]
   },
   {
     "id": "buterfly-effect-n-a",
     "name": "Buterfly effect N/A",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "vínovka",
     "garnish": "microgreeens",
     "method": "build",
@@ -206,13 +212,16 @@
       "2cl Černý Bez Simple",
       "3 kapky Yuzu Bitters",
       "Top Up 4cl LC Tonic"
+    ],
+    "tags": [
+      "signature_nealko"
     ]
   },
   {
     "id": "granate-mermaid-n-a",
     "name": "Granate Mermaid N/A",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "vínovka",
     "garnish": "poník peel",
     "method": "build",
@@ -220,6 +229,9 @@
       "3cl samurai shot",
       "5cl mošt granátové jablko",
       "1cl simple sirup"
+    ],
+    "tags": [
+      "signature_nealko"
     ]
   },
   {
@@ -244,6 +256,38 @@
     "method": "Přímo do skla          separe                         Lahvička Fever Tree Tonic",
     "ingredients": [
       "4cl Cobraz Krajiny Gin 1ks Fever Tree Tonic"
+    ]
+  },
+  {
+    "id": "fizzy-sour",
+    "name": "FIZZY SOUR",
+    "category": "whiskey-sour-day",
+    "category_label": "whiskey sour day",
+    "glass": "broušená whiskovka",
+    "garnish": "kapky angostura bitters, lemon zest",
+    "method": "shake, double strain",
+    "ingredients": [
+      "4cl J.W. Black label",
+      "2cl Paragon Labdanum",
+      "1cl Lemon fresh",
+      "2cl Vegg white",
+      "top up Fever Tree Ginger Ale"
+    ]
+  },
+  {
+    "id": "single-long",
+    "name": "SINGLE LONG",
+    "category": "whiskey-sour-day",
+    "category_label": "whiskey sour day",
+    "glass": "hladká whiskovka",
+    "garnish": "orange zest",
+    "method": "shake, double strain, Vše až na J.W. double black do shakeru, nahoru na float nalít J.W.",
+    "ingredients": [
+      "4cl Singleton 12y",
+      "2cl Oolong Cordial",
+      "dash Orange Bitters",
+      "2cl Vegg white",
+      "1cl J.W. Double Black"
     ]
   },
   {

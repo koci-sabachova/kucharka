@@ -96,6 +96,17 @@ function buildColumnMap(headerRow) {
   return map;
 }
 
+// Typing the tab's own name in the Kategorie column (e.g. "Signatures aktual")
+// should land back on that same tab, not create a near-duplicate category —
+// resolve by slug against the source's own default before minting a new one.
+function resolveNamedCategory(text, defaultCategory, defaultLabel) {
+  const s = slug(text);
+  if (s === defaultCategory || s === slug(defaultLabel)) {
+    return { category: defaultCategory, label: defaultLabel };
+  }
+  return { category: s, label: text };
+}
+
 function parseSheet(csvPath, defaultCategory, defaultLabel, nealkoCategory) {
   const text = fs.readFileSync(csvPath, 'utf8');
   const rows = parseCSV(text);
@@ -141,9 +152,12 @@ function parseSheet(csvPath, defaultCategory, defaultLabel, nealkoCategory) {
     let category, category_label;
     const tags = [];
     if (namedParts.length > 0) {
-      category = slug(namedParts[0]);
-      category_label = namedParts[0];
-      for (let j = 1; j < namedParts.length; j++) tags.push(slug(namedParts[j]));
+      const home = resolveNamedCategory(namedParts[0], defaultCategory, defaultLabel);
+      category = home.category;
+      category_label = home.label;
+      for (let j = 1; j < namedParts.length; j++) {
+        tags.push(resolveNamedCategory(namedParts[j], defaultCategory, defaultLabel).category);
+      }
       if (hasNealko) tags.push(nealkoTagValue);
     } else if (hasNealko && nealkoCategory) {
       category = nealkoCategory.category;
