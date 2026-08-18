@@ -96,7 +96,7 @@ function buildColumnMap(headerRow) {
   return map;
 }
 
-function parseSheet(csvPath, defaultCategory, defaultLabel) {
+function parseSheet(csvPath, defaultCategory, defaultLabel, nealkoCategory) {
   const text = fs.readFileSync(csvPath, 'utf8');
   const rows = parseCSV(text);
   const headerIdx = findHeaderRow(rows);
@@ -125,15 +125,34 @@ function parseSheet(csvPath, defaultCategory, defaultLabel) {
     if (!ingredientsRaw && !method) continue; // section header / junk
 
     // Category override from "Kategorie" column; otherwise use tab default.
-    // "Nealko" is additive (recipe keeps its home tab, plus shows under Nealko too)
-    // rather than replacing the category, unlike other overrides (Negroni, ...).
+    // Comma-separated values assign multiple categories: the first named one
+    // becomes the recipe's home category, any others become extra tags (the
+    // recipe shows under each). "Nealko" is special: for sources with a
+    // nealkoCategory it maps to that dedicated category (e.g. "Signature
+    // nealko") instead of the generic "nealko" tag — combined with another
+    // name (e.g. "Negroni, Nealko") it becomes an extra tag on top of that
+    // named home category, rather than replacing it.
     const overrideRaw = cols.categoryOver !== undefined ? (row[cols.categoryOver] || '').trim() : '';
-    const overrideSlug = overrideRaw ? slug(overrideRaw) : '';
-    const isNealko = overrideSlug === 'nealko';
+    const parts = overrideRaw ? overrideRaw.split(',').map((s) => s.trim()).filter(Boolean) : [];
+    const namedParts = parts.filter((p) => slug(p) !== 'nealko');
+    const hasNealko = parts.some((p) => slug(p) === 'nealko');
+    const nealkoTagValue = nealkoCategory ? nealkoCategory.category : 'nealko';
 
-    const category = (overrideRaw && !isNealko) ? overrideSlug : defaultCategory;
-    const category_label = (overrideRaw && !isNealko) ? overrideRaw : defaultLabel;
-    const tags = isNealko ? ['nealko'] : [];
+    let category, category_label;
+    const tags = [];
+    if (namedParts.length > 0) {
+      category = slug(namedParts[0]);
+      category_label = namedParts[0];
+      for (let j = 1; j < namedParts.length; j++) tags.push(slug(namedParts[j]));
+      if (hasNealko) tags.push(nealkoTagValue);
+    } else if (hasNealko && nealkoCategory) {
+      category = nealkoCategory.category;
+      category_label = nealkoCategory.label;
+    } else {
+      category = defaultCategory;
+      category_label = defaultLabel;
+      if (hasNealko) tags.push('nealko');
+    }
 
     seen.add(name);
     const ingredients = splitIngredients(ingredientsRaw);
@@ -158,12 +177,17 @@ function parseSheet(csvPath, defaultCategory, defaultLabel) {
 const ROOT = __dirname;
 const CSV_DIR = path.join(ROOT, 'csv');
 const sources = [
-  { file: 'signatures.csv',     category: 'signatures',     label: 'Signatures AKTUAL' },
+  {
+    file: 'signatures.csv',
+    category: 'signatures',
+    label: 'Signatures AKTUAL',
+    nealkoCategory: { category: 'signature_nealko', label: 'Signature nealko' },
+  },
   { file: 'old_signatures.csv', category: 'old_signatures', label: 'Staré signatures' },
   { file: 'world_classics.csv', category: 'world_classics', label: 'World classics' },
 ];
 
-const allDraft = sources.flatMap(s => parseSheet(path.join(CSV_DIR, s.file), s.category, s.label));
+const allDraft = sources.flatMap(s => parseSheet(path.join(CSV_DIR, s.file), s.category, s.label, s.nealkoCategory));
 
 // Deduplicate IDs by appending category suffix when colliding across categories
 const idCount = {};
@@ -171,7 +195,7 @@ allDraft.forEach(r => { idCount[r.id] = (idCount[r.id] || 0) + 1; });
 const idSeen = {};
 const all = allDraft.map(r => {
   if (idCount[r.id] > 1) {
-    const suffix = { signatures: '-sig', old_signatures: '-old', world_classics: '-classic' }[r.category] || '-2';
+    const suffix = { signatures: '-sig', old_signatures: '-old', world_classics: '-classic', signature_nealko: '-nealko' }[r.category] || '-2';
     idSeen[r.id] = (idSeen[r.id] || 0) + 1;
     if (idSeen[r.id] > 1) return { ...r, id: r.id + suffix };
   }
