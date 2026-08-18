@@ -70,8 +70,8 @@ body {
 /* ── TABS ── */
 .tabs {
   display: flex;
-  gap: 6px;
-  padding: 12px 20px 0;
+  gap: 4px;
+  padding: 12px 20px;
   overflow-x: auto;
   scrollbar-width: none;
   border-bottom: 1px solid var(--border);
@@ -79,23 +79,22 @@ body {
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
   flex-shrink: 0;
-  padding: 8px 16px;
-  border-radius: 8px 8px 0 0;
+  padding: 7px 14px;
+  border-radius: 999px;
   font-size: 14px;
   font-weight: 500;
   color: var(--muted);
   cursor: pointer;
-  border: none;
-  background: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
   font-family: var(--sans);
-  transition: color .15s, background .15s;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
+  transition: color .15s, background .15s, border-color .15s;
 }
-.tab:hover { color: var(--text); }
+.tab:hover { color: var(--text); border-color: var(--muted); }
 .tab.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 /* ── LIST ── */

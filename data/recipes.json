@@ -180,7 +180,7 @@
       "top Kolonne/Null Cuvée Blanc Espuma  cca 80ml"
     ],
     "tags": [
-      "signature_nealko"
+      "nealko"
     ]
   },
   {
@@ -196,7 +196,7 @@
       "3cl borůvkový cordial,Kolonne/Null Cuvée Blanc"
     ],
     "tags": [
-      "signature_nealko"
+      "nealko"
     ]
   },
   {
@@ -214,7 +214,7 @@
       "Top Up 4cl LC Tonic"
     ],
     "tags": [
-      "signature_nealko"
+      "nealko"
     ]
   },
   {
@@ -231,7 +231,7 @@
       "1cl simple sirup"
     ],
     "tags": [
-      "signature_nealko"
+      "nealko"
     ]
   },
   {
@@ -322,8 +322,8 @@
   {
     "id": "oolongova",
     "name": "Oolongová",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "limo glass",
     "garnish": "sušený citrus, bylinka",
     "method": "sirup, citron fresh, top soda, promíchat",
@@ -332,13 +332,16 @@
       "1cl citron fresh",
       "top soda",
       "promíchat"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "merunkova",
     "name": "Meruňková",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "",
     "garnish": "",
     "method": "sirup, citron fresh, top soda, promíchat",
@@ -347,13 +350,16 @@
       "1cl citron fresh",
       "top soda",
       "promíchat"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "cobri-zazvor",
     "name": "Cobří Zázvor",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "",
     "garnish": "",
     "method": "sirup, citron fresh, top soda, promíchat",
@@ -362,13 +368,16 @@
       "1cl citron fresh",
       "top soda",
       "promíchat"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "cobra-cola",
     "name": "Cobra Cola",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "",
     "garnish": "",
     "method": "sirup, citron fresh, top soda, promíchat",
@@ -377,13 +386,16 @@
       "1cl citron fresh",
       "top soda",
       "promíchat"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "piu-piu-malina-piu-piu-rakytnik",
     "name": "Piu  Piu Malina                     Piu Piu Rakytník",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "",
     "garnish": "",
     "method": "nejdřív soda, citron, pak sirupy",
@@ -391,6 +403,9 @@
       "4cl Sirup",
       "1cl citron fresh",
       "top soda"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
@@ -411,8 +426,8 @@
   {
     "id": "turkish-limonade",
     "name": "Turkish Limonade",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "Broušený long",
     "garnish": "Pomík kůra",
     "method": "přimo do skla",
@@ -422,13 +437,16 @@
       "2cl levandule sirup",
       "2dash pomeranč bitter",
       "top up soda"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "utopia-limonade",
     "name": "Utopia Limonade",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "hladká whiskovka",
     "garnish": "microgreeens",
     "method": "přímo do skla",
@@ -436,13 +454,16 @@
       "2cl utopia ocet",
       "1cl midsommar sirup",
       "top soda"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "sober-society-n-a",
     "name": "Sober Society (N/A)",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "longovka",
     "garnish": "Plátky grepu, tymian",
     "method": "Vše, až na sodu do šejkru, dolít sodou",
@@ -452,26 +473,32 @@
       "Grepový mošt 8cl",
       "citron 2cl",
       "soda na dolití"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "wannabe-gin-tonic-n-a",
     "name": "Wannabe Gin&Tonic (N/A)",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "GT goblet",
     "garnish": "Jablko, bylinka",
     "method": "přímo do skla na led",
     "ingredients": [
       "3cl Jenny in the Bottle",
       "1.5dl tonic double dutch"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "volante-spritz",
     "name": "Volante spritz",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "vinovka",
     "garnish": "plátek grepu",
     "method": "přímo do skla na led",
@@ -479,13 +506,16 @@
       "4cl volante",
       "8cl N/A cuvee blanc",
       "4cl soda"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {
     "id": "pina-colada-nealko",
     "name": "\"Piňa Colada\" Nealko",
-    "category": "signature_nealko",
-    "category_label": "Signature nealko",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "Broušený long",
     "garnish": "máta, pomík, třešeň, co najdeš hezkého",
     "method": "vše do shakeru, double strain",
@@ -493,6 +523,9 @@
       "3cl Sober spirits rum",
       "3cl kokos orgeat",
       "12cl SD ananas 1.5cl lime fresh"
+    ],
+    "tags": [
+      "nealko"
     ]
   },
   {

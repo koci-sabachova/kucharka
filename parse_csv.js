@@ -107,7 +107,7 @@ function resolveNamedCategory(text, defaultCategory, defaultLabel) {
   return { category: s, label: text };
 }
 
-function parseSheet(csvPath, defaultCategory, defaultLabel, nealkoCategory) {
+function parseSheet(csvPath, defaultCategory, defaultLabel) {
   const text = fs.readFileSync(csvPath, 'utf8');
   const rows = parseCSV(text);
   const headerIdx = findHeaderRow(rows);
@@ -138,16 +138,13 @@ function parseSheet(csvPath, defaultCategory, defaultLabel, nealkoCategory) {
     // Category override from "Kategorie" column; otherwise use tab default.
     // Comma-separated values assign multiple categories: the first named one
     // becomes the recipe's home category, any others become extra tags (the
-    // recipe shows under each). "Nealko" is special: for sources with a
-    // nealkoCategory it maps to that dedicated category (e.g. "Signature
-    // nealko") instead of the generic "nealko" tag — combined with another
-    // name (e.g. "Negroni, Nealko") it becomes an extra tag on top of that
-    // named home category, rather than replacing it.
+    // recipe shows under each). "Nealko" is always additive — the recipe
+    // keeps its home category and also gets the shared "nealko" tag, so
+    // every non-alcoholic drink from every source ends up in one Nealko tab.
     const overrideRaw = cols.categoryOver !== undefined ? (row[cols.categoryOver] || '').trim() : '';
     const parts = overrideRaw ? overrideRaw.split(',').map((s) => s.trim()).filter(Boolean) : [];
     const namedParts = parts.filter((p) => slug(p) !== 'nealko');
     const hasNealko = parts.some((p) => slug(p) === 'nealko');
-    const nealkoTagValue = nealkoCategory ? nealkoCategory.category : 'nealko';
 
     let category, category_label;
     const tags = [];
@@ -158,15 +155,11 @@ function parseSheet(csvPath, defaultCategory, defaultLabel, nealkoCategory) {
       for (let j = 1; j < namedParts.length; j++) {
         tags.push(resolveNamedCategory(namedParts[j], defaultCategory, defaultLabel).category);
       }
-      if (hasNealko) tags.push(nealkoTagValue);
-    } else if (hasNealko && nealkoCategory) {
-      category = nealkoCategory.category;
-      category_label = nealkoCategory.label;
     } else {
       category = defaultCategory;
       category_label = defaultLabel;
-      if (hasNealko) tags.push('nealko');
     }
+    if (hasNealko) tags.push('nealko');
 
     seen.add(name);
     const ingredients = splitIngredients(ingredientsRaw);

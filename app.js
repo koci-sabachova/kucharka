@@ -2,7 +2,7 @@ let recipes = [], bottles = [], currentTab = 'all', currentView = 'recipes';
 const CAT_LABELS = {};
 
 // Preferred display order; unknown categories go to the end, alphabetical by label.
-const CAT_ORDER = ['signatures', 'negroni', 'signature_nealko', 'nealko', 'old_signatures', 'world_classics'];
+const CAT_ORDER = ['signatures', 'negroni', 'nealko', 'world_classics', 'old_signatures'];
 
 // Setup view state: which categories are included in the ingredient overview.
 const setupSelectedCats = new Set(['signatures']);
@@ -101,10 +101,18 @@ function renderList() {
   });
 }
 
+// Nealko badge shown alongside the primary category badge, so a recipe stays
+// in its home tab (Signatures AKTUAL, World classics, ...) but is still
+// visibly flagged as non-alcoholic.
+function nealkoBadge(r) {
+  if (!(r.tags || []).includes('nealko') || r.category === 'nealko') return '';
+  return `<span class="cat-badge cat-nealko">${CAT_LABELS.nealko || 'Nealko'}</span>`;
+}
+
 function recipeCard(r) {
   return `<div class="recipe-card" data-id="${r.id}">
     <div>
-      <div class="recipe-card-name">${r.name}<span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${(r.tags || []).includes('nealko') && r.category !== 'nealko' ? `<span class="cat-badge cat-nealko">${CAT_LABELS.nealko}</span>` : ''}</div>
+      <div class="recipe-card-name">${r.name}<span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${nealkoBadge(r)}</div>
       <div class="recipe-card-meta">${r.glass} · ${r.method}</div>
     </div>
     <svg class="recipe-card-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -126,7 +134,7 @@ function openRecipe(id) {
     </button>
 
     <div class="detail-name">${r.name}</div>
-    <div class="detail-cat"><span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${(r.tags || []).includes('nealko') && r.category !== 'nealko' ? `<span class="cat-badge cat-nealko">${CAT_LABELS.nealko}</span>` : ''}</div>
+    <div class="detail-cat"><span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${nealkoBadge(r)}</div>
 
     <div class="detail-meta-row">
       <div class="detail-meta-item"><span>Sklenice</span>${r.glass}</div>
