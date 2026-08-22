@@ -125,8 +125,17 @@ body {
   -webkit-user-select: none;
 }
 .recipe-card:hover, .recipe-card:active { border-color: var(--accent); background: var(--surface2); }
+.recipe-card-body { min-width: 0; flex: 1; }
 .recipe-card-name { font-size: 18px; font-weight: 500; }
 .recipe-card-meta { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.recipe-card-ingredients {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .recipe-card-arrow { color: var(--muted); flex-shrink: 0; margin-left: 12px; }
 .cat-badge {
   display: inline-block;

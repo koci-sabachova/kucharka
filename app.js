@@ -119,9 +119,10 @@ function nealkoBadge(r) {
 
 function recipeCard(r) {
   return `<div class="recipe-card" data-id="${r.id}">
-    <div>
+    <div class="recipe-card-body">
       <div class="recipe-card-name">${r.name}<span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${nealkoBadge(r)}</div>
       <div class="recipe-card-meta">${r.glass} · ${r.method}</div>
+      <div class="recipe-card-ingredients">${(r.ingredients || []).join(', ')}</div>
     </div>
     <svg class="recipe-card-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
   </div>`;
