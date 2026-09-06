@@ -259,35 +259,18 @@
     ]
   },
   {
-    "id": "fizzy-sour",
-    "name": "FIZZY SOUR",
-    "category": "whiskey-sour-day",
-    "category_label": "whiskey sour day",
-    "glass": "broušená whiskovka",
-    "garnish": "kapky angostura bitters, lemon zest",
-    "method": "shake, double strain",
+    "id": "gin-tell",
+    "name": "GIN & TELL",
+    "category": "koktejlovy-obcasnik",
+    "category_label": "KOKTEJLOVÝ OBČASNÍK",
+    "glass": "vínovka",
+    "garnish": "plátek citronu",
+    "method": "build",
     "ingredients": [
-      "4cl J.W. Black label",
-      "2cl Paragon Labdanum",
-      "1cl Lemon fresh",
-      "2cl Vegg white",
-      "top up Fever Tree Ginger Ale"
-    ]
-  },
-  {
-    "id": "single-long",
-    "name": "SINGLE LONG",
-    "category": "whiskey-sour-day",
-    "category_label": "whiskey sour day",
-    "glass": "hladká whiskovka",
-    "garnish": "orange zest",
-    "method": "shake, double strain, Vše až na J.W. double black do shakeru, nahoru na float nalít J.W.",
-    "ingredients": [
-      "4cl Singleton 12y",
-      "4cl Oolong Cordial",
-      "dash Orange Bitters",
-      "2cl Vegg white",
-      "1cl J.W. Double Black"
+      "3cl tanqueray gin",
+      "1cl lime fresh",
+      "1cl bergamot cordial",
+      "top double dutch double lemon"
     ]
   },
   {
