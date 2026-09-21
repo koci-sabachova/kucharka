@@ -606,6 +606,21 @@
     ]
   },
   {
+    "id": "princessgroni",
+    "name": "PrincessGroni",
+    "category": "negroni",
+    "category_label": "Negroni",
+    "glass": "uzky long",
+    "garnish": "Zatim bud bez garnishe nebo susene mango",
+    "method": "Vše do uzkeho longu na dlouhou kostu",
+    "ingredients": [
+      "2cl Fiesta gin",
+      "2cl Vermuth 1757",
+      "1cl campari",
+      "Mango soda (1,5ccl/litr) naperlit v soda streamu"
+    ]
+  },
+  {
     "id": "cctv-old",
     "name": "CCTV",
     "category": "old_signatures",
