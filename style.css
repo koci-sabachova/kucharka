@@ -510,6 +510,7 @@ body {
   transition: color .15s;
 }
 .nav-btn svg { transition: color .15s; }
+a.nav-btn { text-decoration: none; }
 .nav-btn.active { color: var(--accent); }
 
 /* ── EMPTY STATE ── */

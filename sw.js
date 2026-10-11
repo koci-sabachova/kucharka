@@ -1,5 +1,5 @@
-const CACHE = 'cobra-kucharka-v4';
-const FILES = ['/', '/index.html', '/style.css', '/app.js', '/data/recipes.json', '/data/lahve_db.json'];
+const CACHE = 'cobra-kucharka-v5';
+const FILES = ['/', '/index.html', '/style.css', '/app.js', '/data/recipes.json', '/data/lahve_db.json', '/manual.html'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)));
