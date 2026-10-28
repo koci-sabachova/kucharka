@@ -522,28 +522,34 @@ function categoryCsv(category, drinks) {
 // Finds the single soonest deadline across every year/category so it can be
 // surfaced everywhere in Koncepty — urgency shouldn't depend on having
 // drilled into the right year first.
+// Upcoming deadlines take priority over overdue ones — an overdue category
+// would otherwise permanently win "nearest" (its diffDays only gets more
+// negative) and bury anything actually coming up, like the 1.11. switch.
 function nearestDeadline() {
-  let best = null;
+  let bestUpcoming = null, bestOverdue = null;
   concepts.years.forEach(y => (y.categories || []).forEach(c => {
     if (!c.deadline) return;
     const d = new Date(c.deadline + 'T00:00:00');
     const now = new Date(); now.setHours(0, 0, 0, 0);
     const diffDays = Math.round((d - now) / 86400000);
-    if (!best || diffDays < best.diffDays) best = { year: y, category: c, diffDays };
+    const entry = { year: y, category: c, diffDays };
+    if (diffDays >= 0) { if (!bestUpcoming || diffDays < bestUpcoming.diffDays) bestUpcoming = entry; }
+    else { if (!bestOverdue || diffDays > bestOverdue.diffDays) bestOverdue = entry; }
   }));
-  return best;
+  return bestUpcoming || bestOverdue;
 }
 
 function deadlineBannerHtml() {
   const info = nearestDeadline();
   if (!info) return '';
   const { diffDays, category } = info;
-  const urgent = diffDays <= 1;
-  const label = diffDays < 0 ? `Po termínu (${Math.abs(diffDays)} dní)`
+  const overdue = diffDays < 0;
+  const urgent = diffDays === 0 || diffDays === 1;
+  const label = overdue ? `Po termínu (${Math.abs(diffDays)} dní)`
     : diffDays === 0 ? 'Deadline dnes'
     : diffDays === 1 ? 'Deadline zítra'
     : `${diffDays} dní do deadline`;
-  return `<div class="concept-deadline-banner${urgent ? ' urgent' : ''}" data-year="${escAttr(info.year.id)}" data-cat="${escAttr(category.id)}">
+  return `<div class="concept-deadline-banner${urgent ? ' urgent' : ''}${overdue ? ' overdue' : ''}" data-year="${escAttr(info.year.id)}" data-cat="${escAttr(category.id)}">
     <span class="concept-deadline-count">${label}</span>
     <span class="concept-deadline-name">${esc(category.name)}</span>
   </div>`;
