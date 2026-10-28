@@ -2,7 +2,7 @@ let recipes = [], bottles = [], currentTab = 'all', currentView = 'recipes';
 const CAT_LABELS = {};
 
 // Preferred display order; unknown categories go to the end, alphabetical by label.
-const CAT_ORDER = ['signatures', 'negroni', 'nealko', 'world_classics', 'old_signatures'];
+const CAT_ORDER = ['svatek-mrtvych', 'signatures', 'negroni', 'nealko', 'world_classics', 'old_signatures'];
 
 // Setup view state: which categories are included in the ingredient overview.
 const setupSelectedCats = new Set(['signatures']);
