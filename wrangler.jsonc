@@ -1,13 +1,24 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cobra-kucharka",
+  "main": "worker.js",
   "compatibility_date": "2026-06-03",
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
   },
+  "kv_namespaces": [
+    {
+      "binding": "CONCEPTS",
+      "id": "199f1950b82e4a0f8daf95e5589cede7"
+    }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ]
