@@ -621,6 +621,54 @@
     ]
   },
   {
+    "id": "corps-revival-no-4-c",
+    "name": "Corps revival No.4 (c)",
+    "category": "svatek-mrtvych",
+    "category_label": "Svátek mrtvých",
+    "glass": "N&N",
+    "garnish": "Lemon peal coffin ( luxardo cherry rim )",
+    "method": "Stir",
+    "ingredients": [
+      "3 cl Tequila Tres Alegres Compadres Reposado",
+      "2 cl Lillet Balnc",
+      "1 cl Clément Shrubb Orange",
+      "2 cl citron",
+      "0.5 cl Absinthe St. Antoine"
+    ],
+    "description": "Autor: Verča. Stir . Strain"
+  },
+  {
+    "id": "dark-society",
+    "name": "Dark society",
+    "category": "svatek-mrtvych",
+    "category_label": "Svátek mrtvých",
+    "glass": "Broušená longovka",
+    "garnish": "Candy",
+    "method": "Shake",
+    "ingredients": [
+      "4 cl Rebellion spiced rum",
+      "2 cl Campari",
+      "1 cl Meruňka",
+      "8 cl Grep Mošt"
+    ],
+    "description": "Autor: Verča"
+  },
+  {
+    "id": "what-pumpkin-patch",
+    "name": "What pumpkin patch ?",
+    "category": "svatek-mrtvych",
+    "category_label": "Svátek mrtvých",
+    "glass": "Hladká whiskovka",
+    "garnish": "Perničky  ( koupené , nebo pečené )",
+    "method": "Build, jako caiprinia",
+    "ingredients": [
+      "Flor de Caña Extra Seco 4y",
+      "1 ks limeta",
+      "4 cl Pumpkin spiced Mrkvový mošt"
+    ],
+    "description": "Autor: Verča. 300ml mrkvového moštu , 20g pumpking spice mix ( skořice , hřebíček, muškátový oříšek,sušený zázvor,badyán) 100g tmavý cukr . Nechat přejít varem - nechat vychladnout a scedit ."
+  },
+  {
     "id": "cctv-old",
     "name": "CCTV",
     "category": "old_signatures",
