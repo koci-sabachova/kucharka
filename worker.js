@@ -11,7 +11,9 @@ const SHEET_ID = '1faFus0esZ82J6PjbzuEcImDIqqxkz6GF8vApY2zNsd4';
 // actually live in the app. Resolve the current title by gid at push time
 // instead of hardcoding a title string that goes stale on the next rename.
 const LIVE_SHEET_GID = 248177041;
+const OLD_SHEET_GID = 1744802255; // "OLD signatures" tab (GID_OLD_SIGNATURES in the sync workflow)
 const SHEET_COLS = 11; // A..K, matches csv/signatures.csv column count
+const OLD_SHEET_COLS = 7; // A..G: '', Název, Složení, Postup, Sklo, Garnýž, Autor — different order/columns than Signatures
 
 // One-off 1.11.2026 swap: retire the current "SIGNATURES AKTUAL" rows and
 // replace them with the 10YO podzim/zima menu. Kept as a single dedicated
@@ -104,10 +106,13 @@ async function resolveSheetTitle(authHeader, gid) {
 // narrower than the given range (data landed 8 columns too far right).
 // Instead: read column B to find the first truly empty row ourselves, then
 // values.update an explicit A{row}:K{row+n} range — no ambiguity left.
-async function appendToSheet(env, rows) {
+// gid/numCols let this target either Signatures (11 cols) or OLD signatures
+// (7 cols, different column order) — whichever tab the rows are already
+// shaped for.
+async function appendToSheet(env, rows, gid = LIVE_SHEET_GID, numCols = SHEET_COLS) {
   const token = await getGoogleAccessToken(env);
   const authHeader = { authorization: `Bearer ${token}` };
-  const sheetName = await resolveSheetTitle(authHeader, LIVE_SHEET_GID);
+  const sheetName = await resolveSheetTitle(authHeader, gid);
 
   const colBRes = await fetch(
     `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(`'${sheetName}'!B:B`)}`,
@@ -117,7 +122,7 @@ async function appendToSheet(env, rows) {
   if (!colBRes.ok) throw new Error(colBData.error?.message || 'Nepodařilo se přečíst list.');
   const nextRow = (colBData.values?.length || 0) + 1;
 
-  const range = `'${sheetName}'!A${nextRow}:${String.fromCharCode(64 + SHEET_COLS)}${nextRow + rows.length - 1}`;
+  const range = `'${sheetName}'!A${nextRow}:${String.fromCharCode(64 + numCols)}${nextRow + rows.length - 1}`;
   const res = await fetch(
     `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`,
     {
@@ -129,6 +134,14 @@ async function appendToSheet(env, rows) {
   const data = await res.json();
   if (!res.ok) throw new Error(data.error?.message || 'Sheets API zápis selhal.');
   return { updates: { updatedRows: data.updatedRows } };
+}
+
+// Signatures row → OLD signatures row. Different column sets: OLD has no
+// Trvanlivost/Kategorie, and uses "Autor" where Signatures has the freer
+// "Poznámka autora" (carried over as-is — good enough, these were short).
+function toOldSignatureRow(row) {
+  const [, nazev, sklo, postup, slozeni, garnyz, poznamkaAutora] = row;
+  return ['', nazev, slozeni, postup, sklo, garnyz, poznamkaAutora];
 }
 
 export default {
@@ -206,11 +219,12 @@ export default {
         if (!allValsRes.ok) throw new Error(allVals.error?.message || 'Nepodařilo se přečíst list.');
         const values = allVals.values || [];
         const oldRowNumbers = [];
+        const oldRowsData = [];
         let alreadyDone = false;
         values.forEach((row, idx) => {
           const cat = (row[8] || '').trim();
           const name = (row[1] || '').trim();
-          if (OLD_SIGNATURE_TAGS.includes(cat)) oldRowNumbers.push(idx + 1);
+          if (OLD_SIGNATURE_TAGS.includes(cat)) { oldRowNumbers.push(idx + 1); oldRowsData.push(row); }
           if (name === 'The Pho?!' && cat === 'SIGNATURES AKTUAL') alreadyDone = true;
         });
 
@@ -221,6 +235,11 @@ export default {
 
         if (alreadyDone) {
           return json({ ok: true, note: 'Nové signatures už tam jsou, nic jsem neměnila.', oldRowsStillPresent: oldRowNumbers.length });
+        }
+
+        // Archive first (non-destructive) — if this fails, nothing's lost yet.
+        if (oldRowsData.length) {
+          await appendToSheet(env, oldRowsData.map(toOldSignatureRow), OLD_SHEET_GID, OLD_SHEET_COLS);
         }
 
         if (oldRowNumbers.length) {
@@ -237,7 +256,12 @@ export default {
         }
 
         const appendResult = await appendToSheet(env, NEW_SIGNATURE_ROWS);
-        return json({ ok: true, deletedOldRows: oldRowNumbers.length, insertedNewRows: appendResult.updates.updatedRows ?? NEW_SIGNATURE_ROWS.length });
+        return json({
+          ok: true,
+          archivedOldRows: oldRowsData.length,
+          deletedOldRows: oldRowNumbers.length,
+          insertedNewRows: appendResult.updates.updatedRows ?? NEW_SIGNATURE_ROWS.length,
+        });
       } catch (err) {
         return json({ error: err.message || 'Výměna signatures selhala.' }, 502);
       }
