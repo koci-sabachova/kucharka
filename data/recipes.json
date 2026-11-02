@@ -16,223 +16,244 @@
     ]
   },
   {
-    "id": "wild-kentucky-apricot",
-    "name": "Wild Kentucky apricot",
+    "id": "the-pho",
+    "name": "The Pho?!",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "hladká whiskovka",
-    "garnish": "Tymiánovy olej . Sůl a pepř raznice C na kvádr ledu",
-    "method": "Stire down in mixing glass, pour over ice block with dimple in the top ( C) drop few thyme oil drops into the dimple- crack salt and pepper on the top and place the small thyme sprig over",
+    "glass": "Vysoká Nick'n'Nora + miska na pho",
+    "garnish": "Smažené rýžové nudle, chilli-lime gel, koriandrový olej",
+    "method": "Stir",
     "ingredients": [
-      "4cl wild turkey 101",
-      "2cl bitter truth apricot",
-      "1cl něco jako citron",
-      "2dsh peach bitters",
-      "Couple drops of thyme oil",
-      "salt & pepper and thyme sprig"
-    ]
-  },
-  {
-    "id": "summerkick-26",
-    "name": "SummerKick `26",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
-    "glass": "hladký long",
-    "garnish": "Snítka máty, sušené ovoce",
-    "method": "build",
-    "ingredients": [
-      "3cl Becherovka",
-      "2cl Campari",
-      "0.5cl limeta",
-      "dolít kombuchou"
-    ]
-  },
-  {
-    "id": "martini-me-please",
-    "name": "Martini me please",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
-    "glass": "hladká whiskovka",
-    "garnish": "Opálená meruňka",
-    "method": "stir",
-    "ingredients": [
-      "3cl San Cosme Mezcal",
-      "3cl Apricot vermouth (infuze Cinzano 1757",
-      "Noilly Prat dry)"
-    ]
-  },
-  {
-    "id": "take-it-sloeer",
-    "name": "Take it SloeER",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
-    "glass": "broušený long",
-    "garnish": "Zerowaste prach",
-    "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
-    "ingredients": [
-      "3cl Ginbery's sloe gin",
-      "6cl rebarbora roiboos cordial",
-      "top prosecco Espuma (cca 100ml?)"
-    ]
-  },
-  {
-    "id": "cctv",
-    "name": "CCTV²",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
-    "glass": "Nick Nora",
-    "garnish": "Pomerančový olej",
-    "method": "shake, double strain",
-    "ingredients": [
-      "4cl Tres Alegres Compadres blanco",
-      "4cl okurkovo koriandrový cordial"
-    ]
-  },
-  {
-    "id": "blueberry-fizz",
-    "name": "blueberry fizz",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
-    "glass": "vínovka",
-    "garnish": "rozmaryn",
-    "method": "shake, double strain",
-    "ingredients": [
-      "3cl GinJane Landcraft",
-      "4cl borůvkový coridial",
-      "Top up Kliment Cidre Extra brut Barik 2018"
-    ]
-  },
-  {
-    "id": "handle-with-care",
-    "name": "Handle With Care",
-    "category": "signatures",
-    "category_label": "Signatures AKTUAL",
-    "glass": "hluboká coupette",
-    "garnish": "kokosový vzduch",
-    "method": "shake, double strain na 4kostky ledu, top kokosový vzduch",
-    "ingredients": [
-      "2cl Don Papa Alon",
-      "2cl Rebellion spiced rum",
-      "1cl Cargo Cult Banana spiced rum",
-      "2cl Kokosový Orgeat",
-      "2cl Lime Fresh",
-      "3cl Brusinkový mošt"
+      "5 cl Seven Vodka",
+      "1 cl Bitter Truth Pimento",
+      "3 kapky umami bitters",
+      "80 ml pho vývar (podává se vedle)"
     ],
-    "description": "Roztok na kokosový vzduch najdeš v šuplíku nebo v generál mrazáku.\nRecept na kokosový vzduch. ( 15cl tekutiny) na= 13cl kokos ogreat, 2cl neco jako limeta, 0,5cl salsol na (2g lecitinu)"
+    "description": "Autor: Honza (2016)"
   },
   {
-    "id": "moongroni",
-    "name": "Moongroni",
+    "id": "more-fashion-than-passion",
+    "name": "More fashion than passion",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
+    "glass": "Velká cupeta",
+    "garnish": "Marakujová laskonka (meringue) s proseccem, marakujový gel, sušená růže",
+    "method": "Shake and strain on ice",
+    "ingredients": [
+      "2 cl Pisco Demonio",
+      "2 cl Amaro Montenegro",
+      "2 cl MUYU Chinotto Nero",
+      "3 cl džus z marakuji",
+      "2 cl citronová šťáva",
+      "2 cl Vegg white"
+    ],
+    "description": "Autor: Veronika (2017). Alergeny: vejce (laskonka)"
+  },
+  {
+    "id": "bloody-repa",
+    "name": "Bloody řepa",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
+    "glass": "Úzký long",
+    "garnish": "Chilli sůl",
+    "method": "Rolling",
+    "ingredients": [
+      "3 cl Mezcal San Cosme",
+      "1 cl Apollo Nova",
+      "2 dash celery bitters",
+      "8 cl rajčatová voda",
+      "chilli sůl na okraj"
+    ],
+    "description": "Autor: Miki (2018). Příprava s vermuty: 100 ml Cinzano 1757, 100 ml Noilly Prat Original Dry, 15 g sušených meruněk. Zavakuovat na 24 h v teplé místnosti, poté přefiltrovat."
+  },
+  {
+    "id": "roman-holiday",
+    "name": "Roman Holiday",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
+    "glass": "Broušený long",
+    "garnish": "Bazalka",
+    "method": "Shake, double strain, dolít proseccem, top espuma",
+    "ingredients": [
+      "2 cl Kafka Pink Gin",
+      "2 cl Artspritz",
+      "8 cl Prosecco Riondo",
+      "1 cl sirup z kustovnice čínské (goji)",
+      "1 cl limeta super juice",
+      "4 cl Stará Dáma brusinkový mošt",
+      "top bazalková espuma"
+    ],
+    "description": "Autor: Tom (2019)"
+  },
+  {
+    "id": "hot-figs",
+    "name": "Hot Figs",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
+    "glass": "Čajový šálek",
+    "garnish": "—",
+    "method": "Build",
+    "ingredients": [
+      "3 cl Johnnie Walker Black Label",
+      "100 ml fíkový čaj s galangalem a sečuánským pepřem",
+      "melasa bitters (v tabulce s otazníkem)"
+    ],
+    "description": "Autor: Honza (2020)"
+  },
+  {
+    "id": "bubbles-of-chamomile",
+    "name": "Bubbles of Chamomile",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
+    "glass": "Highball",
+    "garnish": "Kandovaný zázvor",
+    "method": "Build",
+    "ingredients": [
+      "3 cl Laird's Applejack 86",
+      "2 cl kořeněný jablečný cordial",
+      "100 ml heřmánková soda"
+    ],
+    "description": "Autor: Honza (2021)"
+  },
+  {
+    "id": "blackquiri",
+    "name": "Blackquiri",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
+    "glass": "Claret glass",
+    "garnish": "Prach na skle z uzené soli a lyofilizovaných ostružin",
+    "method": "Shake, double strain",
+    "ingredients": [
+      "5 cl Flor de Caña 4 y.o",
+      "4 cl kořeněný ostružinový cordial",
+      "2 dash orange bitters"
+    ],
+    "description": "Autor: Ondra (2022). Ostružinový cordial: ostružiny (Ponthier pyré), tymián, fenykl, bílý pepř, semínka koriandru, hřebíček, limetové kůry. Alergeny: sójové boby (sója) a výrobky z nich"
+  },
+  {
+    "id": "green-deal",
+    "name": "Green? Deal!",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
     "glass": "Broušená whiskovka",
-    "garnish": "zástřik měsíčkovým parfíémem",
-    "method": "stir na kvádr ledu",
+    "garnish": "Matcha pěna",
+    "method": "Hard shake, double strain, navrstvit pěnu",
     "ingredients": [
-      "3cl Cobraz Krajiny Landcraft",
-      "4cl Cinzano Rosso 1757 vermuth",
-      "2cl Campari",
-      "Měsíček lékařský infuze",
-      "zástřik měsíčkovým parfíémem"
-    ]
+      "4 cl Garage 22 Kiwi Gin (kiwi řapík)",
+      "2 cl kiwi-estragonový cordial",
+      "1.5 cl Landcraft #Circular Orange",
+      "matcha pěna"
+    ],
+    "description": "Autor: Honza (2023)"
   },
   {
-    "id": "say-hi-to-biooko",
-    "name": "Say Hi To BioOko",
+    "id": "graveyard-of-domino-s",
+    "name": "Graveyard of Domino's",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "vínovka",
-    "garnish": "Grepový peel",
-    "method": "build",
+    "glass": "Čtyřhranná whiskovka",
+    "garnish": "Nastrouhaná tonka",
+    "method": "Hard shake, double strain, nastrouhat tonku",
     "ingredients": [
-      "3cl Seven Vodka",
-      "0.5cl Amaretto Disaronno",
-      "5cl oolong cordial",
-      "10cl grepová sofa"
-    ]
+      "4 cl Tres Alegres Compadres Blanco",
+      "3 cl kořeněný mrkvový cordial",
+      "2 cl Vegg white",
+      "agáve"
+    ],
+    "description": "Autor: Ondra (2024). Mrkvový cordial: mrkev, galangal, kafrový list, skořice, kurkuma."
   },
   {
-    "id": "feeling-blue-ish",
-    "name": "Feeling blue - ish",
+    "id": "blind-cobra",
+    "name": "Blind Cobra",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "Nick Nora",
-    "garnish": "Okurkové kuličky na napichovátku",
-    "method": "stir martini style with top",
+    "glass": "Hliněný hrnek, podšálek, doily s razítkem Blind Cobra",
+    "garnish": "Pralinka z hořké čokolády s broskvovo-mátovou náplní",
+    "method": "Shake and pour on ice block",
     "ingredients": [
-      "3cl haymans gin",
-      "1cl frangelico",
-      "1cl motyli syrup",
-      "top proseccco espuma"
-    ]
+      "3 cl Bulleit Bourbon",
+      "2 cl broskvový likér Juliette",
+      "1 cl Fernet Branca Menta",
+      "1 cl lemon acid (citrónová kyselina)",
+      "2 dash peach bitters"
+    ],
+    "description": "Autor: Veronika (2025)"
   },
   {
-    "id": "take-it-sloerr-n-a",
-    "name": "Take it SloeRR N/A",
+    "id": "bubbles-of-chamomile-n-a",
+    "name": "Bubbles of Chamomile N/A",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "broušený long",
-    "garnish": "Zerowaste prach",
-    "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
+    "glass": "Highball",
+    "garnish": "Kandovaný zázvor",
+    "method": "Build",
     "ingredients": [
-      "3cl (Švestkový sirup)",
-      "6cl rebarbora roiboos cordial",
-      "top Kolonne/Null Cuvée Blanc Espuma  cca 80ml"
+      "2 cl Sober Spirit W",
+      "3 cl kořeněný jablečný cordial",
+      "100 ml heřmánková soda"
     ],
     "tags": [
       "nealko"
-    ]
+    ],
+    "description": "Nealko verze – Autor: Honza (2021)"
   },
   {
-    "id": "blueberry-fizz-n-a",
-    "name": "Blueberry Fizz N/A",
+    "id": "green-deal-n-a",
+    "name": "Green? Deal! N/A",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "vínovka",
-    "garnish": "rozmaryn",
-    "method": "shake, double strain",
+    "glass": "Broušená whiskovka",
+    "garnish": "Matcha pěna",
+    "method": "Hard shake, double strain, navrstvit pěnu",
     "ingredients": [
-      "3cl Jenny in the bottle",
-      "3cl borůvkový cordial,Kolonne/Null Cuvée Blanc"
+      "3 cl Tanqueray 0%",
+      "3 cl kiwi-estragonový cordial",
+      "1 cl Roots Divino Rosso",
+      "matcha pěna"
     ],
     "tags": [
       "nealko"
-    ]
+    ],
+    "description": "Nealko verze – Autor: Honza (2023)"
   },
   {
-    "id": "buterfly-effect-n-a",
-    "name": "Buterfly effect N/A",
+    "id": "roman-holiday-n-a",
+    "name": "Roman Holiday N/A",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "vínovka",
-    "garnish": "microgreeens",
-    "method": "build",
+    "glass": "Broušený long",
+    "garnish": "Bazalka",
+    "method": "Shake, double strain",
     "ingredients": [
-      "1dc Euforie",
-      "2cl Černý Bez Simple",
-      "3 kapky Yuzu Bitters",
-      "Top Up 4cl LC Tonic"
+      "2 cl Jenny in the Bottle",
+      "1 cl Redbitter",
+      "8 cl Kolonne Null Cuvée Blanc",
+      "1 cl goji sirup",
+      "1 cl limeta super juice",
+      "4 cl Stará Dáma brusinkový mošt",
+      "top bazalková espuma"
     ],
     "tags": [
       "nealko"
-    ]
+    ],
+    "description": "Nealko verze – Autor: Tom (2019)"
   },
   {
-    "id": "granate-mermaid-n-a",
-    "name": "Granate Mermaid N/A",
+    "id": "blind-cobra-n-a",
+    "name": "Blind Cobra N/A",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "vínovka",
-    "garnish": "poník peel",
-    "method": "build",
+    "glass": "Hliněný hrnek, podšálek, doily",
+    "garnish": "Pralinka z hořké čokolády s broskvovo-mátovou náplní",
+    "method": "Shake and strain on ice block",
     "ingredients": [
-      "3cl samurai shot",
-      "5cl mošt granátové jablko",
-      "1cl simple sirup"
+      "4 cl Sober Spirit W",
+      "5 cl cordial z mátového čaje a broskve"
     ],
     "tags": [
       "nealko"
-    ]
+    ],
+    "description": "Nealko verze – Autor: Veronika (2025)"
   },
   {
     "id": "cobrazgroni",
@@ -669,7 +690,7 @@
     "description": "Autor: Verča. 300ml mrkvového moštu , 20g pumpking spice mix ( skořice , hřebíček, muškátový oříšek,sušený zázvor,badyán) 100g tmavý cukr . Nechat přejít varem - nechat vychladnout a scedit ."
   },
   {
-    "id": "cctv-old",
+    "id": "cctv",
     "name": "CCTV",
     "category": "old_signatures",
     "category_label": "Staré signatures",
@@ -762,7 +783,7 @@
     "description": "Patrik"
   },
   {
-    "id": "blueberry-fizz-old",
+    "id": "blueberry-fizz",
     "name": "BLUEBERRY FIZZ",
     "category": "old_signatures",
     "category_label": "Staré signatures",
@@ -1174,6 +1195,175 @@
       "8cl Grepový mošt",
       "1.5cl citron",
       "soda na dolití"
+    ]
+  },
+  {
+    "id": "wild-kentucky-apricot",
+    "name": "Wild Kentucky apricot",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "4cl wild turkey 101, 2cl bitter truth apricot, 1cl něco jako citron , 2dsh peach bitters, Couple drops of thyme oil, salt & pepper and thyme sprig",
+    "garnish": "Tymiánovy olej . Sůl a pepř raznice C na kvádr ledu",
+    "method": "Stire down in mixing glass, pour over ice block with dimple in the top ( C) drop few thyme oil drops into the dimple- crack salt and pepper on the top and place the small thyme sprig over",
+    "ingredients": [
+      "hladká whiskovka"
+    ]
+  },
+  {
+    "id": "summerkick-26",
+    "name": "SummerKick `26",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl Becherovka, 2cl Campari, 0",
+    "garnish": "Snítka máty, sušené ovoce",
+    "method": "build",
+    "ingredients": [
+      "hladký long"
+    ]
+  },
+  {
+    "id": "martini-me-please",
+    "name": "Martini me please",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl San Cosme Mezcal, 3cl Apricot vermouth",
+    "garnish": "Opálená meruňka",
+    "method": "stir",
+    "ingredients": [
+      "hladká whiskovka"
+    ]
+  },
+  {
+    "id": "take-it-sloeer",
+    "name": "Take it SloeER",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl Ginbery's sloe gin, 6cl rebarbora roiboos cordial, top prosecco Espuma",
+    "garnish": "Zerowaste prach",
+    "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
+    "ingredients": [
+      "broušený long"
+    ]
+  },
+  {
+    "id": "cctv-old",
+    "name": "CCTV²",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "4cl Tres Alegres Compadres blanco, 4cl okurkovo koriandrový cordial",
+    "garnish": "Pomerančový olej",
+    "method": "shake, double strain",
+    "ingredients": [
+      "Nick Nora"
+    ]
+  },
+  {
+    "id": "blueberry-fizz-old",
+    "name": "blueberry fizz",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl GinJane Landcraft\n4cl borůvkový coridial\nTop up Kliment Cidre Extra brut Barik 2018",
+    "garnish": "rozmaryn",
+    "method": "shake, double strain",
+    "ingredients": [
+      "vínovka"
+    ]
+  },
+  {
+    "id": "handle-with-care",
+    "name": "Handle With Care",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "2cl Don Papa Alon, 2cl Rebellion spiced rum, 1cl Cargo Cult Banana spiced rum, 2cl Kokosový Orgeat, 2cl Lime Fresh, 3cl Brusinkový mošt,",
+    "garnish": "kokosový vzduch",
+    "method": "shake, double strain na 4kostky ledu, top kokosový vzduch",
+    "ingredients": [
+      "hluboká coupette"
+    ],
+    "description": "Roztok na kokosový vzduch najdeš v šuplíku nebo v generál mrazáku.\nRecept na kokosový vzduch. ( 15cl tekutiny) na= 13cl kokos ogreat, 2cl neco jako limeta, 0,5cl salsol na (2g lecitinu)"
+  },
+  {
+    "id": "moongroni",
+    "name": "Moongroni",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl Cobraz Krajiny Landcraft\n4cl Cinzano Rosso 1757 vermuth\n2cl Campari,\nMěsíček lékařský infuze, zástřik měsíčkovým parfíémem",
+    "garnish": "zástřik měsíčkovým parfíémem",
+    "method": "stir na kvádr ledu",
+    "ingredients": [
+      "Broušená whiskovka"
+    ]
+  },
+  {
+    "id": "say-hi-to-biooko",
+    "name": "Say Hi To BioOko",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl Seven Vodka, 0,5cl Amaretto Disaronno, 5cl oolong cordial, 10cl grepová sofa",
+    "garnish": "Grepový peel",
+    "method": "build",
+    "ingredients": [
+      "vínovka"
+    ]
+  },
+  {
+    "id": "feeling-blue-ish",
+    "name": "Feeling blue - ish",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl haymans gin, 1cl frangelico, 1cl motyli syrup, top proseccco espuma",
+    "garnish": "Okurkové kuličky na napichovátku",
+    "method": "stir martini style with top",
+    "ingredients": [
+      "Nick Nora"
+    ]
+  },
+  {
+    "id": "take-it-sloerr-n-a",
+    "name": "Take it SloeRR N/A",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl",
+    "garnish": "Zerowaste prach",
+    "method": "Shake, bez strainu, jako caipirinha, top Espuma, brčko",
+    "ingredients": [
+      "broušený long"
+    ]
+  },
+  {
+    "id": "blueberry-fizz-n-a",
+    "name": "Blueberry Fizz N/A",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl Jenny in the bottle, 3cl borůvkový cordial,Kolonne/Null Cuvée Blanc",
+    "garnish": "rozmaryn",
+    "method": "shake, double strain",
+    "ingredients": [
+      "vínovka"
+    ]
+  },
+  {
+    "id": "buterfly-effect-n-a",
+    "name": "Buterfly effect N/A",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "1dc Euforie, 2cl Černý Bez Simple, 3 kapky Yuzu Bitters, Top Up 4cl LC Tonic",
+    "garnish": "microgreeens",
+    "method": "build",
+    "ingredients": [
+      "vínovka"
+    ]
+  },
+  {
+    "id": "granate-mermaid-n-a",
+    "name": "Granate Mermaid N/A",
+    "category": "old_signatures",
+    "category_label": "Staré signatures",
+    "glass": "3cl samurai shot, 5cl mošt granátové jablko, 1cl simple sirup",
+    "garnish": "poník peel",
+    "method": "build",
+    "ingredients": [
+      "vínovka"
     ]
   },
   {
