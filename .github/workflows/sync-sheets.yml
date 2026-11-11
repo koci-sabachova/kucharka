@@ -36,6 +36,19 @@ jobs:
       - name: Regenerate recipes.json
         run: node parse_csv.js
 
+      # Deploys every run (not just when recipes changed) so worker.js/app.js
+      # edits pushed straight to main also go live without a manual
+      # `wrangler deploy`. Cloudflare's own git-integration auto-deploy used
+      # to cover this, but it doesn't carry over secrets set via
+      # `wrangler secret put` (wiped GOOGLE_SA_KEY_JSON) — disabled in favor
+      # of this explicit, token-scoped deploy.
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
       - name: Commit & push
         run: |
           git config user.name  "github-actions[bot]"

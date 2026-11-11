@@ -79,6 +79,18 @@ Testuje se úplně lokálně, žádné Cloudflare kredity se neutrácí.
 
 ## Nasazení
 
+Denní sync (`.github/workflows/sync-sheets.yml`) appku i sám nasazuje po
+každém běhu (`cloudflare/wrangler-action`, secrets `CLOUDFLARE_API_TOKEN` +
+`CLOUDFLARE_ACCOUNT_ID` v repu) — commitne i bez toho se nic nestane.
+
+**Cloudflare Workers Builds (git-integrace, auto-deploy přímo z Cloudflare
+dashboardu) je záměrně vypnutá** — při pushi nepřenáší secrets nastavené přes
+`wrangler secret put` a jednou nám smazala `GOOGLE_SA_KEY_JSON`. Nezapínat
+zpátky bez vyřešení týhle věci.
+
+Pro okamžité nasazení (bez čekání na denní cron, nebo pro změny mimo data,
+jako `worker.js`/`app.js`):
+
 ```sh
 npx wrangler deploy
 ```
