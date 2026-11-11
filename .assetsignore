@@ -2,6 +2,7 @@
 .wrangler
 .claude
 .DS_Store
+node_modules
 robuchon-handoff
 2026signatures.csv
 COB_DRINKS_Kuchařka - Signatures podzim_zima 25.csv
