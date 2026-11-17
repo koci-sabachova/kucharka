@@ -20,7 +20,7 @@
     "name": "The Pho?!",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "Vysoká Nick'n'Nora + miska na pho",
+    "glass": "Vysoká Nick'n'Nora + miska na pho, nerez a prkénko",
     "garnish": "Smažené rýžové nudle, chilli-lime gel, koriandrový olej",
     "method": "Stir",
     "ingredients": [
@@ -40,9 +40,9 @@
     "garnish": "Marakujová laskonka (meringue) s proseccem, marakujový gel, sušená růže",
     "method": "Shake and strain on ice",
     "ingredients": [
-      "2 cl Pisco Demonio",
-      "2 cl Amaro Montenegro",
-      "2 cl MUYU Chinotto Nero",
+      "1.5cl Pisco Demonio",
+      "1.5cl Amaro Montenegro",
+      "1.5 cl MUYU Chinotto Nero",
       "3 cl džus z marakuji",
       "2 cl citronová šťáva",
       "2 cl Vegg white"
@@ -55,14 +55,14 @@
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
     "glass": "Úzký long",
-    "garnish": "Chilli sůl",
+    "garnish": "Prach z řepy",
     "method": "Rolling",
     "ingredients": [
       "3 cl Mezcal San Cosme",
       "1 cl Apollo Nova",
       "2 dash celery bitters",
-      "8 cl rajčatová voda",
-      "chilli sůl na okraj"
+      "12cl rajčatová voda",
+      "1cl neco jako citron"
     ],
     "description": "Autor: Miki (2018). Příprava s vermuty: 100 ml Cinzano 1757, 100 ml Noilly Prat Original Dry, 15 g sušených meruněk. Zavakuovat na 24 h v teplé místnosti, poté přefiltrovat."
   },
@@ -73,12 +73,12 @@
     "category_label": "Signatures AKTUAL",
     "glass": "Broušený long",
     "garnish": "Bazalka",
-    "method": "Shake, double strain, dolít proseccem, top espuma",
+    "method": "Shake, double strain, dolít proseccem, top espuma, nejdřív nalít prosecco a až pak strain z shakeru, nepění díky tomu.",
     "ingredients": [
       "2 cl Kafka Pink Gin",
       "2 cl Artspritz",
       "8 cl Prosecco Riondo",
-      "6 PREP (1 cl sirup z kustovnice čínské (goji)",
+      "6cl PREP (1 cl sirup z kustovnice čínské (goji)",
       "1 cl limeta super juice",
       "4cl Stará Dáma brusinkový mošt) top bazalková espuma"
     ],
@@ -90,7 +90,7 @@
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
     "glass": "Čajový šálek",
-    "garnish": "—",
+    "garnish": "Fík",
     "method": "Build",
     "ingredients": [
       "3 cl Johnnie Walker Black Label",
@@ -109,7 +109,7 @@
     "method": "Build",
     "ingredients": [
       "3 cl Laird's Applejack 86",
-      "2 cl kořeněný jablečný cordial",
+      "5cl kořeněný jablečný cordial",
       "100 ml heřmánková soda"
     ],
     "description": "Autor: Honza (2021)"
@@ -123,7 +123,7 @@
     "garnish": "Prach na skle z uzené soli a lyofilizovaných ostružin",
     "method": "Shake, double strain",
     "ingredients": [
-      "4cl Flor de Caña 4 y.o",
+      "5cl Flor de Caña 4 y.o",
       "6cl kořeněný ostružinový cordial",
       "1 dash orange bitters"
     ],
@@ -134,8 +134,8 @@
     "name": "Green? Deal!",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "Broušená whiskovka",
-    "garnish": "Matcha pěna",
+    "glass": "Vínovka",
+    "garnish": "Matcha pěna, sušené kiwi",
     "method": "Hard shake, double strain, navrstvit pěnu",
     "ingredients": [
       "4 cl Garage 22 Kiwi Gin (kiwi řapík)",
@@ -188,7 +188,7 @@
     "method": "Build",
     "ingredients": [
       "2 cl Sober Spirit W",
-      "3 cl kořeněný jablečný cordial",
+      "5cl kořeněný jablečný cordial",
       "100 ml heřmánková soda"
     ],
     "tags": [
@@ -201,8 +201,8 @@
     "name": "Green? Deal! N/A",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
-    "glass": "Broušená whiskovka",
-    "garnish": "Matcha pěna",
+    "glass": "Vínovka",
+    "garnish": "Matcha pěna, sušené kiwi",
     "method": "Hard shake, double strain, navrstvit pěnu",
     "ingredients": [
       "3 cl Tanqueray 0%",
@@ -227,9 +227,9 @@
       "2 cl Jenny in the Bottle",
       "1 cl Redbitter",
       "8 cl Kolonne Null Cuvée Blanc",
-      "1 cl goji sirup",
+      "6cl PREP (1 cl goji sirup",
       "1 cl limeta super juice",
-      "4 cl Stará Dáma brusinkový mošt",
+      "4 cl Stará Dáma brusinkový mošt)",
       "top bazalková espuma"
     ],
     "tags": [
@@ -1668,7 +1668,7 @@
     "garnish": "limeta",
     "method": "vše do shakeru",
     "ingredients": [
-      "Flor de Cana 4yo",
+      "5cl Flor de Cana 4yo",
       "2cl limeta",
       "1cl tmavý simple"
     ]
@@ -2472,7 +2472,7 @@
     "garnish": "citronová kůra",
     "method": "v míchací sklenici vymíchat a přelít do vychlazené absintem vystříkané whiskovky bez ledu",
     "ingredients": [
-      "6cl Voyer VSOP/Old Overholt",
+      "6cl Remy Martin /Old Overholt",
       "1cl Tmavý simple",
       "3střiky Peychaud Bitters",
       "Střik St. Antoine Atomizérem"
@@ -2544,9 +2544,10 @@
     "garnish": "pomerančová kůra",
     "method": "vše do shakeru",
     "ingredients": [
-      "5cl Voyer VSOP",
+      "5cl Remy Martin",
       "2cl Cointreau",
-      "2cl Citron"
+      "2cl Citron",
+      "0.5cl simple"
     ]
   },
   {
