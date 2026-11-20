@@ -194,7 +194,13 @@ el("copy").onclick=async()=>{const o=el("out");try{await navigator.clipboard.wri
 el("clr").onclick=()=>{if(confirm("Opravdu smazat všechny poznámky?")){NOTES={};save();render();sum();say("Poznámky smazány.")}};
 ["who","to"].forEach(i=>el(i).addEventListener("input",()=>{try{localStorage.setItem("cobra-"+i,el(i).value)}catch(e){}sum()}));
 document.querySelectorAll('nav a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const t=document.getElementById(a.getAttribute("href").slice(1));if(!t)return;e.preventDefault();t.scrollIntoView({behavior:"smooth",block:"start"})}));
-el("q").oninput=render;render();
+el("q").oninput=render;
+// Složení/sklo/příprava/dekorace se táhnou živě z recipes.json (stejný zdroj
+// jako appka), aby úpravy v Sheetu nezůstávaly jen v appce a nevyšuměly tady.
+fetch('data/recipes.json').then(r=>r.json()).then(recipes=>{
+  const live={};recipes.filter(r=>r.category==="signatures").forEach(r=>live[r.name]=r);
+  D.forEach(d=>{const r=live[d.n]||live[d.n.replace(/ 0%$/,' N/A')];if(r){d.c=r.ingredients;d.glass=r.glass;d.m=r.method;d.g=r.garnish}});
+}).catch(()=>{}).finally(render);
 el("to").value=MAIL;try{el("to").value=localStorage.getItem("cobra-to")||MAIL;el("who").value=localStorage.getItem("cobra-who")||""}catch(e){}sum();
 const dl=(a)=>a.map(x=>`<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join("");
 el("ing").innerHTML=dl(ING);el("alc").innerHTML=`<dl>${dl(ALC)}</dl>`;el("terms").innerHTML=dl(TERM);
