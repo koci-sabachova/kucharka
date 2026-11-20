@@ -717,8 +717,8 @@
   {
     "id": "corps-revival-no-4-c",
     "name": "Corps revival No.4 (c)",
-    "category": "svatek-mrtvych",
-    "category_label": "Svátek mrtvých",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "N&N",
     "garnish": "Lemon peal coffin ( luxardo cherry rim )",
     "method": "Stir",
@@ -734,8 +734,8 @@
   {
     "id": "dark-society",
     "name": "Dark society",
-    "category": "svatek-mrtvych",
-    "category_label": "Svátek mrtvých",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "Broušená longovka",
     "garnish": "Candy",
     "method": "Shake",
@@ -750,8 +750,8 @@
   {
     "id": "what-pumpkin-patch",
     "name": "What pumpkin patch ?",
-    "category": "svatek-mrtvych",
-    "category_label": "Svátek mrtvých",
+    "category": "signatures",
+    "category_label": "Signatures AKTUAL",
     "glass": "Hladká whiskovka",
     "garnish": "Perničky  ( koupené , nebo pečené )",
     "method": "Build, jako caiprinia",
