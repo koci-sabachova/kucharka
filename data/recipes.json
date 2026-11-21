@@ -94,8 +94,7 @@
     "method": "Build",
     "ingredients": [
       "3 cl Johnnie Walker Black Label",
-      "100 ml fíkový čaj s galangalem a sečuánským pepřem",
-      "melasa bitters (v tabulce s otazníkem)"
+      "100 ml fíkový čaj s galangalem a sečuánským pepřem"
     ],
     "description": "Autor: Honza (2020)"
   },
@@ -162,8 +161,8 @@
     "description": "Autor: Ondra (2024). Mrkvový cordial: mrkev, galangal, kafrový list, skořice, kurkuma."
   },
   {
-    "id": "blind-cobra",
-    "name": "Blind Cobra",
+    "id": "where-is-cobra",
+    "name": "Where is Cobra?",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
     "glass": "Hliněný hrnek, podšálek, doily s razítkem Blind Cobra",
@@ -238,8 +237,8 @@
     "description": "Nealko verze – Autor: Tom (2019)"
   },
   {
-    "id": "blind-cobra-n-a",
-    "name": "Blind Cobra N/A",
+    "id": "there-is-cobra-n-a",
+    "name": "There is Cobra N/A",
     "category": "signatures",
     "category_label": "Signatures AKTUAL",
     "glass": "Hliněný hrnek, podšálek, doily",
@@ -556,6 +555,20 @@
       "4cl volante",
       "8cl N/A cuvee blanc",
       "4cl soda"
+    ]
+  },
+  {
+    "id": "n-a-negroni",
+    "name": "N/A Negroni",
+    "category": "nealko",
+    "category_label": "Nealko",
+    "glass": "hladká whiskovka",
+    "garnish": "Pomík kůra",
+    "method": "stir",
+    "ingredients": [
+      "2cl tanqueray 0%",
+      "2cl volante",
+      "sober spirits bitter"
     ]
   },
   {
@@ -1486,8 +1499,8 @@
     ]
   },
   {
-    "id": "aperol-spritz",
-    "name": "\"Aperol\" Spritz",
+    "id": "aperitivo-spritz",
+    "name": "Aperitivo Spritz",
     "category": "world_classics",
     "category_label": "World classics",
     "glass": "Vinná sklenice",
