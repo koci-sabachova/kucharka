@@ -436,8 +436,18 @@ async function loadConcepts() {
   }
 }
 
-async function saveConcepts() {
+// Re-fetches the latest shared state and replays `mutate` on top of it right
+// before writing back, instead of PUTting the (possibly stale) in-memory
+// `concepts` — otherwise two people in the Koncepty tab at once silently
+// clobber each other's saves (last PUT wins, whole-blob overwrite). Callers
+// also apply `mutate` to the local `concepts` immediately for a snappy UI;
+// this pass is what makes the save itself durable against concurrent edits.
+async function saveConcepts(mutate) {
   try {
+    const res = await fetch('/api/concepts');
+    const latest = await res.json();
+    if (mutate) mutate(latest);
+    concepts = latest;
     await fetch('/api/concepts', {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
@@ -621,8 +631,9 @@ function renderConceptYears(container) {
     const val = input.value.trim();
     if (!val) return;
     if (concepts.years.some(y => y.id === val)) { errorEl.textContent = 'Tenhle rok už existuje.'; errorEl.hidden = false; return; }
-    concepts.years.push({ id: val, categories: [] });
-    saveConcepts();
+    const addYear = c => { if (!c.years.some(y => y.id === val)) c.years.push({ id: val, categories: [] }); };
+    addYear(concepts);
+    saveConcepts(addYear).then(renderConcepts);
     renderConcepts();
   });
 }
@@ -680,12 +691,13 @@ function bindCategoryForm(container, onSaved) {
   const delBtn = container.querySelector('#ccf-delete');
   if (delBtn) delBtn.addEventListener('click', () => {
     if (!confirm('Smazat tuhle kategorii?')) return;
-    const y = findYear(currentYearId);
-    y.categories = y.categories.filter(c => c.id !== editingCategoryId);
+    const yearId = currentYearId, catId = editingCategoryId;
+    const removeCat = c => { const y = c.years.find(y => y.id === yearId); if (y) y.categories = y.categories.filter(cat => cat.id !== catId); };
+    removeCat(concepts);
     conceptsCategoryFormOpen = false;
     conceptCategoryDraft = null;
     editingCategoryId = null;
-    saveConcepts();
+    saveConcepts(removeCat).then(onSaved);
     onSaved();
   });
   container.querySelector('#ccf-save').addEventListener('click', () => {
@@ -699,17 +711,20 @@ function bindCategoryForm(container, onSaved) {
       errorEl.hidden = false;
       return;
     }
-    const y = findYear(currentYearId);
-    if (editingCategoryId) {
-      const idx = y.categories.findIndex(c => c.id === editingCategoryId);
-      y.categories[idx] = { ...y.categories[idx], ...draft };
-    } else {
-      y.categories.push(draft);
-    }
+    const yearId = currentYearId, catId = editingCategoryId;
+    const draftCopy = JSON.parse(JSON.stringify(draft));
+    const applyCat = c => {
+      const y = c.years.find(y => y.id === yearId);
+      if (!y) return;
+      const idx = catId ? y.categories.findIndex(cat => cat.id === catId) : -1;
+      if (idx !== -1) y.categories[idx] = { ...y.categories[idx], ...draftCopy };
+      else if (!y.categories.some(cat => cat.id === draftCopy.id)) y.categories.push(draftCopy);
+    };
+    applyCat(concepts);
     conceptsCategoryFormOpen = false;
     conceptCategoryDraft = null;
     editingCategoryId = null;
-    saveConcepts();
+    saveConcepts(applyCat).then(onSaved);
     onSaved();
   });
 }
@@ -765,8 +780,10 @@ function renderConceptCategories(container) {
       e.stopPropagation();
       if (btn.disabled) return;
       if (!confirm('Smazat tuhle kategorii?')) return;
-      year.categories = year.categories.filter(c => c.id !== btn.dataset.del);
-      saveConcepts();
+      const yearId = currentYearId, catId = btn.dataset.del;
+      const removeCat = c => { const y = c.years.find(y => y.id === yearId); if (y) y.categories = y.categories.filter(cat => cat.id !== catId); };
+      removeCat(concepts);
+      saveConcepts(removeCat).then(renderConcepts);
       renderConcepts();
     });
   });
@@ -843,8 +860,14 @@ function renderConceptDrinks(container) {
       });
       const data = await res.json();
       if (!res.ok || data.error) throw new Error(data.error || 'Zápis do Sheetu selhal.');
-      unpushed.forEach(d => { d.pushedToSheet = true; d.pushedAt = Date.now(); });
-      await saveConcepts();
+      const pushedIds = unpushed.map(d => d.id);
+      const pushedAt = Date.now();
+      const markPushed = c => {
+        const cat = (c.years.find(y => y.id === currentYearId) || {}).categories?.find(cc => cc.id === currentCategoryId);
+        if (cat) cat.drinks.filter(d => pushedIds.includes(d.id)).forEach(d => { d.pushedToSheet = true; d.pushedAt = pushedAt; });
+      };
+      markPushed(concepts);
+      await saveConcepts(markPushed);
       conceptsPushMsg = `Nahráno ${data.appended} drinků do Sheetu.`;
       renderConcepts();
     } catch (err) {
@@ -866,8 +889,13 @@ function renderConceptDrinks(container) {
     btn.addEventListener('click', e => {
       e.stopPropagation();
       if (!confirm('Smazat tenhle drink?')) return;
-      category.drinks = category.drinks.filter(d => d.id !== btn.dataset.delDrink);
-      saveConcepts();
+      const yearId = currentYearId, catId = currentCategoryId, drinkId = btn.dataset.delDrink;
+      const removeDrink = c => {
+        const cat = (c.years.find(y => y.id === yearId) || {}).categories?.find(cc => cc.id === catId);
+        if (cat) cat.drinks = cat.drinks.filter(d => d.id !== drinkId);
+      };
+      removeDrink(concepts);
+      saveConcepts(removeDrink).then(renderConcepts);
       renderConcepts();
     });
   });
@@ -1063,25 +1091,35 @@ function renderConceptDrinkForm(container) {
       if (missing.length) { showError(`Pro stav Ready ještě chybí: ${missing.join(', ')}.`); return; }
     }
     errorEl.hidden = true;
-    const category = findCategory(currentYearId, currentCategoryId);
-    const idx = category.drinks.findIndex(d => d.id === draft.id);
-    if (idx === -1) category.drinks.push(draft);
-    else category.drinks[idx] = draft;
+    const yearId = currentYearId, catId = currentCategoryId;
+    const draftCopy = JSON.parse(JSON.stringify(draft));
+    const applyDrink = c => {
+      const cat = (c.years.find(y => y.id === yearId) || {}).categories?.find(cc => cc.id === catId);
+      if (!cat) return;
+      const idx = cat.drinks.findIndex(d => d.id === draftCopy.id);
+      if (idx === -1) cat.drinks.push(draftCopy);
+      else cat.drinks[idx] = draftCopy;
+    };
+    applyDrink(concepts);
     conceptsStage = 'drinks';
     conceptDraft = null;
     editingDrinkId = null;
-    saveConcepts();
+    saveConcepts(applyDrink).then(renderConcepts);
     renderConcepts();
   });
   const delBtn = container.querySelector('#cf-delete');
   if (delBtn) delBtn.addEventListener('click', () => {
     if (!confirm('Smazat tenhle drink?')) return;
-    const category = findCategory(currentYearId, currentCategoryId);
-    category.drinks = category.drinks.filter(d => d.id !== draft.id);
+    const yearId = currentYearId, catId = currentCategoryId, drinkId = draft.id;
+    const removeDrink = c => {
+      const cat = (c.years.find(y => y.id === yearId) || {}).categories?.find(cc => cc.id === catId);
+      if (cat) cat.drinks = cat.drinks.filter(d => d.id !== drinkId);
+    };
+    removeDrink(concepts);
     conceptsStage = 'drinks';
     conceptDraft = null;
     editingDrinkId = null;
-    saveConcepts();
+    saveConcepts(removeDrink).then(renderConcepts);
     renderConcepts();
   });
 }
