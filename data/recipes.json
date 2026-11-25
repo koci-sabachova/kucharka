@@ -243,7 +243,7 @@
     "category_label": "Signatures AKTUAL",
     "glass": "Hliněný hrnek, podšálek, doily",
     "garnish": "Pralinka z hořké čokolády s broskvovo-mátovou náplní",
-    "method": "Shake and strain on ice block",
+    "method": "Stir & strain",
     "ingredients": [
       "4 cl Sober Spirit W",
       "5 cl cordial z mátového čaje a broskve"
@@ -290,80 +290,6 @@
       "1cl lemon fresh",
       "1cl bergamot cordial",
       "top secilian lemon tonic franklin"
-    ]
-  },
-  {
-    "id": "satin-gin",
-    "name": "Satin Gin",
-    "category": "mary-kay",
-    "category_label": "Mary Kay",
-    "glass": "vínovka",
-    "garnish": "plátek citronu",
-    "method": "build",
-    "ingredients": [
-      "3cl tanqueray gin",
-      "1cl lemon fresh",
-      "1cl bergamot cordial",
-      "top secilian lemon tonic franklin"
-    ]
-  },
-  {
-    "id": "pink-cadillac-spritz",
-    "name": "Pink Cadillac Spritz",
-    "category": "mary-kay",
-    "category_label": "Mary Kay",
-    "glass": "(vínovka jako welcome)                 potom broušený long",
-    "garnish": "jetel, grep zest",
-    "method": "build",
-    "ingredients": [
-      "3cl Flor de cana 12y",
-      "2clCordial z květu červeného jetele a vanilky",
-      "1cl Čerstvá limetková šťáva",
-      "10cl Cava",
-      "jedlé třpytky"
-    ]
-  },
-  {
-    "id": "contour-claus",
-    "name": "Contour Claus",
-    "category": "mary-kay",
-    "category_label": "Mary Kay",
-    "glass": "broušená whiskovka",
-    "garnish": "třešeň, pomík, máta",
-    "method": "shake double strain na float 1cl grenadina",
-    "ingredients": [
-      "3cl Planterray pineapple",
-      "1cl Planteray Cut &Dry",
-      "2cl kokosový orgeat",
-      "2cl čerstvá citronová šťáva",
-      "pomerančový mošt",
-      "grenadina"
-    ]
-  },
-  {
-    "id": "mascara-mule",
-    "name": "Mascara Mule",
-    "category": "mary-kay",
-    "category_label": "Mary Kay",
-    "glass": "Moscow Mule",
-    "garnish": "",
-    "method": "Build",
-    "ingredients": []
-  },
-  {
-    "id": "no-makeup-look-n-a",
-    "name": "No Makeup Look N/A",
-    "category": "mary-kay",
-    "category_label": "Mary Kay",
-    "glass": "Broušený long",
-    "garnish": "jetel grep zest",
-    "method": "Build",
-    "ingredients": [
-      "2cl N/A Sober spirits rum",
-      "2cl Cordial z květu červeného jetele a vanilky",
-      "2clČerstvá limetková šťáva",
-      "10cl Kolonne null N/A cuvee blanc",
-      "jedlé třpytky"
     ]
   },
   {
