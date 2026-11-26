@@ -89,20 +89,30 @@ function renderList() {
     return;
   }
 
-  // Skupinování — vždy abecedně
   const sorted = filtered.slice().sort((a,b) => a.name.localeCompare(b.name,'cs'));
-  const groups = {};
-  sorted.forEach(r => {
-    const letter = r.name[0].toUpperCase();
-    if (!groups[letter]) groups[letter] = [];
-    groups[letter].push(r);
-  });
-  container.innerHTML = Object.keys(groups).sort((a,b) => a.localeCompare(b,'cs')).map(letter =>
-    `<div class="alpha-group">
-      <div class="alpha-label">${letter}</div>
-      ${groups[letter].map(recipeTile).join('')}
-    </div>`
-  ).join('') + (currentTab === BOBBY_CAT && !q ? bobbysGinDigestHtml() : '');
+
+  // Pár drinků (malá kategorie) nemá smysl drobit do abecedních skupin — ty
+  // se vyplatí až od ALPHA_GROUP_MIN položek výš, kdy skutečně pomůžou s orientací.
+  const ALPHA_GROUP_MIN = 9;
+  let tilesHtml;
+  if (sorted.length < ALPHA_GROUP_MIN) {
+    tilesHtml = sorted.map(recipeTile).join('');
+  } else {
+    const groups = {};
+    sorted.forEach(r => {
+      const letter = r.name[0].toUpperCase();
+      if (!groups[letter]) groups[letter] = [];
+      groups[letter].push(r);
+    });
+    tilesHtml = Object.keys(groups).sort((a,b) => a.localeCompare(b,'cs')).map(letter =>
+      `<div class="alpha-group">
+        <div class="alpha-label">${letter}</div>
+        ${groups[letter].map(recipeTile).join('')}
+      </div>`
+    ).join('');
+  }
+
+  container.innerHTML = tilesHtml + (currentTab === BOBBY_CAT && !q ? bobbysGinDigestHtml() : '');
 }
 
 // Condensed training-material digest for the "Bobby's gin" category, shown
