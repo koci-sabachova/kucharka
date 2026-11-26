@@ -149,8 +149,8 @@ body {
 #list-view {
   padding: 16px 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
   align-items: start;
 }
 
@@ -173,7 +173,7 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 20px 22px;
   transition: border-color .15s, background .15s;
 }
 .recipe-tile:hover { border-color: var(--accent); }
@@ -184,15 +184,13 @@ body {
   -webkit-user-select: none;
 }
 .recipe-tile summary::-webkit-details-marker { display: none; }
-.tile-name { font-size: 18px; font-weight: 500; }
-.tile-meta { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.tile-name { font-size: 21px; font-weight: 500; }
+.tile-meta { font-size: 14px; color: var(--muted); margin-top: 6px; }
 .tile-ingredients {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 14.5px;
+  color: #c3c3c3;
+  margin-top: 10px;
+  line-height: 1.55;
 }
 .recipe-tile[open] .tile-ingredients { display: none; }
 .tile-body { margin-top: 18px; }
