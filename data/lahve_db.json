@@ -196,48 +196,6 @@
     "servirovani": "Neat nebo na ledu. Výborný v Mezcal Spritz nebo Smoky Paloma"
   },
   {
-    "id": "don-julio-blanco",
-    "nazev": "Don Julio Blanco",
-    "kategorie": "tequila",
-    "zeme_puvodu": "Mexiko",
-    "region": "Jalisco Highlands (Los Altos)",
-    "vyrobce": "Tequila Don Julio S.A. de C.V. / Diageo",
-    "alkohol_procent": 40,
-    "chutovy_profil": "Čirý. Citronová kůra, bílý pepper, agáve sirup. Svěží zelené jablko, tráva, náznak vanilky. Dlouhý, elegantní, lehce sladký závěr.",
-    "pribeh": "Julio González-Frausto Estrada se narodil v Jalisco v roce 1925. Jako 17letý vzal 20 000 pesový úvěr a otevřel vlastní destilérnu La Primavera — s cílem vyrobit nejlepší tequilu světa. Byl průkopníkem prémiové tequily dávno předtím, než se to stalo módou. La Primavera vyrábí výhradně Don Julio — žádná masová produkce pod jiným jménem. Don Julio zemřel v roce 2012, značka je dnes vlastněna Diageem.",
-    "prodejni_zajimavost": "Jedna z prvních komerčně dostupných prémiových tequil. 100% Blue Weber agáve — na rozdíl od zákonného minima 51 %. Blanco nejlépe jako základ koktejlů — pro neat sipping přejít na Reposado nebo Añejo.",
-    "suroviny": "100% Blue Weber agáve (Agave tequilana)",
-    "servirovani": "Margarita, Tequila Sour, Paloma, Tommy's"
-  },
-  {
-    "id": "don-julio-reposado",
-    "nazev": "Don Julio Reposado",
-    "kategorie": "tequila",
-    "zeme_puvodu": "Mexiko",
-    "region": "Jalisco Highlands (Los Altos)",
-    "vyrobce": "Tequila Don Julio S.A. de C.V. / Diageo",
-    "alkohol_procent": 40,
-    "chutovy_profil": "Zlatavá. Karamel, vanilka, agáve, hint pečeného dubu. Hladký, vyvážený, složitý — skořice, citrus, sladkost agáve s jemným dřevem. Dozvuk čistý a trvalý. Nejhladší z trojice.",
-    "pribeh": "Reposado = 'odpočívaný'. Odpočívá 8 měsíců v amerických bílých dubových sudech. Stejné sudy pak nesou añejo — sudy jsou tak méně agresivní a nechají agáve víc promluvit. Don Julio tak záměrně zachovává charakter agáve i v aged expresích.",
-    "prodejni_zajimavost": "Mnoho expertů ho považuje za zlatý standard pro srovnávání ostatních tequil. Vyhrál množství zlatých medailí. Pokud dotaz zní 'co bych si měl dát?', Reposado je bezpečná a elegantní odpověď.",
-    "suroviny": "100% Blue Weber agáve, americký bílý dub (8 měsíců)",
-    "servirovani": "Neat, na ledu. Skvělý v Tequila Old Fashioned nebo Reposado Sour"
-  },
-  {
-    "id": "don-julio-anejo",
-    "nazev": "Don Julio Añejo",
-    "kategorie": "tequila",
-    "zeme_puvodu": "Mexiko",
-    "region": "Jalisco Highlands (Los Altos)",
-    "vyrobce": "Tequila Don Julio S.A. de C.V. / Diageo",
-    "alkohol_procent": 40,
-    "chutovy_profil": "Tmavě jantarová. Karamel, máslový skotch, čokoláda, sušené ovoce, fíky, skořice, kakao. Plné, zaoblené, sametové. Méně dřevnatý než většina añejí — agáve stále promluvá.",
-    "pribeh": "Añejo = 'starý'. Zraje 18 měsíců — ale v sudech, které předtím nesly Reposado (8 měsíců). Použité sudy přidávají méně taninů a žádný reziduální bourbon — Don Julio tak zachovává agávový charakter i po téměř dvou letech zrání. Radikálně odlišný přístup od většiny značek.",
-    "prodejni_zajimavost": "Añejo v menších šaržích — intenzivnější kontrola kvality. Bez vlivu bourbonu (sudy nejsou z Kentucky). Nejlepší añejo v řadě pro sipping neat nebo na ledu. Láhev záměrně hranatější — signalizuje vyšší úroveň.",
-    "suroviny": "100% Blue Weber agáve, americký bílý dub (18 měsíců, předem použité sudy)",
-    "servirovani": "Neat nebo s jedním kusem ledu. Añejo Sour, Tequila Manhattan"
-  },
-  {
     "id": "raicilla-perra-suerte-chico-aguilar",
     "nazev": "Raicilla Perra Suerte — Chico Aguiar",
     "kategorie": "raicilla",
@@ -306,6 +264,34 @@
     "prodejni_zajimavost": "V originálním Bondově románu Casino Royale od Iana Fleminga (1953) Bond sám specifikuje: Kina Lillet. Po reformulaci jej bartendři nahrazují Cocchi Americano pro historicky přesnější verzi. Zlatý standard pro Vesper Martini a White Negroni.",
     "suroviny": "Bordeaux víno (Semillon, Sauvignon Blanc), pomerančová kůra, chinová kůra (quinine), bylinné macerasy",
     "servirovani": "Vychlazené neat s pomerančem. Vesper Martini, White Negroni, Lillet Spritz"
+  },
+  {
+    "id": "artenom-1579",
+    "nazev": "ArteNOM Selección de 1579",
+    "kategorie": "tequila",
+    "zeme_puvodu": "Mexiko",
+    "region": "Jesús María, Jalisco (přes 2000 m n. m. — nejvýše položená oblast výroby tequily v regionu)",
+    "vyrobce": "Destilería El Pandillo (maestro tequilero Felipe Camarena)",
+    "alkohol_procent": null,
+    "chutovy_profil": "Průzračná. Nos: kynuté těsto, jarní déšť, máta, dominuje pražená agáve. Textura jemná a hladká, téměř vinná. Chuť: štiplavý náznak čerstvého chilli a bílého pepře, nuance mátových bonbonů.",
+    "pribeh": "Vyrábí ji maestro tequilero Felipe Camarena (vystudovaný inženýr) ve vlastní Destilería El Pandillo v Jesús María — rodinná tradice od roku 1937, už tři generace. Agáve se po sklizení peče až 30 hodin v cihlových pecích, vylisovaná šťáva fermentuje i se zbytky vláken (bohatší, plnější chuť), pak se dvakrát destiluje v měděných kotlích. Součást řady ArteNOM od Las Joyas Del Agave, kde každý tequilero tvoří ve vlastní palírně podle svého stylu a terroir.",
+    "prodejni_zajimavost": "Nahrazuje na baru Don Julio. Nejvýše položená oblast výroby tequily v regionu (přes 2000 m), proto výraznější a komplexnější profil. ArteNOM = \"art\" + NOM (registrační číslo palírny) — tequilero ukazuje svoje řemeslo pod vlastním jménem.",
+    "suroviny": "100% modrá agáve (Tequilana Weber)",
+    "servirovani": "Neat / sipping, prémiové margarity, kde má vyniknout profil agáve"
+  },
+  {
+    "id": "artenom-1414",
+    "nazev": "ArteNOM Selección de 1414",
+    "kategorie": "tequila",
+    "zeme_puvodu": "Mexiko",
+    "region": "Pěstováno ve výšce okolo 1650 m n. m.",
+    "vyrobce": "rodina Vivanco",
+    "alkohol_procent": null,
+    "chutovy_profil": "Světle slámová barva. Nos: bylinné tóny chaparralu, pečené sladké brambory (batáty). Chuť: jemně slané tóny, vanilkové sušenky, nové koření, mírně pálivé chilli.",
+    "pribeh": "Chuťově bohatá a dokonale vyvážená tequila, jíž se rodina Vivanco proslavila po celém Mexiku. Dvakrát destilovaná ze 100% modré agáve (Tequilana Weber), pěstované v nadmořské výšce okolo 1650 metrů, kde se mísí mexický horský vzduch s hřejivými slunečními paprsky. Součást řady ArteNOM (Las Joyas Del Agave) — ukazuje tradiční mexické řemeslo pod vlastním NOM registračním číslem palírny.",
+    "prodejni_zajimavost": "Nahrazuje na baru Don Julio. Nevšední aromatický profil (chaparral, batáty) oproti standardnějším tequilám.",
+    "suroviny": "100% modrá agáve (Tequilana Weber)",
+    "servirovani": "Neat / sipping, prémiové margarity"
   },
   {
     "id": "noilly-prat-dry",
@@ -922,6 +908,34 @@
     "prodejni_zajimavost": "House gin Cobra Baru — vyrobený doslova týmem, který ho prodává. Sběr bylin v terénu jako součást procesu. Každá várka výsledkem přesného dolaďování se zbytkem týmu. Příběh přímo z Letné na každé sklenici.",
     "suroviny": "Bezový květ, akátový květ, heřmánek, šalvěj, rozmarýn — sbíráno na trase Libčice–Tursko; jalovec",
     "servirovani": "G&T jako house drink Cobry. Cobraz Martini."
+  },
+  {
+    "id": "bobbys-schiedam-dry-gin",
+    "nazev": "Bobby's Schiedam Dry Gin",
+    "kategorie": "gin",
+    "zeme_puvodu": "Nizozemsko",
+    "region": "Schiedam",
+    "vyrobce": "Bobby's Dry Gin Company / Herman Jansen (palírna v Schiedamu, od 1777)",
+    "alkohol_procent": 42,
+    "chutovy_profil": "Kořeněná vůně, aromatická exploze čerstvých citrusů a citronové trávy, bylinky i v chuti. První doušek nese jemný nádech pepře, který se rozvine do květinových tónů a hřejivého hřebíčku se skořicí, v závěru chladivá chuť mentolu.",
+    "pribeh": "Jméno zdědil po Jacobu Alfonsovi (pro rodinu a přátele Bob/Bobby), narozeném ve vesnici Naku na ostrově Ambon v Indonésii. Po emigraci do Nizozemska a usazení ve Schiedamu si k oblíbenému jeneveru doma louhoval indonéské bylinky a koření rodinné směsi Pinang Raci — nevědomky tak vytvořil vlastní gin. V roce 2012 recept znovu objevili vnuci Sebastiaan van Bokkel a David Blom a s palírnou Herman Jansen (Schiedam, od 1777) ho za necelé dva roky vývoje oživili — na trh šel 12. února 2014. Spojuje východ (indonéské koření) se západem (jalovec, fenykl, šípek): z osmi botanicals se každý destiluje samostatně, bez aditiv, cukru a extraktů, 42 %.",
+    "prodejni_zajimavost": "East meets West — prodávej příběhem dědečka Bobbyho. Perfect serve: gin & tonic s půlměsíčkem pomeranče a třemi zapíchnutými hřebíčky. Podrobný digest ze školení je v appce v záložce Bobby's gin.",
+    "suroviny": "8 botanicals destilovaných zvlášť — jalovec, fenykl, šípek (Západ); indonéské koření a byliny, dominantně citronová tráva (Východ)",
+    "servirovani": "Bobby's Dry Gin & Tonic (perfect serve), Clover Club, Pink Pomelo, Negroni, Gimlet"
+  },
+  {
+    "id": "smoked-fiesta",
+    "nazev": "Smoked Fiesta",
+    "kategorie": "gin",
+    "zeme_puvodu": "Česká republika",
+    "region": null,
+    "vyrobce": "Cobra Bar (house)",
+    "alkohol_procent": null,
+    "chutovy_profil": "Zelený jalapeňo, limetka a čerstvý koriandr dávají svěžest, mezcal Montelobos Ensamble přináší hloubku a kouřovost, jalovec drží celek pohromadě.",
+    "pribeh": "Uzená verze house ginu Fiesta (zelený jalapeňo, limetka, koriandr) — část jemného lihu nahradil mezcal Montelobos Ensamble z Oaxacy, pálený ze tří druhů agáve (espadín, tobalá, papalote), jejichž srdce se několik dní pečou v podzemních pecích, odtud ta uzenost. Mexická paprička a mexický kouř se nakonec nepopraly: jalapeňo a koriandr dávají svěžest, mezcal hloubku a kouř.",
+    "prodejni_zajimavost": "House gin s překvapivou kombinací chilli papriček a kouře z mezcalu, které drží pohromadě díky jalovci.",
+    "suroviny": "Neutrální líh, jalovec, zelený jalapeňo, limetka, čerstvý koriandr, mezcal Montelobos Ensamble (espadín, tobalá, papalote)",
+    "servirovani": "PrincessGroni a další koktejly, kde dřív byla klasická Fiesta"
   },
   {
     "id": "tanqueray",
@@ -2364,6 +2378,20 @@
     "prodejni_zajimavost": "Stejný princip jako italský Nocino — macerát mladých ořechů. Česká verze s lokální pýchou. Skvělý digestiv pro hosty, kteří chtějí něco autenticky středoevropského.",
     "suroviny": "Zelené vlašské ořechy, etanol, voda, cukr, vanilka",
     "servirovani": "Neat jako digestiv, základ ořechových koktejlů"
+  },
+  {
+    "id": "pine-meadow",
+    "nazev": "Pine Meadow",
+    "kategorie": "likér",
+    "zeme_puvodu": "Česká republika",
+    "region": null,
+    "vyrobce": "Cobra Bar × Café Bar Pilotů",
+    "alkohol_procent": 55,
+    "chutovy_profil": "Bylinný likér (47 bylin) jako náhrada zelené Chartreuse — jedlové jehličí (destilát), šafrán a puškvorec (macerát), vlastní absinth. Komplexní, intenzivní, pro milovníky bylin.",
+    "pribeh": "Zelená Chartreuse je legendární klášterní likér, jehož rostoucí popularita mezi barmany donutila klášter razantně omezit produkci (návrat k modlení místo výroby) — proto je na řadu trhů nedostupná. Spojili jsme se s barmany z Café Bar Pilotů a vytvořili vlastní náhradu: 47 bylin, 55 %, s detaily jako destilát z jedlového jehličí nebo macerát ze šafránu a puškvorce, a vlastním absinthem.",
+    "prodejni_zajimavost": "Domácí náhrada za nedostupnou zelenou Chartreuse — libůstka pro milovníky bylinných likérů, nasaď všude, kde recept žádá Chartreuse.",
+    "suroviny": "47 bylin, destilát z jedlového jehličí, macerát ze šafránu a puškvorce, vlastní absinth",
+    "servirovani": "Všude, kde recept žádá zelenou Chartreuse"
   },
   {
     "id": "luxardo-bitter",
