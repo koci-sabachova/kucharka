@@ -102,7 +102,101 @@ function renderList() {
       <div class="alpha-label">${letter}</div>
       ${groups[letter].map(recipeTile).join('')}
     </div>`
-  ).join('');
+  ).join('') + (currentTab === BOBBY_CAT && !q ? bobbysGinDigestHtml() : '');
+}
+
+// Condensed training-material digest for the "Bobby's gin" category, shown
+// below that tab's recipe tiles (not a separate linked page — scrolling
+// down from the drinks continues straight into it).
+const BOBBY_CAT = 'bobby-s-gin';
+function bobbysGinDigestHtml() {
+  const section = (title, body) => `
+    <button type="button" class="ucebnice-toggle" onclick="toggleUcebnice(this)">
+      ${title}
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div class="ucebnice-body">${body}</div>`;
+
+  return `<div class="digest-block">
+    <div class="digest-eyebrow">Školení · Bobby's Gin</div>
+    <div class="digest-title">East meets West</div>
+
+    <div class="digest-callout"><b>Perfect serve:</b> Bobby's Dry Gin &amp; Tonic, hodně ledu, půlměsíček pomeranče se třemi zapíchnutými hřebíčky.</div>
+
+    <ul class="digest-facts">
+      <li><b>Schiedam Dry Gin, 42&nbsp;%</b> — citronová tráva a hřebíček, 8 botanicals, 16 dní výroby, každý botanical se destiluje zvlášť. Lehká gin-tonicová láhev.</li>
+      <li><b>Jenever</b> — těžší, olejnatý, obilný. Pije se jako panák.</li>
+      <li><b>Pinang Raci Gin</b> — výrazně indonéský a kořenitý, láhev pro mixologii (Negroni, Gin Fizz).</li>
+      <li><b>Láhev</b> — tvar klasické holandské jenevrové láhve s cik-cak indonéským vzorem ikat.</li>
+    </ul>
+
+    ${section('Příběh: dědeček Bobby', `
+      <p>Jacobus „Bobby" Alfons se narodil ve vesnici Naku na ostrově Ambon (Moluky, Indonésie). V roce 1950 odešel do Nizozemska a usadil se ve Schiedamu, městě jenevru.</p>
+      <p>Místní jenever si doma dochucoval rodinnou směsí koření Pinang Raci — chuť domova, vlastně nevědomky vyráběl vlastní gin.</p>
+      <p>V roce 2012 našel vnuk Sebastiaan van Bokkel u matky jednu starou dědečkovu láhev. S bratrem Davidem Blomem recept oživili s rodinnou palírnou Herman Jansen (Schiedam, pálí od 1777). Bobby's Schiedam Dry Gin šel na trh 12. února 2014. Značka je dodnes rodinná.</p>`)}
+
+    ${section('Výroba: osm botanicals, každý zvlášť', `
+      <div class="digest-cols">
+        <div><div class="digest-subtitle">Evropa (West)</div><ul><li>jalovec</li><li>koriandr</li><li>fenykl</li><li>šípky</li></ul></div>
+        <div><div class="digest-subtitle">Indonésie (East)</div><ul><li>citronová tráva (dominantní)</li><li>hřebíček</li><li>skořice</li><li>kubébový pepř</li></ul></div>
+      </div>
+      <p>Výroba trvá 16 dní, každý botanical se zpracovává a destiluje zvlášť (pot still, 300 a 600 l), pak se destiláty smíchají. Bez cukru, extraktů a aditiv, plní se na 42&nbsp;%. Master distiller destiluje, master blender ladí směs, aby chutnala pokaždé stejně.</p>
+      <p><b>Chuťový profil:</b> svěží citrus a citronová tráva, pak čistý jalovec, hřejivý hřebíček a skořice, dozvuk květinový (šípky) s jemně pepřovým kousnutím (kubébový pepř).</p>`)}
+
+    ${section("Tři lahve Bobby's", `
+      <table class="digest-table">
+        <thead><tr><th>Láhev</th><th>Profil</th><th>Použití</th></tr></thead>
+        <tbody>
+          <tr><td>Schiedam Dry Gin (42&nbsp;%)</td><td>lehký, letní, citronová tráva a hřebíček</td><td>gin &amp; tonic s pomerančem a hřebíčky</td></tr>
+          <tr><td>Jenever</td><td>mladý jenever s citronovou trávou a kubébovým pepřem, obilnější a těžší</td><td>panák čistý nebo s ledem, případně s ginger ale a mátou</td></tr>
+          <tr><td>Pinang Raci Gin</td><td>výrazně indonéský a kořenitý (jalovec, hřebíček, citronová tráva, kubébový pepř, bobkový list, galangal, kurkuma, zázvor)</td><td>Negroni, Gin Fizz, kreativní drinky</td></tr>
+        </tbody>
+      </table>`)}
+
+    ${section('Kategorie ginu podle legislativy EU', `
+      <p>„Schiedam Dry Gin" není samostatná právní kategorie, je to fantazijní název odkazující na Schiedam (podobně jako „Mediterranean Gin" u Gin Mare).</p>
+      <table class="digest-table">
+        <thead><tr><th>Kategorie</th><th>Jak se vyrábí</th><th>Příklad</th></tr></thead>
+        <tbody>
+          <tr><td>Gin</td><td>Neutrální líh ochucený jalovcem a aromaty i zastudena, bez nutné redestilace. Smí se dobarvit/dochutit. Min. 37,5&nbsp;%.</td><td>levné giny bez destilace</td></tr>
+          <tr><td>Distilled gin</td><td>Botanicals se redestilují s lihem, po destilaci smí přibýt další aroma, sladidlo, barvivo.</td><td>Hendrick's, šafránový gin, Old Tom</td></tr>
+          <tr><td>London (Dry) Gin</td><td>Všechna aromata jdou do destilace, pak jen voda a líh, max. 0,1&nbsp;g cukru/l.</td><td>Tanqueray, Beefeater</td></tr>
+        </tbody>
+      </table>
+      <p>„London" je výrobní metoda, ne místo. Bobby's nepíše London Dry, protože vzniká smícháním oddělených destilátů (ne jedním společným), proto volí „Dry Gin" s odkazem na místo.</p>`)}
+
+    ${section('Jenever: předchůdce ginu', `
+      <p>Jalovcová pálenka z Nizozemí a Flander (název z franc. <i>genièvre</i>, jalovec). Základ je moutwijn — sladová pálenka ze žita, kukuřice a ječmene. Od konce 19. století se míchá s neutrálním lihem (lehčí styl). Chráněné označení — jen Nizozemsko, Belgie a kousky Francie/Německa.</p>
+      <table class="digest-table">
+        <thead><tr><th>Kategorie</th><th>Moutwijn</th><th>Cukr</th></tr></thead>
+        <tbody>
+          <tr><td>Jonge (mladý styl)</td><td>max. 15&nbsp;%</td><td>max. 10&nbsp;g/l</td></tr>
+          <tr><td>Oude (starý styl, ne věk)</td><td>min. 15&nbsp;%</td><td>max. 20&nbsp;g/l</td></tr>
+          <tr><td>Korenwijn</td><td>min. 51&nbsp;%</td><td>max. 20&nbsp;g/l</td></tr>
+        </tbody>
+      </table>
+      <p><b>Kopstootje:</b> malá sklenička (tulipánek) po okraj + pivo vedle. První lok se upíjí ze sklenky na baru bez zvednutí, pak se zapije pivem.</p>`)}
+
+    ${section('Gin: historie v kostce', `
+      <ul>
+        <li><b>16. století:</b> jalovcové „léčivé" destiláty v Nizozemí a Flandrech.</li>
+        <li><b>18.–19. století, Schiedam:</b> stovky palíren, nejvyšší větrné mlýny na mletí obilí.</li>
+        <li><b>1688:</b> Vilém III. Oranžský na anglickém trůnu — jenever se v Anglii stává módou.</li>
+        <li><b>Gin Craze (~1720–1751):</b> levný gin zaplavil Londýn, zkrotily to Gin Acts.</li>
+        <li><b>~1830:</b> Coffeyho kolonový destilátor → čistý neutrální líh → vzniká London Dry.</li>
+        <li><b>Tonic:</b> chinin proti malárii v Britské Indii → gin &amp; tonic.</li>
+        <li><b>Styly:</b> London Dry, distilled gin, Old Tom (sladší), Plymouth, Navy Strength (~57&nbsp;%), New Western/Contemporary (Bobby's, Hendrick's, Gin Mare). Sloe gin je likér, ne gin.</li>
+      </ul>`)}
+
+    ${section('Tipy k prodeji', `
+      <ul>
+        <li><b>Bobby's G&amp;T:</b> hodně ledu, půlměsíček pomeranče se třemi hřebíčky. Prodávej příběhem — dědeček z Ambonu, Schiedam, 16 dní výroby, East meets West.</li>
+        <li><b>Pinang Raci:</b> Negroni, Gin Fizz, experimenty.</li>
+        <li><b>Jenever:</b> panák čistý nebo s ledem, případně „po holandsku" s pivem.</li>
+        <li><b>Doporučování ginu:</b> klasický jalovec (Tanqueray), citrus (Flor de Sevilla), květiny (G'Vine), koření a Asie (Bobby's, Sông Cái), lokální (Landcraft, Jane), Středomoří (Gin Mare), sladší (Hayman's Old Tom).</li>
+        <li><b>Dinner pairing:</b> Baba Ganoush &amp; Halloumi (pomerančový med s hřebíčkem) ladí s perfect serve G&amp;T — nabízej spolu.</li>
+      </ul>`)}
+  </div>`;
 }
 
 // Nealko badge shown alongside the primary category badge, so a recipe stays

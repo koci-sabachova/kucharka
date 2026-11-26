@@ -194,6 +194,54 @@ body {
 }
 .recipe-tile[open] .tile-ingredients { display: none; }
 .tile-body { margin-top: 18px; }
+
+/* ── CATEGORY DIGEST (condensed training material below a tab's tiles,
+   e.g. Bobby's gin) ── */
+.digest-block {
+  grid-column: 1 / -1;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.digest-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.digest-title { font-size: 24px; font-weight: 600; margin-bottom: 16px; }
+.digest-callout {
+  border-left: 4px solid var(--accent);
+  background: var(--surface2);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+.digest-facts { list-style: none; margin-bottom: 20px; }
+.digest-facts li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.digest-facts li:last-child { border-bottom: none; }
+.digest-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 14px; }
+.digest-subtitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+@media (max-width: 480px) { .digest-cols { grid-template-columns: 1fr; } }
+.digest-table { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-bottom: 4px; }
+.digest-table th, .digest-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.digest-table th { font-size: 12px; color: var(--muted); font-weight: 600; }
+
 .cat-badge {
   display: inline-block;
   font-size: 11px;
