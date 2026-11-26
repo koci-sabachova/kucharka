@@ -1,5 +1,52 @@
 [
   {
+    "id": "bobby-s-dry-gin-tonic",
+    "name": "Bobby's Dry Gin & Tonic",
+    "category": "bobby-s-gin",
+    "category_label": "Bobby's gin",
+    "glass": "GT goblet",
+    "garnish": "půlměsíček pomeranče se třemi zapíchnutými hřebíčky",
+    "method": "přímo do skla na led",
+    "ingredients": [
+      "4cl Bobby's Schiedam Dry Gin",
+      "1.5dl tonic"
+    ],
+    "description": "Perfect serve dle školení Bobby's Gin (listopad 2026)"
+  },
+  {
+    "id": "clover-club",
+    "name": "Clover Club",
+    "category": "bobby-s-gin",
+    "category_label": "Bobby's gin",
+    "glass": "Coupe",
+    "garnish": "3 maliny",
+    "method": "Shake, double strain",
+    "ingredients": [
+      "4.5cl Bobby's Dry Gin",
+      "1.5cl čerstvá citronová šťáva",
+      "1.5cl Piu Piu malina",
+      "1.5cl veggwhite"
+    ],
+    "description": "Klasický poměr (over dle chuti) – školení Bobby's Gin"
+  },
+  {
+    "id": "pink-pomelo",
+    "name": "Pink Pomelo",
+    "category": "bobby-s-gin",
+    "category_label": "Bobby's gin",
+    "glass": "Highball",
+    "garnish": "plátek grapefruitu",
+    "method": "Build na ledu, dolít sodou",
+    "ingredients": [
+      "4cl Bobby's Dry Gin",
+      "1.5cl čerstvá citronová šťáva",
+      "1.5cl kokosový sirup",
+      "1cl Cointreau",
+      "top grapefruitová soda"
+    ],
+    "description": "Poměry nejsou v podkladech – over orientační, zkontroluj a uprav"
+  },
+  {
     "id": "negroni-vyzrale",
     "name": "Negroni vyzrálé",
     "category": "negroni",
@@ -1564,7 +1611,7 @@
     ]
   },
   {
-    "id": "clover-club",
+    "id": "clover-club-classic",
     "name": "Clover Club",
     "category": "world_classics",
     "category_label": "World classics",
