@@ -31,7 +31,21 @@ async function loadData() {
     });
   });
   renderTabs();
+  applyHashTab();
   renderList();
+}
+
+// Deep link to a tab via #category-id (e.g. share a link straight to
+// #bobby-s-gin). Tab clicks keep the hash in sync so any tab is linkable.
+function applyHashTab() {
+  const wanted = decodeURIComponent(location.hash.slice(1));
+  if (!wanted) return;
+  const tabs = document.getElementById('tabs');
+  const btn = tabs.querySelector(`.tab[data-cat="${CSS.escape(wanted)}"]`);
+  if (!btn) return;
+  currentTab = wanted;
+  tabs.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
 }
 
 // "Staré signatures" always sorts last, even after ad-hoc categories that
@@ -59,6 +73,8 @@ function renderTabs() {
       currentTab = tab.dataset.cat;
       tabs.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
+      if (currentTab === 'all') history.replaceState(null, '', location.pathname + location.search);
+      else location.hash = currentTab;
       renderList();
     });
   });
