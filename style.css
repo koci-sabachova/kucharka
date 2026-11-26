@@ -145,38 +145,48 @@ body {
   border-color: var(--accent);
 }
 
-/* ── LIST ── */
-#list-view { padding: 16px 20px; }
+/* ── LIST (tile grid, same expand-in-place pattern as manual.html) ── */
+#list-view {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  align-items: start;
+}
 
-.alpha-group { margin-bottom: 24px; }
+/* display:contents keeps each letter's label + tiles in the SAME grid as
+   every other group, instead of each group boxing its own mini-grid. */
+.alpha-group { display: contents; }
 .alpha-label {
+  grid-column: 1 / -1;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin: 22px 0 2px;
   padding-left: 4px;
 }
+.alpha-group:first-child .alpha-label { margin-top: 0; }
 
-.recipe-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.recipe-tile {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 18px;
-  margin-bottom: 8px;
-  cursor: pointer;
   transition: border-color .15s, background .15s;
+}
+.recipe-tile:hover { border-color: var(--accent); }
+.recipe-tile[open] { grid-column: 1 / -1; background: var(--surface2); }
+.recipe-tile summary {
+  cursor: pointer;
+  list-style: none;
   -webkit-user-select: none;
 }
-.recipe-card:hover, .recipe-card:active { border-color: var(--accent); background: var(--surface2); }
-.recipe-card-body { min-width: 0; flex: 1; }
-.recipe-card-name { font-size: 18px; font-weight: 500; }
-.recipe-card-meta { font-size: 13px; color: var(--muted); margin-top: 3px; }
-.recipe-card-ingredients {
+.recipe-tile summary::-webkit-details-marker { display: none; }
+.tile-name { font-size: 18px; font-weight: 500; }
+.tile-meta { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.tile-ingredients {
   font-size: 13px;
   color: var(--muted);
   margin-top: 3px;
@@ -184,7 +194,8 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.recipe-card-arrow { color: var(--muted); flex-shrink: 0; margin-left: 12px; }
+.recipe-tile[open] .tile-ingredients { display: none; }
+.tile-body { margin-top: 18px; }
 .cat-badge {
   display: inline-block;
   font-size: 11px;
@@ -203,9 +214,8 @@ body {
 .cat-nealko         { background: rgba(120,200,120,.15); color: #8acd8a; }
 .cat-negroni        { background: rgba(220,80,80,.15);   color: #e08080; }
 
-/* ── DETAIL VIEW ── */
-#detail-view { display: none; padding: 20px; }
-
+/* ── RECIPE TILE BODY (expanded <details> content; also reused as-is by
+   the back-btn-driven Koncepty forms below) ── */
 .back-btn {
   display: inline-flex;
   align-items: center;
@@ -221,15 +231,6 @@ body {
   margin-bottom: 24px;
 }
 
-.detail-name {
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.1;
-  margin-bottom: 6px;
-}
-.detail-cat {
-  margin-bottom: 20px;
-}
 .detail-meta-row {
   display: flex;
   gap: 12px;

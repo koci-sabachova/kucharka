@@ -100,13 +100,9 @@ function renderList() {
   container.innerHTML = Object.keys(groups).sort((a,b) => a.localeCompare(b,'cs')).map(letter =>
     `<div class="alpha-group">
       <div class="alpha-label">${letter}</div>
-      ${groups[letter].map(recipeCard).join('')}
+      ${groups[letter].map(recipeTile).join('')}
     </div>`
   ).join('');
-
-  container.querySelectorAll('.recipe-card').forEach(el => {
-    el.addEventListener('click', () => openRecipe(el.dataset.id));
-  });
 }
 
 // Nealko badge shown alongside the primary category badge, so a recipe stays
@@ -117,79 +113,50 @@ function nealkoBadge(r) {
   return `<span class="cat-badge cat-nealko">${CAT_LABELS.nealko || 'Nealko'}</span>`;
 }
 
-function recipeCard(r) {
-  return `<div class="recipe-card" data-id="${r.id}">
-    <div class="recipe-card-body">
-      <div class="recipe-card-name">${r.name}<span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${nealkoBadge(r)}</div>
-      <div class="recipe-card-meta">${r.glass} · ${r.method}</div>
-      <div class="recipe-card-ingredients">${(r.ingredients || []).join(', ')}</div>
-    </div>
-    <svg class="recipe-card-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-  </div>`;
-}
-
-// ── RECIPE DETAIL ──
-function openRecipe(id) {
-  const r = recipes.find(x => x.id === id);
-  if (!r) return;
-
-  const view = document.getElementById('detail-view');
+// A native <details> tile (same pattern as manual.html's Koktejly grid): no
+// JS needed to open/close, and an open tile spans the full grid row via
+// .recipe-tile[open] in style.css.
+function recipeTile(r) {
   const hasUcebnice = r.description || r.history;
-
-  view.innerHTML = `
-    <button class="back-btn" onclick="closeDetail()">
-      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-      Zpět
-    </button>
-
-    <div class="detail-name">${r.name}</div>
-    <div class="detail-cat"><span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${nealkoBadge(r)}</div>
-
-    <div class="detail-meta-row">
-      <div class="detail-meta-item"><span>Sklenice</span>${r.glass}</div>
-      <div class="detail-meta-item"><span>Metoda</span>${r.method}</div>
-      <div class="detail-meta-item"><span>Garnish</span>${r.garnish}</div>
-    </div>
-
-    <div class="detail-section">
-      <div class="detail-section-title">Složení</div>
-      <ul class="ingredient-list">
-        ${r.ingredients.map(i => `<li>${i}</li>`).join('')}
-      </ul>
-    </div>
-
-    <div class="detail-section">
-      <div class="detail-section-title">Příprava</div>
-      <div class="method-text">${r.method}</div>
-    </div>
-
-    ${hasUcebnice ? `
-    <div class="detail-section">
-      <div class="detail-section-title">Učebnice</div>
-      <button class="ucebnice-toggle" onclick="toggleUcebnice(this)">
-        Popis & Historie
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="ucebnice-body">
-        ${r.description ? `<div class="ucebnice-subtitle">Popis</div><p>${r.description}</p>` : ''}
-        ${r.history ? `<div class="ucebnice-subtitle">Historie</div><p>${r.history}</p>` : ''}
+  return `<details class="recipe-tile">
+    <summary>
+      <div class="tile-name">${r.name}<span class="cat-badge cat-${r.category}">${CAT_LABELS[r.category]}</span>${nealkoBadge(r)}</div>
+      <div class="tile-meta">${r.glass} · ${r.method}</div>
+      <div class="tile-ingredients">${(r.ingredients || []).join(', ')}</div>
+    </summary>
+    <div class="tile-body">
+      <div class="detail-meta-row">
+        <div class="detail-meta-item"><span>Sklenice</span>${r.glass}</div>
+        <div class="detail-meta-item"><span>Metoda</span>${r.method}</div>
+        <div class="detail-meta-item"><span>Garnish</span>${r.garnish}</div>
       </div>
-    </div>` : ''}
-  `;
 
-  document.getElementById('list-view').style.display = 'none';
-  document.getElementById('bottles-view').style.display = 'none';
-  document.querySelector('.tabs').style.display = 'none';
-  view.style.display = 'block';
-  window.scrollTo(0, 0);
-  currentView = 'detail';
-}
+      <div class="detail-section">
+        <div class="detail-section-title">Složení</div>
+        <ul class="ingredient-list">
+          ${r.ingredients.map(i => `<li>${i}</li>`).join('')}
+        </ul>
+      </div>
 
-function closeDetail() {
-  document.getElementById('detail-view').style.display = 'none';
-  document.getElementById('list-view').style.display = 'block';
-  document.querySelector('.tabs').style.display = 'flex';
-  currentView = 'recipes';
+      <div class="detail-section">
+        <div class="detail-section-title">Příprava</div>
+        <div class="method-text">${r.method}</div>
+      </div>
+
+      ${hasUcebnice ? `
+      <div class="detail-section">
+        <div class="detail-section-title">Učebnice</div>
+        <button type="button" class="ucebnice-toggle" onclick="toggleUcebnice(this)">
+          Popis & Historie
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ucebnice-body">
+          ${r.description ? `<div class="ucebnice-subtitle">Popis</div><p>${r.description}</p>` : ''}
+          ${r.history ? `<div class="ucebnice-subtitle">Historie</div><p>${r.history}</p>` : ''}
+        </div>
+      </div>` : ''}
+    </div>
+  </details>`;
 }
 
 function toggleUcebnice(btn) {
@@ -1130,7 +1097,6 @@ function showView(view) {
   document.getElementById('bottles-view').style.display = view === 'bottles' ? 'block' : 'none';
   document.getElementById('setup-view').style.display = view === 'setup' ? 'block' : 'none';
   document.getElementById('concepts-view').style.display = view === 'koncepty' ? 'block' : 'none';
-  document.getElementById('detail-view').style.display = 'none';
   document.querySelector('.tabs').style.display = view === 'recipes' ? 'flex' : 'none';
   currentView = view;
 
