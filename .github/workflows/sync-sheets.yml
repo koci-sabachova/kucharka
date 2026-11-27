@@ -2,7 +2,12 @@ name: Sync recipes from Google Sheets
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # daily at 5:00 UTC (6:00 CET / 7:00 CEST)
+    # GitHub's scheduled-run infra is best-effort and gets delayed under load —
+    # observed drift here ran from ~6h late up to a fully skipped day (see
+    # Actions run history around 2026-11-21..27). Running every 3h instead of
+    # once/day bounds the worst-case staleness without meaningfully more cost:
+    # each run no-ops cleanly (git diff check) when the sheet hasn't changed.
+    - cron: '0 */3 * * *'
   workflow_dispatch:      # manual run button in Actions UI for instant sync
 
 permissions:
